@@ -5,7 +5,7 @@ local events = require("EventManager")
 
 local objectives = {
     fistEgg = { id = 1, text = "Visit the pet shop to get your first egg", },
-    waitForEggToHatch = { id = 2, text ="Wait for the egg to hatch", }
+    buyFirstFood = { id = 2, text ="Buy food for your pet from the pet shop. There is a free coin dispenser nearby.", }
 }
 
 local current = objectives.fistEgg
@@ -13,7 +13,7 @@ local ve
 
 function self:ClientAwake()
     events.SubscribeEvent(events.boughtEgg,function(args)
-        ChangeIf(objectives.fistEgg, objectives.waitForEggToHatch)
+        ChangeIf(objectives.fistEgg, objectives.buyFirstFood)
     end)
     events.SubscribeEvent(events.gameStart,function(args)
         Show()
