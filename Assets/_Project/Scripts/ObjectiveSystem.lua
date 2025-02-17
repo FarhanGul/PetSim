@@ -1,6 +1,7 @@
 --!Type(Client)
 
 local uiController = require("UIController")
+local uiComponents = require("UIComponents")
 local events = require("EventManager")
 
 local objectives = {
@@ -9,13 +10,15 @@ local objectives = {
 }
 
 local current = objectives.fistEgg
-local ve
+local root : VisualElement
+local ve : VisualElement
 
 function self:ClientAwake()
     events.SubscribeEvent(events.boughtEgg,function(args)
         ChangeIf(objectives.fistEgg, objectives.buyFirstFood)
     end)
     events.SubscribeEvent(events.gameStart,function(args)
+        root = uiController.Add(uiComponents.AbsoluteStretch())
         Show()
     end)
 end
@@ -25,7 +28,8 @@ function Show()
     local label = UILabel.new()
     label:SetPrelocalizedText(current.text)
     ve:Add(label)
-    uiController.instance.ReplaceRoot(ve)
+    root:Clear()
+    root:Add(ve)
 end
 
 function Hide()

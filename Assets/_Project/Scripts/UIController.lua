@@ -1,21 +1,17 @@
 --!Type(Module)
 
+local root : VisualElement = nil
 
-local function Singleton()
-    local _ = {}
-
-    local root : VisualElement = nil
-
-    function _.Initialize(ve)
-        root = ve
-    end
-
-    function _.ReplaceRoot(ve)
-        root:Clear()
-        root:Add(ve)
-    end
-
-    return _
+function Initialize(ve)
+    root = ve
 end
 
-instance = Singleton()
+function ReplaceRoot(ve)
+    root:Clear()
+    root:Add(ve)
+end
+
+function Add(ve)
+    root:Add(ve)
+    return ve
+end

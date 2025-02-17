@@ -6,5 +6,5 @@ local uiController = require("UIController")
 local root : VisualElement = nil
 
 function self:ClientAwake()
-    uiController.instance.Initialize(root)
+    uiController.Initialize(root)
 end

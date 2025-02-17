@@ -1,12 +1,21 @@
-.stretch { 
+.absolute-stretch { 
+    position: absolute;
     width: 100%; 
     height: 100%; 
 }
 
-bg-color-black{
+.justify-flex-end{
+    justify-content: flex-end;
+}
+
+.bg-black{
     background-color: black;
 }
 
-text-color-white{
+.bg-grey{
+    background-color: grey;
+}
+
+.text-white{
     color: white;
 }

@@ -24,4 +24,6 @@ end
 
 -- Events
 boughtEgg = "boughtEgg"
+boughtPetFood = "boughtPetFood"
 gameStart = "gameStart"
+currencyUpdated = "currencyUpdate"
