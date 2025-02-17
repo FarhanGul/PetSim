@@ -1,7 +1,6 @@
 --!Type(ClientAndServer)
-
-local objectives = require("ObjectiveSystem")
+local events = require("EventManager")
 
 function self:ClientStart()
-    objectives.instance.Show()
+    events.InvokeEvent(events.gameStart)
 end

@@ -23,4 +23,5 @@ function UnsubscribeEvent(eventName,callback)
 end
 
 -- Events
-sampleEventName = "sampleEventName" -- parameterName(Type)
+boughtEgg = "boughtEgg"
+gameStart = "gameStart"
