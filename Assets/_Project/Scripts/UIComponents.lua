@@ -1,5 +1,11 @@
 --!Type(Module)
 
+function Text(text)
+    local label = UILabel.new()
+    label:SetPrelocalizedText(text)
+    return label
+end
+
 function TextButton(text,onPressed,enabled)
     local button = UIButton.new()
     button:AddToClassList(enabled and "bg-black" or "bg-grey")

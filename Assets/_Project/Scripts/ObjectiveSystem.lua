@@ -3,19 +3,18 @@
 local uiController = require("UIController")
 local uiComponents = require("UIComponents")
 local events = require("EventManager")
+local data = require("GameData")
+local save = require("SaveManager")
 
-local objectives = {
-    fistEgg = { id = 1, text = "Visit the pet shop to get your first egg", },
-    buyFirstFood = { id = 2, text ="Buy food for your pet from the pet shop. There is a free coin dispenser nearby.", }
-}
-
-local current = objectives.fistEgg
 local root : VisualElement
 local ve : VisualElement
 
 function self:ClientAwake()
     events.SubscribeEvent(events.boughtEgg,function(args)
-        ChangeIf(objectives.fistEgg, objectives.buyFirstFood)
+        ChangeIf(data.objectives.firstEgg, data.objectives.buyFirstFood)
+    end)
+    events.SubscribeEvent(events.boughtPetFood,function(args)
+        ChangeIf(data.objectives.buyFirstFood, data.objectives.levelUpFirstPet)
     end)
     events.SubscribeEvent(events.gameStart,function(args)
         root = uiController.Add(uiComponents.AbsoluteStretch())
@@ -26,7 +25,7 @@ end
 function Show()
     ve = VisualElement.new()
     local label = UILabel.new()
-    label:SetPrelocalizedText(current.text)
+    label:SetPrelocalizedText(save.currentObjective.text)
     ve:Add(label)
     root:Clear()
     root:Add(ve)
@@ -37,8 +36,8 @@ function Hide()
 end
 
 function ChangeIf(objective, new)
-    if(current.id == objective.id)then
-        current = new
+    if(save.currentObjective.id == objective.id)then
+        save.currentObjective = new
         Show()
     end
 end
