@@ -10,3 +10,5 @@ cost = {
     egg = 2000,
     petFood = 10
 }
+
+petXpProgression = { 100, 300, 800 }

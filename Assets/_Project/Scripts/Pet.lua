@@ -20,7 +20,6 @@ function self:Start()
     self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
     end)
     petData = save.pets[self.gameObject.name]
-    print("Name : "..self.gameObject.name)
     Show()
 end
 
@@ -40,7 +39,6 @@ function Hide()
 end
 
 function self:Update()
-    xpSystem.Update(Time.deltaTime)
     local target = client.localPlayer.character
     if ( target == nil ) then return end
 

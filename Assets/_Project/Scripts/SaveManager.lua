@@ -2,7 +2,7 @@
 local events = require("EventManager")
 local data = require("GameData")
 
-coins = 100
+coins = 1000
 currentObjective = {}
 pets = {}
 
@@ -17,7 +17,7 @@ end
 
 function AddPetXp(petId, delta)
     pets[petId].xp += delta
-    events.InvokeEvent(events.petXpUpdated,petId,pets[petId].xp)
+    events.InvokeEvent(events.petXpUpdated,petId,delta)
 end
 
 function PetData()
