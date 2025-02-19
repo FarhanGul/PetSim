@@ -24,10 +24,6 @@ function new()
                     totalXpInCurrentLevel = progression[i] - progression[i-1]
                     xpEarnedInCurrentLevel = xp - progression[i-1]
                 end
-                -- print("xp : "..xp)
-                -- print("level : "..level)
-                -- print("totalXpInCurrentLevel : "..totalXpInCurrentLevel)
-                -- print("xpEarnedInCurrentLevel : "..xpEarnedInCurrentLevel)
                 return
             end
         end

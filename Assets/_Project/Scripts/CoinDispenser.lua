@@ -9,7 +9,9 @@ local isUiActive
 
 function self:Awake()
     self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
-        Show()
+        if(not isUiActive) then
+            Show()
+        end
     end)
 end
 

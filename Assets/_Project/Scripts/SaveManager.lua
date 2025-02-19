@@ -2,7 +2,7 @@
 local events = require("EventManager")
 local data = require("GameData")
 
-coins = 1000
+coins = 0
 currentObjective = {}
 pets = {}
 
