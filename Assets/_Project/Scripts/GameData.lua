@@ -8,7 +8,8 @@ objectives = {
 
 cost = {
     egg = 2000,
-    petFood = 50
+    petFood = 50,
+    playSimonSays = 10
 }
 
 petXpProgression = { 99, 299, 799 }

@@ -28,3 +28,4 @@ boughtPetFood = "boughtPetFood"
 gameStart = "gameStart"
 currencyUpdated = "currencyUpdate"
 petXpUpdated = "petXpUpdated" -- petId, xp
+changeScene = "changeScene" -- sceneName

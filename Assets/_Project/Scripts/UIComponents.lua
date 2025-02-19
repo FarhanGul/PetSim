@@ -1,4 +1,5 @@
 --!Type(Module)
+local save = require("SaveManager")
 
 function Element(classList)
     local element = VisualElement.new()
@@ -31,6 +32,12 @@ function AbsoluteStretch()
     return container
 end
 
-function XpBar()
-    
+function PlayChallengeButton(cost,onSuccess)
+    local costText = cost == 0 and "Free" or cost
+    return TextButton("Play ( "..costText.." )",function() 
+        if(save.coins >= cost) then
+            save.SetCoins(save.coins - cost )
+            onSuccess()
+        end
+    end,save.coins >= cost)
 end
