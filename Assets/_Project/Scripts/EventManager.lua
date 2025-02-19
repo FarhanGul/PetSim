@@ -27,3 +27,4 @@ boughtEgg = "boughtEgg"
 boughtPetFood = "boughtPetFood"
 gameStart = "gameStart"
 currencyUpdated = "currencyUpdate"
+petXpUpdated = "petXpUpdated" -- petId, xp

@@ -1,5 +1,13 @@
 --!Type(Module)
 
+function Element(classList)
+    local element = VisualElement.new()
+    for i = 1, #classList do
+        element:AddToClassList(classList[i])
+    end
+    return element
+end
+
 function Text(text)
     local label = UILabel.new()
     label:SetPrelocalizedText(text)
@@ -21,4 +29,8 @@ function AbsoluteStretch()
     local container = VisualElement.new()
     container:Add("absolute-stretch")
     return container
+end
+
+function XpBar()
+    
 end

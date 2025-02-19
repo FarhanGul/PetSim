@@ -1,0 +1,10 @@
+.xp-bar{
+    background-color: grey;
+    width: 256px;
+    height: 16px;
+}
+
+.xp-bar-fill{
+    background-color: aqua;
+    height: 100%;
+}

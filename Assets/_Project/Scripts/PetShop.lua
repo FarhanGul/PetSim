@@ -5,8 +5,6 @@ local events = require("EventManager")
 local save = require("SaveManager")
 local data = require("GameData")
 
--- local petFoodCost = 5
-
 local ve
 local isUiActive
 
