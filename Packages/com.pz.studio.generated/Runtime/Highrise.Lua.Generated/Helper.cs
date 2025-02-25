@@ -18,9 +18,9 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/Randomizer")]
+    [AddComponentMenu("Lua/Helper")]
     [LuaRegisterType(0x70b3317bef41faca, typeof(LuaBehaviour))]
-    public class Randomizer : LuaBehaviourThunk
+    public class Helper : LuaBehaviourThunk
     {
         private const string s_scriptGUID = "5a5019d972f67dd4f8ab472f717863c1";
         public override string ScriptGUID => s_scriptGUID;

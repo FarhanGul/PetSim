@@ -1,9 +1,12 @@
 --!Type(Module)
 
 objectives = {
-    firstEgg = { id = 1, text = "Visit the pet shop to get your first egg", },
-    buyFirstFood = { id = 2, text ="Get some coins so you can buy food for your pet.", },
-    levelUpFirstPet = { id = 3, text ="Your pet needs more food to grow, feed it some more", }
+    introDialogue = "Talk to the island resident",
+    firstEgg = "Find egg",
+    firstFeed = "Feed your pet",
+    firstPlay = "Play with your pet",
+    petJournal = "Complete your pet journal",
+    evolvePet = "Evolve pets to access new areas"
 }
 
 cost = {
@@ -13,3 +16,7 @@ cost = {
 }
 
 petXpProgression = { 99, 299, 799 }
+
+intervals = {
+    timeUntilNextChat = 4
+}

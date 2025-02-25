@@ -1,0 +1,34 @@
+{
+  "IncludeFallbacks": true,
+  "Skeleton": "",
+  "Clothing": [
+    {
+      "Id": "body-flesh",
+      "Color": -1
+    },
+    {
+      "Id": "hair_front-n_earthelementgrab2020greenhighlightsshort",
+      "Color": -1
+    },
+    {
+      "Id": "hair_back-n_earthelementgrab2020greenhighlightsshort",
+      "Color": -1
+    },
+    {
+      "Id": "shirt-n_registrationavatars2023billietop",
+      "Color": -1
+    },
+    {
+      "Id": "skirt-f_indianskirt",
+      "Color": -1
+    },
+    {
+      "Id": "eyebrow-n_12",
+      "Color": -1
+    },
+    {
+      "Id": "nose-n_01",
+      "Color": -1
+    }
+  ]
+}
