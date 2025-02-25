@@ -17,8 +17,6 @@ function self:Start()
             xpSystem.AddXp(args[2])
         end
     end)
-    self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
-    end)
     petData = save.pets[self.gameObject.name]
     Show()
 end
@@ -46,4 +44,5 @@ function self:Update()
     if (distance > followDistance) then
         self.transform.position = Vector3.Lerp(self.transform.position, target.transform.position, speed * Time.deltaTime / distance);
     end
+    self.transform:LookAt(target.transform.position)
 end

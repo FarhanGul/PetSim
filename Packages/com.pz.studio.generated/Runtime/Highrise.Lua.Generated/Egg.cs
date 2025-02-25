@@ -25,6 +25,7 @@ namespace Highrise.Lua.Generated
         private const string s_scriptGUID = "5d724c3ceeee2254d94195d70df9edf4";
         public override string ScriptGUID => s_scriptGUID;
 
+        [SerializeField] public UnityEngine.GameObject m_petPrefab = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -33,6 +34,7 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
+                CreateSerializedProperty(_script.GetPropertyAt(0), m_petPrefab),
             };
         }
     }
