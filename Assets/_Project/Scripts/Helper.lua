@@ -29,13 +29,18 @@ function InjectIds(structure)
 end
 
 function GetNextKey(structure, currentKey)
-    local found = false
-    for key, _ in pairs(structure) do
-        if found then
-            return key
+    for i = 1, #structure do
+        if structure[i].key == currentKey and i < #structure then
+            return structure[i + 1].key
         end
-        if key == currentKey then
-            found = true
+    end
+    return nil
+end
+
+function GetValue(structure, searchKey)
+    for i = 1, #structure do
+        if structure[i].key == searchKey then
+            return structure[i]
         end
     end
     return nil

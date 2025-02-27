@@ -4,7 +4,8 @@ local data = require("GameData")
 local helper = require("Helper")
 
 coins = 100
-currentObjective = "introDialogue"
+-- currentObjective = "introDialogue"
+currentObjective = "firstEgg"
 pets = {}
 eggs = {}
 
@@ -32,9 +33,9 @@ function EggData()
     return this
 end
 
-function CompleteObjective(objectiveId)
-    if(currentObjective == objectiveId)then
-        currentObjective = helper.GetNextKey(data.objectives,objectiveId)
+function CompleteObjective(objective)
+    if(currentObjective == objective)then
+        currentObjective = helper.GetNextKey(data.objectives,objective)
         events.InvokeEvent(events.objectiveCompleted)
     end
 end

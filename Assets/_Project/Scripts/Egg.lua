@@ -16,6 +16,6 @@ function Hatch()
     pet.transform.position = self.transform.position
     pet.transform.rotation = self.transform.rotation
     pet.name = petPrefab.name
-    GameObject.Destroy(self.gameObject)
     save.CompleteObjective("firstEgg")
+    GameObject.Destroy(self.gameObject)
 end

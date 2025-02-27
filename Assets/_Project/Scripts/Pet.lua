@@ -1,9 +1,7 @@
 --!Type(Client)
-local uiController = require("UIController")
 local uiComponents = require("UIComponents")
 local events = require("EventManager")
 local save = require("SaveManager")
-local XpSystem = require("XpSystem")
 
 local speed = 5;  
 local followDistance = 2; 
@@ -18,22 +16,6 @@ function self:Start()
         end
     end)
     petData = save.pets[self.gameObject.name]
-    Show()
-end
-
-function self:OnDestroy()
-    Hide()
-end
-
-function Show()
-    ve = VisualElement.new()
-    xpSystem = XpSystem.new()
-    ve:Add(xpSystem.Create(petData.xp))
-    uiController.Add(ve)
-end
-
-function Hide()
-    ve:RemoveFromHierarchy()
 end
 
 function self:Update()

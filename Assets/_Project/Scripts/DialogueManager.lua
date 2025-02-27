@@ -31,6 +31,10 @@ function Create(npcName,npcChatBubbleTransform)
         table.insert(dialogueList,Message("player", message))
     end
     this.Start = function(onEnd)
+        if(data.debug.skipDialogue) then
+            onEnd()
+            return
+        end
         OnEnd = onEnd
         ShowNextMessage(1)
     end

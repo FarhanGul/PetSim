@@ -1,12 +1,13 @@
 --!Type(Module)
 
 objectives = {
-    introDialogue = "Talk to the island resident",
-    firstEgg = "Find egg",
-    firstFeed = "Feed your pet",
-    firstPlay = "Play with your pet",
-    petJournal = "Complete your pet journal",
-    evolvePet = "Evolve pets to access new areas"
+    { key = "introDialogue", text = "Talk to the island resident" },
+    { key = "firstEgg", text = "Find the egg" },
+    { key = "firstPetHatchedDialogue", text = "Tell max what you found" },
+    { key = "firstFeed", text = "Feed your pet" },
+    { key = "firstPlay", text = "Play with your pet" },
+    { key = "petJournal", text = "Complete your pet journal" },
+    { key = "evolvePet", text = "Evolve pets to access new areas" }
 }
 
 cost = {
@@ -19,4 +20,8 @@ petXpProgression = { 99, 299, 799 }
 
 intervals = {
     timeUntilNextChat = 4
+}
+
+debug = {
+    skipDialogue = false
 }
