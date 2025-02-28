@@ -1,0 +1,113 @@
+Label{
+    margin: 0px;
+    padding: 0px;
+}
+
+.pet-view {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 16px;
+}
+
+#_playButton{
+    background-color: rgba(0, 0, 0, 0);
+    width: 173px;
+    height: 164px;
+    background-image: url("project://database/Assets/_Project/Sprites/PlayButton.png");
+    margin-bottom: 20px;
+}
+
+#_followPlayerButton{
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    right: 32px;
+    bottom: 24px;
+    width: 108px;
+    height: 108px;
+    background-image: url("project://database/Assets/_Project/Sprites/FollowPlayerButton.png");
+}
+
+#_followPlayerButton.in-active
+{
+    --unity-background-image-tint-color : rgba(255, 255, 255, 0.5);
+}
+
+.status-panel{
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#_statusLabel{
+    margin-left: 16px;
+    font-size: var(--font-size-normal);
+}
+
+#_nameLabel{
+    color : #0083C4;
+    font-size: var(--font-size-normal);
+}
+
+#_ageLabel{
+    color : #A9C6DB;
+    font-size: var(--font-size-s);
+}
+
+#_xpRequiredLabel{
+    font-size: var(--font-size-normal);
+}
+
+#_xpDescriptionLabel{
+    font-size: 22px;
+    color: white;
+}
+
+.attributes-panel{
+    position: absolute;
+    bottom: 20px;
+    left: 128px ;
+    flex-direction: column;
+}
+
+.xp-panel{
+    position: absolute;
+    width: 366px;
+    height:  72px;
+    right:26px;
+    bottom: 28px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#_xpFill{
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    background-image: url("project://database/Assets/_Project/Sprites/XpFill.png");
+}
+
+.pet-panel{
+    width: 740px;
+    height: 187px;
+    background-image: url("project://database/Assets/_Project/Sprites/PetPanel.png");
+}
+
+.hungry-status{
+    width: 42px;
+    height: 43px;
+    background-image: url("project://database/Assets/_Project/Sprites/HungryStatus.png");
+}
+
+.playful-status{
+    width: 30px;
+    height: 54px;
+    background-image: url("project://database/Assets/_Project/Sprites/PlayfulStatus.png");
+}

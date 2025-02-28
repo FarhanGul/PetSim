@@ -7,21 +7,30 @@ local save = require("SaveManager")
 --!SerializeField
 local petPrefabs : { GameObject } = {}
 
-local equippedPet
-
-function self:ClientAwake()
-    events.SubscribeEvent(events.boughtEgg,function(args)
-        Spawn()
-    end)
-    events.SubscribeEvent(events.boughtPetFood,function(args)
-        save.AddPetXp(equippedPet,25)
+function self:Awake()
+    events.SubscribeEvent(events.newPet,function(args)
+        Spawn(args[1])
     end)
 end
 
-function Spawn()
-    local prefab = petPrefabs[math.random(1,#petPrefabs)]
-    save.pets[prefab.name] = save.PetData()
-    local pet = Object.Instantiate(prefab)
-    pet.name = prefab.name
-    equippedPet = prefab.name
+function self:Start()
+    if(save.equippedPet ~= nil) then
+        Spawn(Vector3.zero)
+    end
+end
+
+function Spawn(position)
+    local perfab = GetPrefabFromName(save.equippedPet)
+    local pet = Object.Instantiate(perfab)
+    pet.transform.position = position
+    pet.name = perfab.name
+    events.InvokeEvent(events.petSpawned,pet)
+end
+
+function GetPrefabFromName(name)
+    for i = 1, #petPrefabs do
+        if(petPrefabs[i].name == name) then
+            return petPrefabs[i]
+        end
+    end
 end

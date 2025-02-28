@@ -1,18 +1,21 @@
 --!Type(Module)
-local uiComponents = require("UIComponents")
 local data = require("GameData")
 
-function new()
+function new(xpFill,xpRequiredUntilNextLevel,xpDescription,age)
     local this = {}
-    local xp = 0
-    local lerpSpeed = 5
-    local uiXpFill
-    local uiLevelText : UILabel
     local level
     local totalXpInCurrentLevel
     local xpEarnedInCurrentLevel
 
-    function Calculate()
+    function GetAgeText()
+        if(level == 1) then return "Baby"
+        elseif(level == 2) then return "Adolescent"
+        else return "Adult"
+        end
+    end
+
+    function Calculate(xp)
+        xp = Mathf.Min(xp,data.petXpProgression[#data.petXpProgression])
         local progression = data.petXpProgression
         for i = 1 , #progression do
             if (xp <= progression[i] or i == #progression) then
@@ -29,30 +32,19 @@ function new()
         end
     end
 
-    function UpdateStyle()
-        uiLevelText:SetPrelocalizedText(level)
-        uiXpFill.style.width = StyleLength.new(Length.Percent((xpEarnedInCurrentLevel/totalXpInCurrentLevel)*100))
-    end
+    function this.Update(xp)
+        Calculate(xp)
+        if(level == #data.petXpProgression)then
+            xpDescription.style.display = DisplayStyle.None
+            xpFill.style.width = StyleLength.new(Length.Percent((100)))
+            xpRequiredUntilNextLevel.text = "Max Level"
+        else
 
-    function this.Create(initialXp)
-        xp = initialXp
-        Calculate()
-        local ve = VisualElement.new()
-        uiLevelText = uiComponents.Text()
-        ve:Add(uiLevelText)
-        local xpBar = uiComponents.Element({"xp-bar"})
-        uiXpFill = uiComponents.Element({"xp-bar-fill"})
-        xpBar:Add(uiXpFill)
-        ve:Add(xpBar)
-        UpdateStyle()
-        return ve
-    end
-
-    function this.AddXp(delta)
-        xp += delta
-        xp = Mathf.Min(xp,data.petXpProgression[#data.petXpProgression])
-        Calculate()
-        UpdateStyle()
+            xpRequiredUntilNextLevel.text = (totalXpInCurrentLevel - xpEarnedInCurrentLevel)
+            xpFill.style.width = StyleLength.new(Length.Percent((xpEarnedInCurrentLevel/totalXpInCurrentLevel)*100))
+            xpDescription.style.display = DisplayStyle.Flex
+        end
+        age.text = GetAgeText()
     end
 
     return this
