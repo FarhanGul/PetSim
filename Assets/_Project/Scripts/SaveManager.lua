@@ -8,6 +8,12 @@ currentObjective = "introDialogue"
 pets = {}
 equippedPet = nil
 eggs = {}
+foods = {}
+
+function LoadGame(onGameLoaded)
+    foods = FoodData()
+    onGameLoaded()
+end
 
 function SetCoins(newValue)
     coins = newValue
@@ -43,10 +49,23 @@ function PetData()
     return this
 end
 
-function EggData()
+function FoodsData()
     local this = {}
-    this.name = ""
-    this.isHatching = false
+    this.GetById = function(id)
+        for i=1,#this do
+            if(this[i].id == id) then
+                return this[i]
+            end
+        end
+        return nil
+    end
+end
+
+function FoodData()
+    local this = {}
+    this.id = ""
+    this.timeToGrow = 0
+    this.eatingTimeLeft = 0
     return this
 end
 

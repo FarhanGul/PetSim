@@ -16,6 +16,6 @@ Label{
     font-size: var(--font-size-normal);
     color: white;
     width: 70%;
-    white-space: wrap;
+    white-space: normal;
     -unity-text-align: middle-center;
 }

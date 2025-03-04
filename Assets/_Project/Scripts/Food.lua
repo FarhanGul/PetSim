@@ -3,6 +3,9 @@ local save = require("SaveManager")
 local events = require("EventManager")
 local data = require("GameData")
 
+--!SerializeField
+local foodId : string = ""
+
 local pet = nil
 local moveTo = nil
 local distanceToKeepWithPetWhenStopping = 1
@@ -55,4 +58,8 @@ end
 function Stop()
     eat:Stop()
     moveTo = nil
+end
+
+function GetId()
+    return foodId
 end

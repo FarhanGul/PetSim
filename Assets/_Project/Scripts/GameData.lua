@@ -27,6 +27,21 @@ speeds = {
     pet = 5
 }
 
+foods = {
+    turnip = {
+        name = "Turnip",
+        canBeEatenForSeconds = 16,
+        xpPerSecond = 1,
+        growthWaitSeconds = 30,
+    },
+    redMushroom = {
+        name = "Red Mushroom",
+        canBeEatenForSeconds = 8,
+        xpPerSecond = 2,
+        growthWaitSeconds = 60,
+    }
+}
+
 debug = {
     skipDialogue = false
 }
