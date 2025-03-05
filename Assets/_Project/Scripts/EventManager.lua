@@ -35,3 +35,4 @@ newPet = "newPet" -- spawnPosition
 petInteraction = "petInteraction" -- sourceId
 followPlayer = "followPlayer"
 petStatusUpdated = "petStatusUpdated"
+registerFoodView = "registerFoodView" -- foodView

@@ -1,5 +1,5 @@
 :root {
     --color-green: #2ecc71;
     --font-size-normal: 32px;
-    --font-size-s: 28px;
+    --font-size-s: 26px;
 }

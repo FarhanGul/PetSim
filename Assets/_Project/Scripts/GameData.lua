@@ -3,10 +3,10 @@
 objectives = {
     { key = "introDialogue", text = "Talk to the island resident" },
     { key = "firstEgg", text = "Find the hidden egg" },
-    { key = "firstFeed", text = "Your pet is hungry, feed it some turnips" },
+    { key = "firstFeed", text = "Your pet is hungry, find some food" },
     { key = "firstPlay", text = "Your pet is now full and wants to play" },
-    { key = "petJournal", text = "Complete your pet journal" },
-    { key = "evolvePet", text = "Evolve pets to access new areas" }
+    { key = "evolvePet", text = "Take care of Axolotl until it can be on its own" },
+    { key = "petJournal", text = "Talk to max" },
 }
 
 cost = {
@@ -30,18 +30,16 @@ speeds = {
 foods = {
     turnip = {
         name = "Turnip",
-        canBeEatenForSeconds = 16,
-        xpPerSecond = 1,
-        growthWaitSeconds = 30,
+        timeRequiredToConsume = 16,
+        xpGained = 8,
     },
     redMushroom = {
         name = "Red Mushroom",
-        canBeEatenForSeconds = 8,
-        xpPerSecond = 2,
-        growthWaitSeconds = 60,
+        timeRequiredToConsume = 8,
+        xpGained = 12,
     }
 }
 
 debug = {
-    skipDialogue = false
+    skipDialogue = true
 }

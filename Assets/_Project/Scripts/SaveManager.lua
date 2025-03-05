@@ -8,16 +8,19 @@ currentObjective = "introDialogue"
 pets = {}
 equippedPet = nil
 eggs = {}
-foods = {}
+hiddenObjectIds = {}
 
 function LoadGame(onGameLoaded)
-    foods = FoodData()
     onGameLoaded()
 end
 
 function SetCoins(newValue)
     coins = newValue
     events.InvokeEvent(events.currencyUpdated)
+end
+
+function AddHiddenObject(objectId)
+    table.insert(hiddenObjectIds,objectId)
 end
 
 function AddPetXp(delta)
@@ -46,26 +49,6 @@ function PetData()
     this.xp = 0
     this.status = nil
     this.hunger = 16
-    return this
-end
-
-function FoodsData()
-    local this = {}
-    this.GetById = function(id)
-        for i=1,#this do
-            if(this[i].id == id) then
-                return this[i]
-            end
-        end
-        return nil
-    end
-end
-
-function FoodData()
-    local this = {}
-    this.id = ""
-    this.timeToGrow = 0
-    this.eatingTimeLeft = 0
     return this
 end
 

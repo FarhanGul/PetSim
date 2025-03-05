@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="UnityEngine.UIElements"
+    xmlns:hr="Highrise.UI"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+>
+
+  <hr:UILuaView name="_root" class="food-view" picking-mode="Ignore">
+    <Style src="Variables.uss" />
+    <VisualElement class="food-panel">
+      <VisualElement name="_xpFill"></VisualElement>
+      <Label name="_foodName" text="Turnip"/>
+      <Label name="_xpLabel" text="59 s"/>
+      <Label name="_xpDescriptionLabel" text="Time Remaining"/>
+      <VisualElement class="absolute-layout">
+        <Label name="_xpReward" text="300"/>
+        <Label name="_xpRewardDescriptionLabel" text="XP"/>
+      </VisualElement>
+    </VisualElement>
+  </hr:UILuaView>
+</UXML>
