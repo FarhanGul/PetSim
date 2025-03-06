@@ -12,14 +12,6 @@ Label{
     padding-bottom: 16px;
 }
 
-#_playButton{
-    background-color: rgba(0, 0, 0, 0);
-    width: 173px;
-    height: 164px;
-    background-image: url("project://database/Assets/_Project/Sprites/PlayButton.png");
-    margin-bottom: 20px;
-}
-
 #_followPlayerButton{
     background-color: rgba(0, 0, 0, 0);
     position: absolute;

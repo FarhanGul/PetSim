@@ -18,11 +18,11 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/PetView")]
-    [LuaRegisterType(0xf2155285305dc9df, typeof(LuaBehaviour))]
-    public class PetView : LuaBehaviourThunk
+    [AddComponentMenu("Lua/ReadyToPlayView")]
+    [LuaRegisterType(0xd5959a1b7d7cd5ae, typeof(LuaBehaviour))]
+    public class ReadyToPlayView : LuaBehaviourThunk
     {
-        private const string s_scriptGUID = "dcd4e404782000d4d96440ac57507794";
+        private const string s_scriptGUID = "254a51a2c1c30ba4f894e9b262da21e1";
         public override string ScriptGUID => s_scriptGUID;
 
 
@@ -38,10 +38,6 @@ namespace Highrise.Lua.Generated
                 CreateSerializedProperty(_script.GetPropertyAt(2), null),
                 CreateSerializedProperty(_script.GetPropertyAt(3), null),
                 CreateSerializedProperty(_script.GetPropertyAt(4), null),
-                CreateSerializedProperty(_script.GetPropertyAt(5), null),
-                CreateSerializedProperty(_script.GetPropertyAt(6), null),
-                CreateSerializedProperty(_script.GetPropertyAt(7), null),
-                CreateSerializedProperty(_script.GetPropertyAt(8), null),
             };
         }
     }

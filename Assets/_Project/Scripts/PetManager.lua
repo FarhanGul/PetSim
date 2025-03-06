@@ -21,7 +21,7 @@ end
 
 function Spawn(position)
     local perfab = GetPrefabFromName(save.equippedPet)
-    local pet = Object.Instantiate(perfab)
+    local pet = Object.Instantiate(perfab):GetComponent(Pet)
     pet.transform.position = position
     pet.name = perfab.name
     events.InvokeEvent(events.petSpawned,pet)

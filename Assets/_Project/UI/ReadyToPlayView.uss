@@ -1,0 +1,41 @@
+Label{
+    font-size: var(--font-size-normal);
+    margin-top: 80px;
+    white-space: normal;
+    -unity-text-align: middle-center;
+    max-width: 500px;
+}
+
+#_title{
+    margin-top: 50px;
+    color: white;
+}
+
+#_level{
+    color: #3B7097;
+}
+
+.ready-to-play {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 695px;
+    height: 751px;
+    background-image: url("project://database/Assets/_Project/Sprites/ReadyToPlayPanel.png");
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#_playButton{
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    width: 173px;
+    height: 164px;
+    background-image: url("project://database/Assets/_Project/Sprites/PlayButton.png");
+    margin-bottom: 20px;
+}

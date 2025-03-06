@@ -12,8 +12,6 @@ local _statusLabel : Label = nil
 --!Bind
 local _statusIcon : VisualElement = nil
 --!Bind
-local _playButton : UIButton = nil
---!Bind
 local _followPlayerButton : UIButton = nil
 --!Bind
 local _xpRequiredLabel : Label = nil
@@ -29,11 +27,7 @@ local xpView
 function self:Awake()
     xpView = xpSystem.new(_xpFill,_xpRequiredLabel,_xpDescriptionLabel,_ageLabel)
     _followPlayerButton:RegisterPressCallback(function()
-        _followPlayerButton:EnableInClassList("in-active", false)
         events.InvokeEvent(events.followPlayer)
-    end)
-    events.SubscribeEvent(events.petInteraction,function(args)
-        _followPlayerButton:EnableInClassList("in-active", true)
     end)
     events.SubscribeEvent(events.petXpUpdated,function(args)
         SetXp(save.pets[save.equippedPet].xp)
@@ -63,7 +57,6 @@ function SetStatus(status)
     _statusLabel.text = status
     _statusIcon:EnableInClassList("hungry-status", status == "Hungry")
     _statusIcon:EnableInClassList("playful-status", status == "Playful")
-    _playButton.style.display = status == "Playful" and DisplayStyle.Flex or DisplayStyle.None
 end
 
 function SetXp(xp)

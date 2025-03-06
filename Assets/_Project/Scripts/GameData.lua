@@ -30,12 +30,12 @@ speeds = {
 foods = {
     turnip = {
         name = "Turnip",
-        timeRequiredToConsume = 16,
+        timeRequiredToConsume = 4,
         xpGained = 8,
     },
     redMushroom = {
         name = "Red Mushroom",
-        timeRequiredToConsume = 8,
+        timeRequiredToConsume = 4,
         xpGained = 12,
     }
 }

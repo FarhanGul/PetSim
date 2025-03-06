@@ -13,22 +13,19 @@ local _xpReward : Label = nil
 --!Bind
 local _xpFill : VisualElement = nil
 
-local foodData
-
 function self:Start()
     events.InvokeEvent(events.registerFoodView,self)
     Hide()
 end
 
-function SetProgress(amount)
-    _xpLabel.text = tostring(amount).." s";
-    _xpFill.style.width = StyleLength.new(Length.Percent(((foodData.timeRequiredToConsume - amount)/foodData.timeRequiredToConsume)*70))
+function SetProgress(label,pc)
+    _xpLabel.text = label
+    _xpFill.style.width = StyleLength.new(Length.Percent(pc*70))
 end
 
-function Show(foodId)
-    foodData = data.foods[foodId]
-    _foodName.text = foodData.name
-    _xpReward.text = foodData.xpGained
+function Show(name,xpGained)
+    _foodName.text = name
+    _xpReward.text = xpGained
     _root:SetDisplay(true)
 end
 

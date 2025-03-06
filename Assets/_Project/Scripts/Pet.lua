@@ -5,25 +5,44 @@ local data = require("GameData")
 
 local followDistance = 2; 
 local followPlayer = true
+local stoppingDistance = 3
+local moveToTarget = nil
+local onReachedTarget = nil
 
 function self:Awake()
-    events.SubscribeEvent(events.petInteraction,function(args)
-        followPlayer = false;
-    end)
     events.SubscribeEvent(events.followPlayer,function(args)
+        events.InvokeEvent(events.petTargetUpdated)
         followPlayer = true;
     end)
 end
 
 function self:Update()
-    local target = client.localPlayer.character
-    if ( target == nil ) then return end
+    local player = client.localPlayer.character
+    if ( player == nil ) then return end
 
     if(followPlayer)then
-        local distance = Vector3.Distance(self.transform.position, target.transform.position);
+        moveToTarget = nil
+        local distance = Vector3.Distance(self.transform.position, player.transform.position);
         if (distance > followDistance) then
-            self.transform.position = Vector3.Lerp(self.transform.position, target.transform.position, data.speeds.pet * Time.deltaTime / distance);
+            self.transform.position = Vector3.Lerp(self.transform.position, player.transform.position, data.speeds.pet * Time.deltaTime / distance);
         end
-        self.transform:LookAt(target.transform.position)
+        self.transform:LookAt(player.transform.position)
+    elseif(moveToTarget ~= nil) then
+        self.transform:LookAt(self.transform.position)
+        local distance = Vector3.Distance(moveToTarget.position, self.transform.position);
+        if (distance > stoppingDistance) then
+            self.transform.position = Vector3.Lerp(self.transform.position, moveToTarget.position, data.speeds.pet * Time.deltaTime / distance)
+            self.transform:LookAt(moveToTarget.position)
+        else
+            moveToTarget = nil
+            onReachedTarget()
+        end
     end
+end
+
+function MoveTo(target,onReachedTargetCallback)
+    events.InvokeEvent(events.petTargetUpdated)
+    followPlayer = false
+    moveToTarget = target
+    onReachedTarget = onReachedTargetCallback
 end

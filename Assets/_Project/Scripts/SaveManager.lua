@@ -4,10 +4,9 @@ local data = require("GameData")
 local helper = require("Helper")
 
 coins = 100
-currentObjective = "introDialogue"
+currentObjective = "firstEgg"
 pets = {}
 equippedPet = nil
-eggs = {}
 hiddenObjectIds = {}
 
 function LoadGame(onGameLoaded)
