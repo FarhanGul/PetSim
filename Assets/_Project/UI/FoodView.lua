@@ -7,6 +7,8 @@ local _root : VisualElement = nil
 --!Bind
 local _xpLabel : Label = nil
 --!Bind
+local _xpDescriptionLabel : Label = nil
+--!Bind
 local _foodName : Label = nil
 --!Bind
 local _xpReward : Label = nil
@@ -23,9 +25,10 @@ function SetProgress(label,pc)
     _xpFill.style.width = StyleLength.new(Length.Percent(pc*70))
 end
 
-function Show(name,xpGained)
+function Show(name,xpGained,xpDescription)
     _foodName.text = name
     _xpReward.text = xpGained
+    _xpDescriptionLabel.text = xpDescription
     _root:SetDisplay(true)
 end
 

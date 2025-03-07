@@ -8,6 +8,9 @@ currentObjective = "firstEgg"
 pets = {}
 equippedPet = nil
 hiddenObjectIds = {}
+gameLevels = {
+    simonSays = 1
+}
 
 function LoadGame(onGameLoaded)
     onGameLoaded()

@@ -15,6 +15,9 @@ local _playButton : UIButton = nil
 
 function self:Start()
     events.InvokeEvent(events.registerReadyToPlayView,self)
+    _playButton:RegisterPressCallback(function()
+        events.InvokeEvent(events.playGame)
+    end)
     Hide()
 end
 

@@ -37,3 +37,5 @@ petStatusUpdated = "petStatusUpdated"
 registerFoodView = "registerFoodView" -- foodView
 registerReadyToPlayView = "registerReadyToPlayView" -- readyToPlayView
 petTargetUpdated = "petTargetUpdated"
+playGame = "playGame"
+simonSayTrigger = "simonSayTrigger" -- triggerId

@@ -29,6 +29,7 @@ Label{
     background-image: url("project://database/Assets/_Project/Sprites/ReadyToPlayPanel.png");
     align-items: center;
     justify-content: flex-start;
+    -unity-background-image-tint-color : rgba(255, 255, 255, 0.75);
 }
 
 #_playButton{

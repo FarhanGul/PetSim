@@ -11,8 +11,10 @@ local onReachedTarget = nil
 
 function self:Awake()
     events.SubscribeEvent(events.followPlayer,function(args)
-        events.InvokeEvent(events.petTargetUpdated)
-        followPlayer = true;
+        if(not followPlayer)then
+            followPlayer = true;
+            events.InvokeEvent(events.petTargetUpdated)
+        end
     end)
 end
 
