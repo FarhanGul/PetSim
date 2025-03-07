@@ -5,7 +5,7 @@ local data = require("GameData")
 
 local followDistance = 2; 
 local followPlayer = true
-local stoppingDistance = 3
+local stoppingDistance = nil
 local moveToTarget = nil
 local onReachedTarget = nil
 
@@ -30,19 +30,22 @@ function self:Update()
         end
         self.transform:LookAt(player.transform.position)
     elseif(moveToTarget ~= nil) then
-        self.transform:LookAt(self.transform.position)
-        local distance = Vector3.Distance(moveToTarget.position, self.transform.position);
+        local targetPos : Vector3 = moveToTarget.position
+        targetPos.y = self.transform.position.y
+        local distance = Vector3.Distance(targetPos, self.transform.position);
         if (distance > stoppingDistance) then
-            self.transform.position = Vector3.Lerp(self.transform.position, moveToTarget.position, data.speeds.pet * Time.deltaTime / distance)
-            self.transform:LookAt(moveToTarget.position)
+            self.transform.position = Vector3.Lerp(self.transform.position, targetPos, data.speeds.pet * Time.deltaTime / distance)
+            self.transform:LookAt(targetPos)
         else
             moveToTarget = nil
             onReachedTarget()
         end
+        self.transform:LookAt(targetPos)
     end
 end
 
-function MoveTo(target,onReachedTargetCallback)
+function MoveTo(target,_stoppingDistance,onReachedTargetCallback)
+    stoppingDistance = _stoppingDistance
     events.InvokeEvent(events.petTargetUpdated)
     followPlayer = false
     moveToTarget = target

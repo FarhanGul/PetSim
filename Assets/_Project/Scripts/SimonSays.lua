@@ -3,6 +3,7 @@
 local save = require("SaveManager")
 local data = require("GameData")
 local events = require("EventManager")
+local audio = require("AudioManager")
 
 local waitBeforeSequencePlays = 1
 local pulseDuration = 0.2
@@ -26,6 +27,8 @@ local levelData = {
 
 --!SerializeField
 local pulseObjects : { GameObject } = {}
+--!SerializeField
+local stoppingDistance : number = 1
 
 local pet = nil
 local readyToPlayView = nil
@@ -55,8 +58,7 @@ function self:Awake()
     end)
     self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
         if(pet ~= nil) then
-            self.gameObject:GetComponent(BoxCollider).enabled = false
-            pet.MoveTo(self.transform,Show)
+            pet.MoveTo(self.transform,stoppingDistance,Show)
         end
     end)
 end
@@ -74,10 +76,11 @@ function FinishGame()
     readyToPlayView.Hide()
     acceptingInputForStep = nil
     events.InvokeEvent(events.followPlayer)
-    self.gameObject:GetComponent(BoxCollider).enabled = true
+    SetCollider(true)
 end
 
 function Show()
+    SetCollider(false)
     readyToPlayView.Show({
         title = gameTitle,
         level = save.gameLevels.simonSays,
@@ -107,6 +110,7 @@ end
 
 function ShowStep(step)
     local obj = pulseObjects[sequence[step]]
+    PlayNote(sequence[step])
     obj:SetActive(true)
     Timer.After(pulseDuration, function()
         obj:SetActive(false)
@@ -123,6 +127,7 @@ end
 function SimonSaysTriggerInvoked(id)
     if(acceptingInputForStep ~= nil)then
         local obj = pulseObjects[sequence[acceptingInputForStep]]
+        PlayNote(sequence[acceptingInputForStep])
         obj:SetActive(true)
         Timer.After(pulseDuration, function()
             obj:SetActive(false)
@@ -145,6 +150,7 @@ function SimonSaysTriggerInvoked(id)
 end
 
 function GameOver()
+    audio.Play("GameOver")
     -- Play Sound Effect and Shake object
     FinishGame()
     print("Game over")
@@ -154,4 +160,12 @@ function LevelComplete()
     print("Level Complete")
     save.AddPetXp(currentLevelData.xpGained)
     FinishGame()
+end
+
+function PlayNote(id)
+    audio.Play("Note"..id)
+end
+
+function SetCollider(isActive)
+    self.gameObject:GetComponent(SphereCollider).enabled = isActive
 end

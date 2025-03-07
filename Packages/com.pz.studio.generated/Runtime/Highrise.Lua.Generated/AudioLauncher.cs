@@ -18,15 +18,13 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/SimonSays")]
-    [LuaRegisterType(0xd8cad5019032851, typeof(LuaBehaviour))]
-    public class SimonSays : LuaBehaviourThunk
+    [AddComponentMenu("Lua/AudioLauncher")]
+    [LuaRegisterType(0xb42623126d09f125, typeof(LuaBehaviour))]
+    public class AudioLauncher : LuaBehaviourThunk
     {
-        private const string s_scriptGUID = "df077903154c52d459a4dd7f619152e4";
+        private const string s_scriptGUID = "063c8655223833c469163f0aad9a8962";
         public override string ScriptGUID => s_scriptGUID;
 
-        [SerializeField] public System.Collections.Generic.List<UnityEngine.GameObject> m_pulseObjects = default;
-        [SerializeField] public System.Double m_stoppingDistance = 1;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -35,8 +33,6 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
-                CreateSerializedProperty(_script.GetPropertyAt(0), m_pulseObjects),
-                CreateSerializedProperty(_script.GetPropertyAt(1), m_stoppingDistance),
             };
         }
     }

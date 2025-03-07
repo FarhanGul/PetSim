@@ -6,6 +6,9 @@ local data = require("GameData")
 --!SerializeField
 local foodId : string = ""
 
+--!SerializeField
+local stoppingDistance : number = 1
+
 local pet = nil
 local eat = nil
 local amount = nil
@@ -30,7 +33,7 @@ function self:Awake()
     end)
     self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
         if(pet ~= nil) then
-            pet.MoveTo(self.transform,StartEating)
+            pet.MoveTo(self.transform,stoppingDistance,StartEating)
         end
     end)
 end
