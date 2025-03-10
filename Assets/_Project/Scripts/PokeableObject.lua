@@ -1,4 +1,6 @@
 --!Type(Client)
+local events = require("EventManager")
+local save = require("SaveManager")
 
 local animator : Animator
 local tapHandler : TapHandler
@@ -9,8 +11,18 @@ function self:Awake()
     tapHandler = self.gameObject:GetComponent(TapHandler)
     collider = self.gameObject:GetComponent(Collider)
     tapHandler.Tapped:Connect(function() 
-        animator:SetBool("IsVisible",true)
-        Component.Destroy(tapHandler)
-        Component.Destroy(collider)
+        animator:SetBool("Discovered",true)
+        save.AddDiscoveredAnimation(self.name)
+        Destroy()
     end)
+    events.SubscribeEvent(events.lateGameStart,function(args)
+        if(animator:GetBool("Discovered")) then
+            Destroy()
+        end
+    end)
+end
+
+function Destroy()
+    Component.Destroy(tapHandler)
+    Component.Destroy(collider)
 end

@@ -43,9 +43,9 @@ function Eat()
     SetProgress()
     if(amount == 0)then
         save.AddPetXp(foodData.xpGained)
-        events.InvokeEvent(events.followPlayer)
-        save.AddHiddenObject(self.gameObject.name)
+        save.AddDiscoveredObject(self.gameObject.name)
         GameObject.Destroy(self.gameObject)
+        StopEating()
     end
 end
 

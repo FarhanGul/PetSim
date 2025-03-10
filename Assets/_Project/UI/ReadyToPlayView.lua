@@ -5,27 +5,25 @@ local data = require("GameData")
 --!Bind
 local _root : VisualElement = nil
 --!Bind
-local _title : Label = nil
---!Bind
-local _level : Label = nil
---!Bind
-local _description : Label = nil
---!Bind
 local _playButton : UIButton = nil
+--!Bind
+local _helpButton : UIButton = nil
+
+local onPlay
+local onHelp
+
 
 function self:Start()
     events.InvokeEvent(events.registerReadyToPlayView,self)
-    _playButton:RegisterPressCallback(function()
-        events.InvokeEvent(events.playGame)
-    end)
+    _playButton:RegisterPressCallback(function() onPlay() end)
+    _helpButton:RegisterPressCallback(function() onHelp() end)
     Hide()
 end
 
-function Show(miniGameData)
+function Show(onPlayCallback,onHelpCallback)
+    onPlay = onPlayCallback
+    onHelp = onHelpCallback
     _root:SetDisplay(true)
-    _title.text = miniGameData.title
-    _level.text = "Level "..miniGameData.level
-    _description.text = miniGameData.description
 end
 
 function Hide()

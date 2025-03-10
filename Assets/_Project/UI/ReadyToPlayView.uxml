@@ -9,12 +9,8 @@
 
   <hr:UILuaView name="_root" class="ready-to-play" picking-mode="Ignore">
     <Style src="Variables.uss" />
-    <VisualElement class="container">
-      <Label name="_title"/>
-      <Label name="_level"/>
-      <Label name="_description"/>
-      <hr:UIButton name="_playButton"></hr:UIButton>
-    </VisualElement>
+    <hr:UIButton name="_playButton"></hr:UIButton>
+    <hr:UIButton name="_helpButton"></hr:UIButton>
   </hr:UILuaView>
 
 </UXML>

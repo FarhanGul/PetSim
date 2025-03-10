@@ -18,9 +18,9 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/HiddenObjectManager")]
+    [AddComponentMenu("Lua/DiscoveredObjectManager")]
     [LuaRegisterType(0x340b9b0033ac2835, typeof(LuaBehaviour))]
-    public class HiddenObjectManager : LuaBehaviourThunk
+    public class DiscoveredObjectManager : LuaBehaviourThunk
     {
         private const string s_scriptGUID = "012f38c9317a7464d8ccfff4e726c0cc";
         public override string ScriptGUID => s_scriptGUID;

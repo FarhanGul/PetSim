@@ -7,10 +7,8 @@ coins = 100
 currentObjective = "firstEgg"
 pets = {}
 equippedPet = nil
-hiddenObjectIds = {}
-gameLevels = {
-    simonSays = 1
-}
+discoveredObjectIds = {}
+discoveredAnimationIds = {}
 
 function LoadGame(onGameLoaded)
     onGameLoaded()
@@ -21,8 +19,12 @@ function SetCoins(newValue)
     events.InvokeEvent(events.currencyUpdated)
 end
 
-function AddHiddenObject(objectId)
-    table.insert(hiddenObjectIds,objectId)
+function AddDiscoveredObject(objectId)
+    table.insert(discoveredObjectIds,objectId)
+end
+
+function AddDiscoveredAnimation(animationId)
+    table.insert(discoveredAnimationIds,animationId)
 end
 
 function AddPetXp(delta)

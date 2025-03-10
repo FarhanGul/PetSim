@@ -26,6 +26,7 @@ end
 boughtEgg = "boughtEgg"
 boughtPetFood = "boughtPetFood"
 gameStart = "gameStart"
+lateGameStart = "lateGameStart"
 currencyUpdated = "currencyUpdate"
 petXpUpdated = "petXpUpdated"
 changeScene = "changeScene" -- sceneName
@@ -36,5 +37,4 @@ followPlayer = "followPlayer"
 registerActivityView = "registerActivityView" -- activityView
 registerReadyToPlayView = "registerReadyToPlayView" -- readyToPlayView
 petTargetUpdated = "petTargetUpdated"
-playGame = "playGame"
 simonSayTrigger = "simonSayTrigger" -- triggerId

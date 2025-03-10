@@ -25,8 +25,10 @@ namespace Highrise.Lua.Generated
         private const string s_scriptGUID = "df077903154c52d459a4dd7f619152e4";
         public override string ScriptGUID => s_scriptGUID;
 
+        [SerializeField] public System.String m_rarity = "Common";
+        [SerializeField] public System.Double m_xpGained = 90;
+        [SerializeField] public System.Double m_stepsRequired = 6;
         [SerializeField] public System.Collections.Generic.List<UnityEngine.GameObject> m_pulseObjects = default;
-        [SerializeField] public System.Double m_stoppingDistance = 1;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -35,8 +37,10 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
-                CreateSerializedProperty(_script.GetPropertyAt(0), m_pulseObjects),
-                CreateSerializedProperty(_script.GetPropertyAt(1), m_stoppingDistance),
+                CreateSerializedProperty(_script.GetPropertyAt(0), m_rarity),
+                CreateSerializedProperty(_script.GetPropertyAt(1), m_xpGained),
+                CreateSerializedProperty(_script.GetPropertyAt(2), m_stepsRequired),
+                CreateSerializedProperty(_script.GetPropertyAt(3), m_pulseObjects),
             };
         }
     }

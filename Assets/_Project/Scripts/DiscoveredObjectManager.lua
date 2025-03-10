@@ -9,7 +9,7 @@ function self:Awake()
 end
 
 function Initialize()
-    for i = 1, #save.hiddenObjectIds do
-        self.transform:Find(save.hiddenObjectIds[i]).gameObject:SetActive(false)
+    for i = 1, #save.discoveredObjectIds do
+        self.transform:Find(save.discoveredObjectIds[i]).gameObject:SetActive(false)
     end
 end

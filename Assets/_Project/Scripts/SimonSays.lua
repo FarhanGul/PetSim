@@ -5,44 +5,34 @@ local data = require("GameData")
 local events = require("EventManager")
 local audio = require("AudioManager")
 
+--!SerializeField
+local rarity : string = "Common"
+--!SerializeField
+local xpGained :number = 90
+--!SerializeField
+local stepsRequired : number = 6
+--!SerializeField
+local pulseObjects : { GameObject } = {}
+
+local stoppingDistance = 2
 local waitBeforeSequencePlays = 1
 local pulseDuration = 0.2
 local waitBetweenPulses = 0.75
 local gameTitle = "Petal Pulse"
 local gameDescription = "Watch carefully as the plant's bioluminescent petals light up in a sequence. Your task is to repeat the pattern exactly as shown"
-local levelData = {
-    {
-        xpGained = 90,
-        stepsRequired = 6
-    },
-    {
-        xpGained = 180,
-        stepsRequired = 12
-    },
-    {
-        xpGained = 270,
-        stepsRequired = 16
-    }
-}
-
---!SerializeField
-local pulseObjects : { GameObject } = {}
---!SerializeField
-local stoppingDistance : number = 1
-
 local pet = nil
 local readyToPlayView = nil
 local activityView = nil
 local sequence = nil
-local currentLevelData
 local acceptingInputForStep = nil
+local animator : Animator
+local tapHandler : TapHandler
 
 function self:Awake()
+    animator = self.gameObject:GetComponent(Animator)
+    tapHandler = self.gameObject:GetComponent(TapHandler)
     events.SubscribeEvent(events.simonSayTrigger,function(args)
         SimonSaysTriggerInvoked(args[1])
-    end)
-    events.SubscribeEvent(events.playGame,function(args)
-        StartGame()
     end)
     events.SubscribeEvent(events.registerReadyToPlayView,function(args)
         readyToPlayView = args[1]
@@ -56,36 +46,44 @@ function self:Awake()
     events.SubscribeEvent(events.petTargetUpdated,function(args)
         OnPetTargetUpdated()
     end)
-    self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
+    tapHandler.Tapped:Connect(function() 
         if(pet ~= nil) then
             pet.MoveTo(self.transform,stoppingDistance,Show)
         end
     end)
-end
-
-function StartGame()
-    readyToPlayView.Hide()
-    sequence = {}
-    currentLevelData = levelData[save.gameLevels.simonSays]
-    activityView.Show(gameTitle,"Easy",currentLevelData.xpGained,"Sequences left")
-    PlaySequence()
+    events.SubscribeEvent(events.lateGameStart,function(args)
+        if(animator:GetBool("Discovered")) then
+            tapHandler.enabled = false
+        end
+    end)
 end
 
 function FinishGame()
     activityView.Hide()
     readyToPlayView.Hide()
+    UnitializeGame()
+end
+
+function UnitializeGame()
     acceptingInputForStep = nil
-    events.InvokeEvent(events.followPlayer)
     SetCollider(true)
 end
 
 function Show()
+    sequence = {}
     SetCollider(false)
-    readyToPlayView.Show({
-        title = gameTitle,
-        level = save.gameLevels.simonSays,
-        description = gameDescription
-    })
+    activityView.Show(gameTitle,rarity,xpGained,"Patterns left")
+    readyToPlayView.Show(OnPlay,OnHelp)
+    SetProgress()
+end
+
+function OnPlay()
+    readyToPlayView.Hide()
+    PlaySequence()
+end
+
+function OnHelp()
+    Chat:DisplayChatBubble(self.transform,gameDescription,"Rules")
 end
 
 function OnPetTargetUpdated()
@@ -93,9 +91,9 @@ function OnPetTargetUpdated()
 end
 
 function SetProgress()
-    local stepsLeft = currentLevelData.stepsRequired - #sequence
+    local stepsLeft = stepsRequired - #sequence
     local label = stepsLeft
-    local pc = ((currentLevelData.stepsRequired - stepsLeft)/currentLevelData.stepsRequired)
+    local pc = ((stepsRequired - stepsLeft)/stepsRequired)
     activityView.SetProgress(label,pc)
 end
 
@@ -134,7 +132,7 @@ function SimonSaysTriggerInvoked(id)
             local isCorrect = sequence[acceptingInputForStep] == id
             if(isCorrect)then
                 if(acceptingInputForStep == #sequence)then
-                    if(#sequence == currentLevelData.stepsRequired)then
+                    if(#sequence == stepsRequired)then
                         LevelComplete()
                     else
                         PlaySequence()
@@ -151,14 +149,15 @@ end
 
 function GameOver()
     audio.Play("GameOver")
-    -- Play Sound Effect and Shake object
-    FinishGame()
-    print("Game over")
+    UnitializeGame()
+    Show()
 end
 
 function LevelComplete()
-    print("Level Complete")
-    save.AddPetXp(currentLevelData.xpGained)
+    save.AddDiscoveredAnimation(self.name)
+    tapHandler.enabled = false
+    animator:SetBool("Discovered",true)
+    save.AddPetXp(xpGained)
     FinishGame()
 end
 
