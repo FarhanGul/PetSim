@@ -12,7 +12,7 @@ local stoppingDistance : number = 1
 local pet = nil
 local eat = nil
 local amount = nil
-local foodView : FoodView = nil
+local activityView : ActivityView = nil
 local foodData
 
 function self:Awake()
@@ -28,8 +28,8 @@ function self:Awake()
     events.SubscribeEvent(events.gameStart,function(args)
         amount = foodData.timeRequiredToConsume
     end)
-    events.SubscribeEvent(events.registerFoodView,function(args)
-        foodView = args[1]
+    events.SubscribeEvent(events.registerActivityView,function(args)
+        activityView = args[1]
     end)
     self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
         if(pet ~= nil) then
@@ -50,7 +50,7 @@ function Eat()
 end
 
 function StartEating()
-    foodView.Show(foodData.name,foodData.xpGained,"Time Remaining")
+    activityView.Show(foodData.name,foodData.rarity,foodData.xpGained,"Time Remaining")
     SetProgress()
     eat:Start()
 end
@@ -58,11 +58,11 @@ end
 function SetProgress()
     local label = tostring(amount).." s";
     local pc = ((foodData.timeRequiredToConsume - amount)/foodData.timeRequiredToConsume)
-    foodView.SetProgress(label,pc)
+    activityView.SetProgress(label,pc)
 end
 
 function StopEating()
-    foodView.Hide()
+    activityView.Hide()
     eat:Stop()
 end
 

@@ -28,11 +28,6 @@ end
 function AddPetXp(delta)
     local pet = pets[equippedPet]
     pet.xp += delta
-    pet.hunger -= delta
-    if(pet.hunger <=0) then
-        pets[equippedPet].status = "Playful"
-        events.InvokeEvent(events.petStatusUpdated)
-    end
     if(pet.xp >= data.firstfeedObjectiveXpRequirement)then
         CompleteObjective("firstFeed")
     end
@@ -41,7 +36,6 @@ end
 
 function NewPet(petName,spawnPosition)
     pets[petName] = PetData()
-    pets[petName].status = "Hungry"
     equippedPet = petName
     events.InvokeEvent(events.newPet,spawnPosition)
 end
@@ -49,8 +43,6 @@ end
 function PetData()
     local this = {}
     this.xp = 0
-    this.status = nil
-    this.hunger = 16
     return this
 end
 

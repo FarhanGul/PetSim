@@ -8,10 +8,6 @@ local _root : VisualElement = nil
 --!Bind
 local _nameLabel : Label = nil
 --!Bind
-local _statusLabel : Label = nil
---!Bind
-local _statusIcon : VisualElement = nil
---!Bind
 local _followPlayerButton : UIButton = nil
 --!Bind
 local _xpRequiredLabel : Label = nil
@@ -36,11 +32,7 @@ function self:Awake()
         _root.style.display = DisplayStyle.Flex
         SetName(save.equippedPet)
         local petData = save.pets[save.equippedPet]
-        SetStatus(petData.status)
         SetXp(petData.xp)
-    end)
-    events.SubscribeEvent(events.petStatusUpdated,function(args)
-        SetStatus(save.pets[save.equippedPet].status)
     end)
     _root.style.display = DisplayStyle.None
 end
@@ -51,12 +43,6 @@ end
 
 function SetName(name)
     _nameLabel.text = name
-end
-
-function SetStatus(status)
-    _statusLabel.text = status
-    _statusIcon:EnableInClassList("hungry-status", status == "Hungry")
-    _statusIcon:EnableInClassList("playful-status", status == "Playful")
 end
 
 function SetXp(xp)

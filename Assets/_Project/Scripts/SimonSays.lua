@@ -32,7 +32,7 @@ local stoppingDistance : number = 1
 
 local pet = nil
 local readyToPlayView = nil
-local foodView = nil
+local activityView = nil
 local sequence = nil
 local currentLevelData
 local acceptingInputForStep = nil
@@ -47,8 +47,8 @@ function self:Awake()
     events.SubscribeEvent(events.registerReadyToPlayView,function(args)
         readyToPlayView = args[1]
     end)
-    events.SubscribeEvent(events.registerFoodView,function(args)
-        foodView = args[1]
+    events.SubscribeEvent(events.registerActivityView,function(args)
+        activityView = args[1]
     end)
     events.SubscribeEvent(events.petSpawned,function(args)
         pet = args[1]
@@ -67,12 +67,12 @@ function StartGame()
     readyToPlayView.Hide()
     sequence = {}
     currentLevelData = levelData[save.gameLevels.simonSays]
-    foodView.Show(gameTitle,currentLevelData.xpGained,"Sequences left")
+    activityView.Show(gameTitle,"Easy",currentLevelData.xpGained,"Sequences left")
     PlaySequence()
 end
 
 function FinishGame()
-    foodView.Hide()
+    activityView.Hide()
     readyToPlayView.Hide()
     acceptingInputForStep = nil
     events.InvokeEvent(events.followPlayer)
@@ -96,7 +96,7 @@ function SetProgress()
     local stepsLeft = currentLevelData.stepsRequired - #sequence
     local label = stepsLeft
     local pc = ((currentLevelData.stepsRequired - stepsLeft)/currentLevelData.stepsRequired)
-    foodView.SetProgress(label,pc)
+    activityView.SetProgress(label,pc)
 end
 
 function PlaySequence()

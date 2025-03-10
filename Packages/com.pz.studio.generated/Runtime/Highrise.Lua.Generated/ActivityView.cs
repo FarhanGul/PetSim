@@ -18,9 +18,9 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/FoodView")]
-    [LuaRegisterType(0x23fb246e98b87134, typeof(LuaBehaviour))]
-    public class FoodView : LuaBehaviourThunk
+    [AddComponentMenu("Lua/ActivityView")]
+    [LuaRegisterType(0x261ef16c6f31e355, typeof(LuaBehaviour))]
+    public class ActivityView : LuaBehaviourThunk
     {
         private const string s_scriptGUID = "d45034b0981367748ab6513bcb87009b";
         public override string ScriptGUID => s_scriptGUID;
@@ -39,6 +39,7 @@ namespace Highrise.Lua.Generated
                 CreateSerializedProperty(_script.GetPropertyAt(3), null),
                 CreateSerializedProperty(_script.GetPropertyAt(4), null),
                 CreateSerializedProperty(_script.GetPropertyAt(5), null),
+                CreateSerializedProperty(_script.GetPropertyAt(6), null),
             };
         }
     }

@@ -1,0 +1,68 @@
+Label{
+    font-size: var(--font-size-normal);
+    margin: 0px;
+    padding: 0px;
+    -unity-text-align : middle-center;
+}
+
+.activity-view {
+    align-items: center;
+    padding-top: 36px;
+}
+
+.activity-panel{
+    align-items: center;
+    width: 511px;
+    height: 204px;
+    background-image: url("project://database/Assets/_Project/Sprites/ActivityPanel.png");
+    padding-top: 4px;
+    padding-left: 100px;
+}
+
+#_activityName{
+    position: absolute;
+    bottom: 60px;
+}
+
+#_activitySubtitle{
+    position: absolute;
+    bottom: 8px;
+    padding-left: 8px;
+}
+
+.xp-icon-panel{
+    position: absolute;
+    left: 55px;
+    top: 20px;
+    align-items: center;
+}
+
+#_xpLabel{
+    margin-top: 10px;
+}
+
+#_xpDescriptionLabel, #_xpRewardDescriptionLabel{
+    font-size: var(--font-size-s);
+}
+
+#_xpDescriptionLabel{
+    color: white;
+}
+
+#_xpFill{
+    position: absolute;
+    top : 8px;
+    left: 120px;
+    height: 76px;
+    max-width: 384px;
+    background-image: url("project://database/Assets/_Project/Sprites/ActivityFill.png");
+}
+
+#_xpFillIcon{
+    position: absolute;
+    width: 160px;
+    height: 159px;
+    left: -8px;
+    top:-22px;
+    background-image: url("project://database/Assets/_Project/Sprites/ActivityFillIcon.png");
+}

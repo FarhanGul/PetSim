@@ -7,14 +7,16 @@
     xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
 >
 
-  <hr:UILuaView name="_root" class="food-view" picking-mode="Ignore">
+  <hr:UILuaView name="_root" class="activity-view" picking-mode="Ignore">
     <Style src="Variables.uss" />
-    <VisualElement class="food-panel">
+    <VisualElement class="activity-panel">
       <VisualElement name="_xpFill"></VisualElement>
-      <Label name="_foodName" text="Turnip"/>
+      <VisualElement name="_xpFillIcon"></VisualElement>
       <Label name="_xpLabel" text="59 s"/>
       <Label name="_xpDescriptionLabel" text="Time Remaining"/>
-      <VisualElement class="absolute-layout">
+      <Label name="_activityName" text="Turnip"/>
+      <Label name="_activitySubtitle"/>
+      <VisualElement class="xp-icon-panel">
         <Label name="_xpReward" text="300"/>
         <Label name="_xpRewardDescriptionLabel" text="XP"/>
       </VisualElement>

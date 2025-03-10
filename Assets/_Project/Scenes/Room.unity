@@ -3304,7 +3304,7 @@ GameObject:
   - component: {fileID: 926201261}
   - component: {fileID: 926201262}
   m_Layer: 0
-  m_Name: FoodView
+  m_Name: ActivityView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

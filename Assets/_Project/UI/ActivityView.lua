@@ -9,24 +9,27 @@ local _xpLabel : Label = nil
 --!Bind
 local _xpDescriptionLabel : Label = nil
 --!Bind
-local _foodName : Label = nil
+local _activityName : Label = nil
+--!Bind
+local _activitySubtitle : Label = nil
 --!Bind
 local _xpReward : Label = nil
 --!Bind
 local _xpFill : VisualElement = nil
 
 function self:Start()
-    events.InvokeEvent(events.registerFoodView,self)
+    events.InvokeEvent(events.registerActivityView,self)
     Hide()
 end
 
 function SetProgress(label,pc)
     _xpLabel.text = label
-    _xpFill.style.width = StyleLength.new(Length.Percent(pc*70))
+    _xpFill.style.width = StyleLength.new(Length.Percent(pc*100))
 end
 
-function Show(name,xpGained,xpDescription)
-    _foodName.text = name
+function Show(name,subtitle,xpGained,xpDescription)
+    _activityName.text = name
+    _activitySubtitle.text = subtitle
     _xpReward.text = xpGained
     _xpDescriptionLabel.text = xpDescription
     _root:SetDisplay(true)
