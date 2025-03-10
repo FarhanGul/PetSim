@@ -1102,6 +1102,7 @@ MonoBehaviour:
   _uiOutput: 0
   _uiOutputSettings:
     rid: -2
+  m_rarity: Common
   m_xpGained: 90
   m_stepsRequired: 6
   m_pulseObjects:

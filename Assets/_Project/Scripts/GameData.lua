@@ -30,7 +30,7 @@ speeds = {
 foods = {
     turnip = {
         name = "Turnip",
-        timeRequiredToConsume = 4000,
+        timeRequiredToConsume = 8,
         xpGained = 8,
         rarity = "Common"
     },
@@ -43,5 +43,5 @@ foods = {
 }
 
 debug = {
-    skipDialogue = true
+    skipDialogue = false
 }

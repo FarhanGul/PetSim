@@ -4,7 +4,7 @@ local data = require("GameData")
 local helper = require("Helper")
 
 coins = 100
-currentObjective = "firstEgg"
+currentObjective = "introDialogue"
 pets = {}
 equippedPet = nil
 discoveredObjectIds = {}

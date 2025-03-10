@@ -10,6 +10,6 @@ end
 
 function Initialize()
     for i = 1, #save.discoveredAnimationIds do
-        self.transform:Find(save.discoveredAnimationIds[i]):GetComponent(Animator):SetBool("Override",true)
+        self.transform:Find(save.discoveredAnimationIds[i]):GetComponent(Animator):SetBool("Discovered",true)
     end
 end
