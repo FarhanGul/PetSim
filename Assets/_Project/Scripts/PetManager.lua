@@ -7,24 +7,32 @@ local save = require("SaveManager")
 --!SerializeField
 local petPrefabs : { GameObject } = {}
 
+local activePet : Pet = nil
+
 function self:Awake()
-    events.SubscribeEvent(events.newPet,function(args)
+    events.SubscribeEvent(events.spawnPet,function(args)
         Spawn(args[1])
     end)
 end
 
 function self:Start()
     if(save.equippedPet ~= nil) then
-        Spawn(Vector3.zero)
+        Spawn(client.localPlayer.character.transform.position + Vector3.forward * 2)
     end
 end
 
 function Spawn(position)
+    if(position == nil) then
+        position = activePet.transform.position
+    end
+    if(activePet ~= nil) then
+        GameObject.Destroy(activePet.gameObject)
+    end
     local perfab = GetPrefabFromName(save.equippedPet)
-    local pet = Object.Instantiate(perfab):GetComponent(Pet)
-    pet.transform.position = position
-    pet.name = perfab.name
-    events.InvokeEvent(events.petSpawned,pet)
+    activePet = Object.Instantiate(perfab):GetComponent(Pet)
+    activePet.transform.position = position
+    activePet.name = perfab.name
+    events.InvokeEvent(events.petSpawned,activePet)
 end
 
 function GetPrefabFromName(name)

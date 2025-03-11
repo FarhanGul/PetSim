@@ -44,7 +44,7 @@ function self:Awake()
         pet = args[1]
     end)
     events.SubscribeEvent(events.petTargetUpdated,function(args)
-        OnPetTargetUpdated()
+        FinishGame()
     end)
     tapHandler.Tapped:Connect(function() 
         if(pet ~= nil) then
@@ -84,10 +84,6 @@ end
 
 function OnHelp()
     Chat:DisplayChatBubble(self.transform,gameDescription,"Rules")
-end
-
-function OnPetTargetUpdated()
-    FinishGame()
 end
 
 function SetProgress()

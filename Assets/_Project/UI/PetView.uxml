@@ -9,6 +9,7 @@
 
   <hr:UILuaView name="_root" class="pet-view" picking-mode="Ignore">
     <Style src="Variables.uss" />
+    <hr:UIButton name="_petSwitchButton"></hr:UIButton>
     <hr:UIButton name="_followPlayerButton"></hr:UIButton>
     <VisualElement class="pet-panel">
       <VisualElement class="attributes-panel">

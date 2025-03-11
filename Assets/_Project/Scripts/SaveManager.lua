@@ -36,10 +36,15 @@ function AddPetXp(delta)
     events.InvokeEvent(events.petXpUpdated)
 end
 
+function ChangePet(petName)
+    equippedPet = petName
+    events.InvokeEvent(events.spawnPet,nil)
+end
+
 function NewPet(petName,spawnPosition)
     pets[petName] = PetData()
     equippedPet = petName
-    events.InvokeEvent(events.newPet,spawnPosition)
+    events.InvokeEvent(events.spawnPet,spawnPosition)
 end
 
 function PetData()

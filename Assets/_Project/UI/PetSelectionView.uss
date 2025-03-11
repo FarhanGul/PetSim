@@ -1,0 +1,41 @@
+Label{
+    font-size: var(--font-size-normal);
+}
+
+.pet-selection {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: row;
+    padding-bottom: 160px;
+}
+
+.container{
+    flex-direction: row;
+}
+
+#_leftButton{
+    background-color: rgba(0, 0, 0, 0);
+    width: 107px;
+    height: 107px;
+    background-image: url("project://database/Assets/_Project/Sprites/NavigationButton.png");
+}
+
+#_rightButton{
+    background-color: rgba(0, 0, 0, 0);
+    width: 107px;
+    height: 107px;
+    background-image: url("project://database/Assets/_Project/Sprites/NavigationButton.png");
+    rotate: 180deg;
+}
+
+.pet-switcher-panel{
+    margin-top: 16px;
+    width: 509px;
+    height: 94px;
+    background-image: url("project://database/Assets/_Project/Sprites/PetSwitcherPanel.png");
+    align-items: center;
+    justify-content: center;
+}

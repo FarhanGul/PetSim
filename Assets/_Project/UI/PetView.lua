@@ -2,6 +2,7 @@
 local xpSystem = require("XpSystem")
 local events = require("EventManager")
 local save = require("SaveManager")
+local helper = require("Helper")
 
 --!Bind
 local _root : VisualElement = nil
@@ -9,6 +10,8 @@ local _root : VisualElement = nil
 local _nameLabel : Label = nil
 --!Bind
 local _followPlayerButton : UIButton = nil
+--!Bind
+local _petSwitchButton : UIButton = nil
 --!Bind
 local _xpRequiredLabel : Label = nil
 --!Bind
@@ -22,6 +25,9 @@ local xpView
 
 function self:Awake()
     xpView = xpSystem.new(_xpFill,_xpRequiredLabel,_xpDescriptionLabel,_ageLabel)
+    _petSwitchButton:RegisterPressCallback(function()
+        events.InvokeEvent(events.petSwitcherOpened)
+    end)
     _followPlayerButton:RegisterPressCallback(function()
         events.InvokeEvent(events.followPlayer)
     end)
@@ -33,12 +39,13 @@ function self:Awake()
         SetName(save.equippedPet)
         local petData = save.pets[save.equippedPet]
         SetXp(petData.xp)
+        SetSwitchButtonVisiblity()
     end)
-    _root.style.display = DisplayStyle.None
 end
 
 function self:Start()
     _root.style.display = (save.equippedPet == nil) and DisplayStyle.None or DisplayStyle.Flex
+    SetSwitchButtonVisiblity()
 end
 
 function SetName(name)
@@ -47,4 +54,8 @@ end
 
 function SetXp(xp)
     xpView.Update(xp)
+end
+
+function SetSwitchButtonVisiblity()
+    _petSwitchButton.style.display = helper.GetTableLength(save.pets) >= 2 and DisplayStyle.Flex or DisplayStyle.None
 end

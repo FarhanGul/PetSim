@@ -22,6 +22,16 @@ Label{
     background-image: url("project://database/Assets/_Project/Sprites/FollowPlayerButton.png");
 }
 
+#_petSwitchButton{
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    left: 32px;
+    bottom: 24px;
+    width: 107px;
+    height: 107px;
+    background-image: url("project://database/Assets/_Project/Sprites/PetSwitchButton.png");
+}
+
 #_followPlayerButton.in-active
 {
     --unity-background-image-tint-color : rgba(255, 255, 255, 0.5);

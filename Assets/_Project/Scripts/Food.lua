@@ -25,9 +25,6 @@ function self:Awake()
     events.SubscribeEvent(events.petTargetUpdated,function(args)
         StopEating()
     end)
-    events.SubscribeEvent(events.gameStart,function(args)
-        amount = foodData.timeRequiredToConsume
-    end)
     events.SubscribeEvent(events.registerActivityView,function(args)
         activityView = args[1]
     end)
@@ -50,6 +47,7 @@ function Eat()
 end
 
 function StartEating()
+    amount = foodData.timeRequiredToConsume
     activityView.Show(foodData.name,foodData.rarity,foodData.xpGained,"Time Remaining")
     SetProgress()
     eat:Start()
