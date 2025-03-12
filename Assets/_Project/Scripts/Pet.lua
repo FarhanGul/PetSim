@@ -4,18 +4,21 @@ local save = require("SaveManager")
 local data = require("GameData")
 
 local followDistance = 2; 
-local followPlayer = true
+local followPlayer
 local stoppingDistance = nil
 local moveToTarget = nil
 local onReachedTarget = nil
 
 function self:Awake()
-    events.SubscribeEvent(events.followPlayer,function(args)
-        if(not followPlayer)then
-            followPlayer = true;
-            events.InvokeEvent(events.petTargetUpdated)
+    events.SubscribeEvent(events.petTargetUpdated,function(args)
+        if(args[1] ~= nil)then
+            followPlayer = args[1];
         end
     end)
+end
+
+function self:Start()
+    events.InvokeEvent(events.petTargetUpdated,true)
 end
 
 function self:Update()

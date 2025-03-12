@@ -42,6 +42,7 @@ function Eat()
         save.AddPetXp(foodData.xpGained)
         save.AddDiscoveredObject(self.gameObject.name)
         GameObject.Destroy(self.gameObject)
+        events.InvokeEvent(events.petTargetUpdated,true)
         StopEating()
     end
 end

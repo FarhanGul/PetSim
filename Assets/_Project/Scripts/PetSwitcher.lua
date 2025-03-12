@@ -14,13 +14,15 @@ function self:Awake()
         Show()
     end)
     events.SubscribeEvent(events.petTargetUpdated,function(args)
-        Hide()
+        if(args[1] == nil) then
+            Hide()
+        end
     end)
 end
 
 function Show()
     if(not petSelectionView.IsDisplayed()) then
-        events.InvokeEvent(events.petTargetUpdated)
+        events.InvokeEvent(events.petTargetUpdated,true)
         petSelectionView.Show(PreviousPet,NextPet)
         petNames = {}
         table.insert(petNames,save.equippedPet)

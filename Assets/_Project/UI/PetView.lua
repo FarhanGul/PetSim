@@ -22,14 +22,20 @@ local _xpFill : VisualElement = nil
 local _ageLabel : Label = nil
 
 local xpView
+local isPetFollowingPlayer
+local petSelectionView
 
 function self:Awake()
     xpView = xpSystem.new(_xpFill,_xpRequiredLabel,_xpDescriptionLabel,_ageLabel)
     _petSwitchButton:RegisterPressCallback(function()
-        events.InvokeEvent(events.petSwitcherOpened)
+        if(petSelectionView.IsDisplayed()) then
+            petSelectionView.Hide()
+        else
+            events.InvokeEvent(events.petSwitcherOpened)
+        end
     end)
     _followPlayerButton:RegisterPressCallback(function()
-        events.InvokeEvent(events.followPlayer)
+        events.InvokeEvent(events.petTargetUpdated,true)
     end)
     events.SubscribeEvent(events.petXpUpdated,function(args)
         SetXp(save.pets[save.equippedPet].xp)
@@ -39,13 +45,18 @@ function self:Awake()
         SetName(save.equippedPet)
         local petData = save.pets[save.equippedPet]
         SetXp(petData.xp)
-        SetSwitchButtonVisiblity()
+    end)
+    events.SubscribeEvent(events.petTargetUpdated,function(args)
+        isPetFollowingPlayer = args[1] ~= nil
+        SetDynamicButtonState()
+    end)
+    events.SubscribeEvent(events.registerPetSelectionView,function(args)
+        petSelectionView = args[1]
     end)
 end
 
 function self:Start()
     _root.style.display = (save.equippedPet == nil) and DisplayStyle.None or DisplayStyle.Flex
-    SetSwitchButtonVisiblity()
 end
 
 function SetName(name)
@@ -56,6 +67,7 @@ function SetXp(xp)
     xpView.Update(xp)
 end
 
-function SetSwitchButtonVisiblity()
-    _petSwitchButton.style.display = helper.GetTableLength(save.pets) >= 2 and DisplayStyle.Flex or DisplayStyle.None
+function SetDynamicButtonState()
+    _followPlayerButton:SetDisplay(not isPetFollowingPlayer)
+    _petSwitchButton.style.display = (isPetFollowingPlayer and helper.GetTableLength(save.pets) >= 2 ) and DisplayStyle.Flex or DisplayStyle.None
 end
