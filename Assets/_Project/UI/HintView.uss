@@ -1,0 +1,19 @@
+#_root {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: row;
+    padding-bottom: 140px;
+}
+
+#_hintButton{
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    left: 32px;
+    bottom: 24px;
+    width: 107px;
+    height: 107px;
+    background-image: url("project://database/Assets/_Project/Sprites/HintButton.png");
+}

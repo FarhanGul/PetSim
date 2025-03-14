@@ -1,12 +1,13 @@
 --!Type(Module)
 
 objectives = {
-    { key = "introDialogue", text = "Talk to the island resident" },
-    { key = "firstEgg", text = "Find the hidden egg" },
-    { key = "firstFeed", text = "Your pet is hungry, find some food" },
-    { key = "firstPlay", text = "Your pet is now full and wants to play" },
-    { key = "evolvePet", text = "Take care of Axolotl until it can be on its own" },
-    { key = "petJournal", text = "Talk to max" },
+    { key = "introDialogue", text = "I should go talk to the island resident, he would know where all the exotic creatures are" },
+    { key = "firstEgg", text = "Max said the egg is hidden behind one of these rocks" },
+    { key = "firstFeed", text = "Axolotl is hungry, I should feed it some plants" },
+    { key = "firstPlay", text = "Axolotl looks bored, I better find something it can play with" },
+    { key = "completeDay1", text = "I should explore what other treats and toys the island has to offer" },
+    { key = "sleepDay1", text = "That was a long day, I'll should head off to sleep now" },
+    { key = "Day2StartDialogue", text = "Maybe max knows what is going on" },
 }
 
 cost = {
@@ -25,6 +26,12 @@ firstfeedObjectiveXpRequirement = 16
 
 speeds = {
     pet = 5
+}
+
+totalPets = 3
+
+discoveries = {
+    starter = 6,
 }
 
 foods = {

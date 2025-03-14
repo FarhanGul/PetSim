@@ -1,0 +1,27 @@
+#_root {
+    position: absolute;
+    right: 24px;
+    top:-28px;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel{
+    padding-top: 60px;
+    width: 200px;
+    height: 145px;
+    background-image: url("project://database/Assets/_Project/Sprites/PetsSavedPanel.png");
+    align-items: center;
+    justify-content: center;
+}
+
+Label{
+    font-size: var(--font-size-normal);
+    color: white;
+    white-space: normal;
+    -unity-text-align: middle-center;
+}
+
+#_progress{
+    color: #3B7097;
+}

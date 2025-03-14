@@ -23,10 +23,6 @@ function self:Awake()
             dialogue.NpcSays("They need care before they can be on their own")
             dialogue.NpcSays("I'm pretty sure I saw an egg hidden behind one of those rocks")
         end)
-        Scenerio("firstPetHatchedDialogue",function(dialogue)
-            dialogue.NpcSays("Oh look what you found, isn't it adorable!")
-            dialogue.NpcSays("It is hungry, feed it some turnips")
-        end)
     end)
 end
 

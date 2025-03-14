@@ -1,0 +1,24 @@
+#_root {
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.panel{
+    width: 523px;
+    height: 105px;
+    background-image: url("project://database/Assets/_Project/Sprites/DiscoveriesPanel.png");
+    align-items: center;
+    justify-content: center;
+}
+
+Label{
+    font-size: var(--font-size-normal);
+    color: white;
+    white-space: normal;
+    -unity-text-align: middle-center;
+}
+
+#_progress{
+    color: #3B7097;
+}

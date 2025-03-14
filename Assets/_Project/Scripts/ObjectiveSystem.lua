@@ -5,8 +5,6 @@ local data = require("GameData")
 local save = require("SaveManager")
 local helper = require("Helper")
 
---!SerializeField
-local view : ObjectiveView = nil
 
 function self:Awake()
     events.SubscribeEvent(events.objectiveCompleted,UpdateView)
@@ -14,5 +12,5 @@ function self:Awake()
 end
 
 function UpdateView(args)
-    view.Set(helper.GetValue(data.objectives,save.currentObjective).text)
+    local hint = helper.GetValue(data.objectives,save.currentObjective).text
 end

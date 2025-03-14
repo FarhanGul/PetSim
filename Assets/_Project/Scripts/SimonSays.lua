@@ -154,7 +154,9 @@ function LevelComplete()
     tapHandler.enabled = false
     animator:SetBool("Discovered",true)
     save.AddPetXp(xpGained)
+    save.AddDiscoveredObject(self.gameObject.name)
     events.InvokeEvent(events.petTargetUpdated,true)
+    events.InvokeEvent(events.gameFinished)
     FinishGame()
 end
 
