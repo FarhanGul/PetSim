@@ -9,6 +9,7 @@ pets = {}
 equippedPet = nil
 discoveredObjectIds = {}
 discoveredAnimationIds = {}
+day = 1
 
 function LoadGame(onGameLoaded)
     onGameLoaded()
