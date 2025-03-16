@@ -39,6 +39,4 @@ registerPetSelectionView = "registerPetSelectionView" -- petSelectionView
 petTargetUpdated = "petTargetUpdated" -- followPlayer
 simonSayTrigger = "simonSayTrigger" -- triggerId
 petSwitcherOpened = "petSwitcherOpened"
-foodConsumed = "foodConsumed"
-gameFinished = "gameFinished"
-eggHatched = "eggHatched"
+newDiscovery = "newDiscovery"

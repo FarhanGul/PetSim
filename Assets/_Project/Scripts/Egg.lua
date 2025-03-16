@@ -26,7 +26,7 @@ function Hatch()
             events.InvokeEvent(events.objectiveCompleted)
         end)
     end
-    events.InvokeEvent(events.eggHatched)
+    events.InvokeEvent(events.newDiscovery)
     Destroy()
 end
 

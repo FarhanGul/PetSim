@@ -156,7 +156,7 @@ function LevelComplete()
     save.AddPetXp(xpGained)
     save.AddDiscoveredObject(self.gameObject.name)
     events.InvokeEvent(events.petTargetUpdated,true)
-    events.InvokeEvent(events.gameFinished)
+    events.InvokeEvent(events.newDiscovery)
     FinishGame()
 end
 

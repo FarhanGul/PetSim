@@ -16,6 +16,7 @@ function self:Awake()
         -- Invoke DayManager that will setup island
     end)
     events.SubscribeEvent(events.gameStart,Update)
+    events.SubscribeEvent(events.newDiscovery,Update)
 end
 
 function Update()

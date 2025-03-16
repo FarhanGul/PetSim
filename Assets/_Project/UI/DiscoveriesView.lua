@@ -8,9 +8,7 @@ local _progress : Label = nil
 
 function self:Awake()
     events.SubscribeEvent(events.gameStart,UpdateProgress)
-    events.SubscribeEvent(events.foodConsumed,UpdateProgress)
-    events.SubscribeEvent(events.gameFinished,UpdateProgress)
-    events.SubscribeEvent(events.eggHatched,UpdateProgress)
+    events.SubscribeEvent(events.newDiscovery,UpdateProgress)
 end
 
 function UpdateProgress()
