@@ -13,7 +13,7 @@ local _sleepButton : UIButton = nil
 
 function self:Awake()
     _sleepButton:RegisterPressCallback(function()
-        -- Invoke DayManager that will setup island
+        events.InvokeEvent(events.nextDay)
     end)
     events.SubscribeEvent(events.gameStart,Update)
     events.SubscribeEvent(events.newDiscovery,Update)

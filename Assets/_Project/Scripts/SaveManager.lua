@@ -3,7 +3,7 @@ local events = require("EventManager")
 local data = require("GameData")
 local helper = require("Helper")
 
-coins = 100
+-- NOTE : Make sure to update GameLauncher when updating save data
 currentObjective = "introDialogue"
 pets = {}
 equippedPet = nil
@@ -11,41 +11,51 @@ discoveredObjectIds = {}
 discoveredAnimationIds = {}
 day = 1
 
-function LoadGame(onGameLoaded)
-    onGameLoaded()
-end
-
-function SetCoins(newValue)
-    coins = newValue
-    events.InvokeEvent(events.currencyUpdated)
+function NextDay()
+    day += 1
+    events.InvokeEvent(events.saveGame)
 end
 
 function AddDiscoveredObject(objectId)
     table.insert(discoveredObjectIds,objectId)
+    events.InvokeEvent(events.saveGame)
 end
 
 function AddDiscoveredAnimation(animationId)
     table.insert(discoveredAnimationIds,animationId)
+    events.InvokeEvent(events.saveGame)
 end
 
 function AddPetXp(delta)
     local pet = pets[equippedPet]
     pet.xp += delta
+    events.InvokeEvent(events.petXpUpdated)
     if(pet.xp >= data.firstfeedObjectiveXpRequirement)then
         CompleteObjective("firstFeed")
+    else
+        events.InvokeEvent(events.saveGame)
     end
-    events.InvokeEvent(events.petXpUpdated)
 end
 
 function ChangePet(petName)
     equippedPet = petName
     events.InvokeEvent(events.spawnPet,nil)
+    events.InvokeEvent(events.saveGame)
 end
 
 function NewPet(petName,spawnPosition)
     pets[petName] = PetData()
     equippedPet = petName
     events.InvokeEvent(events.spawnPet,spawnPosition)
+    events.InvokeEvent(events.saveGame)
+end
+
+function CompleteObjective(objective)
+    if(currentObjective == objective)then
+        currentObjective = helper.GetNextKey(data.objectives,objective)
+        events.InvokeEvent(events.objectiveCompleted)
+        events.InvokeEvent(events.saveGame)
+    end
 end
 
 function PetData()
@@ -54,9 +64,3 @@ function PetData()
     return this
 end
 
-function CompleteObjective(objective)
-    if(currentObjective == objective)then
-        currentObjective = helper.GetNextKey(data.objectives,objective)
-        events.InvokeEvent(events.objectiveCompleted)
-    end
-end

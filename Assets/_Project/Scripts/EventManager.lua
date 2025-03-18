@@ -40,3 +40,6 @@ petTargetUpdated = "petTargetUpdated" -- followPlayer
 simonSayTrigger = "simonSayTrigger" -- triggerId
 petSwitcherOpened = "petSwitcherOpened"
 newDiscovery = "newDiscovery"
+saveGame = "saveGame"
+nextDay = "nextDay"
+localPlayerTeleported = "localPlayerTeleported"

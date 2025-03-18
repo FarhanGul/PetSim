@@ -10,6 +10,8 @@ objectives = {
     { key = "Day2StartDialogue", text = "Maybe max knows what is going on" },
 }
 
+totalDays = 2
+
 cost = {
     egg = 2000,
     petFood = 50,

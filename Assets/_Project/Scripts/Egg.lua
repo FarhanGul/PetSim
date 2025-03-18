@@ -18,12 +18,11 @@ function Hatch()
     save.NewPet(petPrefab.name,self.transform.position)
     save.AddDiscoveredObject(self.gameObject.name)
     if(save.currentObjective == "firstEgg")then
-        save.currentObjective = helper.GetNextKey(data.objectives,"firstEgg")
         local dialogue = dialogueManager.Create()
         dialogue.PlayerSays("Oh aren't you adorable!")
         dialogue.PlayerSays("I'll call you axolotl")
         dialogue.Start(function()
-            events.InvokeEvent(events.objectiveCompleted)
+            save.CompleteObjective("firstEgg")
         end)
     end
     events.InvokeEvent(events.newDiscovery)
