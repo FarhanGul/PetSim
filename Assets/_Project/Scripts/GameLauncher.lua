@@ -2,6 +2,7 @@
 local events = require("EventManager")
 local save = require("SaveManager")
 local data = require("GameData")
+local sceneLoader = require("CustomSceneLoader")
 
 local saveFileName = "SaveFile"
 local gameStartResponse = Event.new("gameStartResponse")
@@ -19,7 +20,6 @@ end
 
 function self:ClientStart()
     getSaveRequest:FireServer()
-
 end
 
 function self:ServerAwake()
@@ -46,9 +46,7 @@ function ClientLoadGame(saveData)
     save.discoveredObjectIds = saveData.discoveredObjectIds
     save.discoveredAnimationIds = saveData.discoveredAnimationIds
     save.day = saveData.day
-    events.InvokeEvent(events.gameStart)
-    events.InvokeEvent(events.lateGameStart)
-    print("<color=purple>Client recieved save file</color>")
+    sceneLoader.SendMovePlayerToSceneRequest(saveData.day-1)
 end
 
 function GetSaveData()

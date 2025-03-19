@@ -17,9 +17,11 @@ local _xpReward : Label = nil
 --!Bind
 local _xpFill : VisualElement = nil
 
-function self:Start()
-    events.InvokeEvent(events.registerActivityView,self)
-    Hide()
+function self:Awake()
+    events.SubscribeEvent(events.gameStart,function(args)
+        events.InvokeEvent(events.registerActivityView,self)
+        Hide()
+    end)
 end
 
 function SetProgress(label,pc)

@@ -14,7 +14,7 @@ function self:Awake()
         DisplayHint()
     end)
     events.SubscribeEvent(events.objectiveCompleted,DisplayHint)
-    -- events.SubscribeEvent(events.localPlayerTeleported,DisplayHint)
+    events.SubscribeEvent(events.gameStart,DisplayHint)
 end
 
 function Hide()
@@ -22,7 +22,6 @@ function Hide()
 end
 
 function DisplayHint()
-    print("Display Hint")
     if(save.currentObjective == nil) then
         Hide()
     else

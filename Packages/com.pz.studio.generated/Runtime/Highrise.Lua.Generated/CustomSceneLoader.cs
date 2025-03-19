@@ -18,11 +18,11 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/DiscoveredObjectManager")]
-    [LuaRegisterType(0x30254fbc43949633, typeof(LuaBehaviour))]
-    public class DiscoveredObjectManager : LuaBehaviourThunk
+    [AddComponentMenu("Lua/CustomSceneLoader")]
+    [LuaRegisterType(0xcafaaecc0e557ad9, typeof(LuaBehaviour))]
+    public class CustomSceneLoader : LuaBehaviourThunk
     {
-        private const string s_scriptGUID = "012f38c9317a7464d8ccfff4e726c0cc";
+        private const string s_scriptGUID = "0b292648fa94d8d4eb9a9891ceb87892";
         public override string ScriptGUID => s_scriptGUID;
 
 

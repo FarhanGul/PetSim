@@ -10,15 +10,18 @@ local petPrefabs : { GameObject } = {}
 local activePet : Pet = nil
 
 function self:Awake()
+    events.SubscribeEvent(events.gameStart,function(args)
+        if(save.equippedPet ~= nil) then
+            Spawn(client.localPlayer.character.transform.position + Vector3.forward * 2)
+        end
+    end)
     events.SubscribeEvent(events.spawnPet,function(args)
         Spawn(args[1])
     end)
 end
 
-function self:Start()
-    if(save.equippedPet ~= nil) then
-        Spawn(client.localPlayer.character.transform.position + Vector3.forward * 2)
-    end
+function self:OnDestroy()
+    activePet = nil
 end
 
 function Spawn(position)

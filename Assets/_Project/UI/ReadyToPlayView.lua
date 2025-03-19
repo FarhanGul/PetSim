@@ -12,12 +12,13 @@ local _helpButton : UIButton = nil
 local onPlay
 local onHelp
 
-
-function self:Start()
-    events.InvokeEvent(events.registerReadyToPlayView,self)
+function self:Awake()
     _playButton:RegisterPressCallback(function() onPlay() end)
     _helpButton:RegisterPressCallback(function() onHelp() end)
-    Hide()
+    events.SubscribeEvent(events.gameStart,function(args)
+        events.InvokeEvent(events.registerReadyToPlayView,self)
+        Hide()
+    end)
 end
 
 function Show(onPlayCallback,onHelpCallback)

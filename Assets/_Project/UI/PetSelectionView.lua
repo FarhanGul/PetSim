@@ -16,15 +16,17 @@ local _scollProgress : Label = nil
 local onLeft
 local onRight
 
-function self:Start()
-    events.InvokeEvent(events.registerPetSelectionView,self)
+function self:Awake()
     _leftButton:RegisterPressCallback(function() 
         onLeft() 
     end)
     _rightButton:RegisterPressCallback(function() 
         onRight() 
     end)
-    Hide()
+    events.SubscribeEvent(events.gameStart,function(args)
+        events.InvokeEvent(events.registerPetSelectionView,self)
+        Hide()
+    end)
 end
 
 function Show(onLeftCallback,onRightCallback)

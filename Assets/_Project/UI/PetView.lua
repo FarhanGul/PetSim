@@ -53,10 +53,9 @@ function self:Awake()
     events.SubscribeEvent(events.registerPetSelectionView,function(args)
         petSelectionView = args[1]
     end)
-end
-
-function self:Start()
-    _root.style.display = (save.equippedPet == nil) and DisplayStyle.None or DisplayStyle.Flex
+    events.SubscribeEvent(events.gameStart,function(args)
+        _root.style.display = (save.equippedPet == nil) and DisplayStyle.None or DisplayStyle.Flex
+    end)
 end
 
 function SetName(name)
