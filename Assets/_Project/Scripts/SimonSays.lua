@@ -8,8 +8,6 @@ local audio = require("AudioManager")
 --!SerializeField
 local rarity : string = "Common"
 --!SerializeField
-local xpGained :number = 90
---!SerializeField
 local stepsRequired : number = 6
 --!SerializeField
 local pulseObjects : { GameObject } = {}
@@ -27,8 +25,10 @@ local sequence = nil
 local acceptingInputForStep = nil
 local animator : Animator
 local tapHandler : TapHandler
+local xpGained 
 
 function self:Awake()
+    xpGained = stepsRequired * 10
     animator = self.gameObject:GetComponent(Animator)
     tapHandler = self.gameObject:GetComponent(TapHandler)
     events.SubscribeEvent(events.simonSayTrigger,function(args)

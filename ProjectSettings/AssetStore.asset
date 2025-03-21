@@ -472,3 +472,87 @@ MonoBehaviour:
     - 62c7ed5ed5478c44a9e101b871626e23
     - 7238554189bdaa74d884bcaf715cb1e0
     IsBundle: 0
+  - Guid: d0879a74b7c68af4481c8f3a9855de06
+    StoreId: 66269aa2486f5fbcfabe6630
+    Name: Rocks 05
+    ThumbnailUrl: https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269aa2486f5fbcfabe6630/18f06ceb468_0.jpg
+    AdditionalImageUrls:
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269aa2486f5fbcfabe6630/18f06cea0e0_0.jpg
+    AdditionalAssetGUIDs:
+    - d0879a74b7c68af4481c8f3a9855de06
+    - 7cad33aafac861c45ac43bd7b6274dd4
+    - 5f34ab98f76b64b46a21be8918d4691c
+    - f8703c1a1d297b9438fe6786e329f91e
+    IsBundle: 0
+  - Guid: c23ce0377bc94ad49ad58c4e56e884a4
+    StoreId: 66269ab8486f5fbcfabe6632
+    Name: Rocks 06
+    ThumbnailUrl: https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269ab8486f5fbcfabe6632/18f06cf48d8_0.jpg
+    AdditionalImageUrls:
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269ab8486f5fbcfabe6632/18f06cf2d80_0.jpg
+    AdditionalAssetGUIDs:
+    - c23ce0377bc94ad49ad58c4e56e884a4
+    - 4479d3a093edb79418c7def74f724003
+    - 7cad33aafac861c45ac43bd7b6274dd4
+    - 5f34ab98f76b64b46a21be8918d4691c
+    IsBundle: 0
+  - Guid: 445e901a89e5726409daee539a3eb297
+    StoreId: 66269b8f486f5fbcfabe6634
+    Name: Rocks 07
+    ThumbnailUrl: https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269b8f486f5fbcfabe6634/18f06cfcda8_0.jpg
+    AdditionalImageUrls:
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269b8f486f5fbcfabe6634/18f06cfbe08_0.jpg
+    AdditionalAssetGUIDs:
+    - 445e901a89e5726409daee539a3eb297
+    - 7cad33aafac861c45ac43bd7b6274dd4
+    - 4b1ff0ab6387aa04b8e87cbcfc6f0924
+    - 5f34ab98f76b64b46a21be8918d4691c
+    IsBundle: 0
+  - Guid: 57236868c526e9b47aea3d7cd515a49c
+    StoreId: 66269a98486f5fbcfabe662e
+    Name: Rocks 04
+    ThumbnailUrl: https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269a98486f5fbcfabe662e/18f06cdf8e8_0.jpg
+    AdditionalImageUrls:
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269a98486f5fbcfabe662e/18f06cde948_0.jpg
+    AdditionalAssetGUIDs:
+    - 57236868c526e9b47aea3d7cd515a49c
+    - cb42da2381230ee4e894953dcefd73a3
+    - 7cad33aafac861c45ac43bd7b6274dd4
+    - 5f34ab98f76b64b46a21be8918d4691c
+    IsBundle: 0
+  - Guid: fa0cf425ec70bdd4ab6e90468e4f57a8
+    StoreId: 66269a52486f5fbcfabe6628
+    Name: Rocks 01
+    ThumbnailUrl: https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269a52486f5fbcfabe6628/18f06ccace0_0.jpg
+    AdditionalImageUrls:
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269a52486f5fbcfabe6628/18f06cc9d40_0.jpg
+    AdditionalAssetGUIDs:
+    - fa0cf425ec70bdd4ab6e90468e4f57a8
+    - 7cad33aafac861c45ac43bd7b6274dd4
+    - 9b295625730d37447baec720941b1fec
+    - 5f34ab98f76b64b46a21be8918d4691c
+    IsBundle: 0
+  - Guid: e7ce2ee17ad381d49abbdcb15d221d0f
+    StoreId: 66269a5c486f5fbcfabe662a
+    Name: Rocks 02
+    ThumbnailUrl: https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269a5c486f5fbcfabe662a/18f06cd7be8_0.jpg
+    AdditionalImageUrls:
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269a5c486f5fbcfabe662a/18f06cd5ca8_0.jpg
+    AdditionalAssetGUIDs:
+    - e7ce2ee17ad381d49abbdcb15d221d0f
+    - 7cad33aafac861c45ac43bd7b6274dd4
+    - 5f34ab98f76b64b46a21be8918d4691c
+    - 1e0cd16ea339b8544ab699ee6353a990
+    IsBundle: 0
+  - Guid: 71fad4e2517f71b488d197ae2b14fe20
+    StoreId: 66269a65486f5fbcfabe662c
+    Name: Rocks 03
+    ThumbnailUrl: https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269a65486f5fbcfabe662c/18f06cdcdf0_0.jpg
+    AdditionalImageUrls:
+    - https://d4v5j9dz6t9fz.cloudfront.net/web_uploads/world_builder_assets/647622d2106a74bac609d8ea/66269a65486f5fbcfabe662c/18f06cdbe50_0.jpg
+    AdditionalAssetGUIDs:
+    - 71fad4e2517f71b488d197ae2b14fe20
+    - 53bd6566115bdbd44948f3a0f59dfd73
+    - 7cad33aafac861c45ac43bd7b6274dd4
+    - 5f34ab98f76b64b46a21be8918d4691c
+    IsBundle: 0
