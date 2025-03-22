@@ -47,7 +47,7 @@ function self:Awake()
         FinishGame()
     end)
     tapHandler.Tapped:Connect(function() 
-        if(pet ~= nil) then
+        if(pet ~= nil and save.canPlay) then
             pet.MoveTo(self.transform,stoppingDistance,Show)
         end
     end)

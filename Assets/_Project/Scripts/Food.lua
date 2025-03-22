@@ -29,7 +29,7 @@ function self:Awake()
         activityView = args[1]
     end)
     self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
-        if(pet ~= nil) then
+        if(pet ~= nil and save.canEat) then
             pet.MoveTo(self.transform,stoppingDistance,StartEating)
         end
     end)

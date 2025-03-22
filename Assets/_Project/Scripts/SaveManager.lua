@@ -10,6 +10,9 @@ equippedPet = nil
 discoveredObjectIds = {}
 discoveredAnimationIds = {}
 day = 1
+canPoke = false
+canEat = false
+canPlay = false
 
 function NextDay()
     day += 1
@@ -52,6 +55,14 @@ end
 
 function CompleteObjective(objective)
     if(currentObjective == objective)then
+        if(currentObjective == "introDialogue") then canPoke = true
+        elseif(currentObjective == "firstEgg") then canEat = true
+        elseif(currentObjective == "firstFeed") then 
+            canPlay = true
+            canEat = false
+        elseif(currentObjective == "firstPlay") then 
+            canEat = true
+        end
         currentObjective = helper.GetNextKey(data.objectives,objective)
         events.InvokeEvent(events.objectiveCompleted)
         events.InvokeEvent(events.saveGame)

@@ -46,6 +46,9 @@ function ClientLoadGame(saveData)
     save.discoveredObjectIds = saveData.discoveredObjectIds
     save.discoveredAnimationIds = saveData.discoveredAnimationIds
     save.day = saveData.day
+    save.canPoke = saveData.canPlay
+    save.canEat = saveData.canEat
+    save.canPlay = saveData.canPlay
     sceneLoader.SendMovePlayerToSceneRequest(saveData.day-1)
 end
 
@@ -56,6 +59,9 @@ function GetSaveData()
         equippedPet = save.equippedPet,
         discoveredObjectIds = save.discoveredObjectIds,
         discoveredAnimationIds = save.discoveredAnimationIds,
-        day = save.day
+        day = save.day,
+        canPoke = save.canPlay,
+        canEat = save.canEat,
+        canPlay = save.canPlay
     }
 end
