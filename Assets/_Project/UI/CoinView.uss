@@ -1,0 +1,28 @@
+#_root {
+    position: absolute;
+    left: -120px;
+    top:128px;
+}
+
+#_panel{
+    width: 308px;
+    height: 77px;
+    background-image: url("project://database/Assets/_Project/Sprites/CoinPanel.png");
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 130px;
+    align-items: center;
+}
+
+#_icon{
+    width: 57px;
+    height: 50px;
+    background-image: url("project://database/Assets/_Project/Sprites/CoinIcon.png");
+}
+
+Label{
+    font-size: var(--font-size-normal);
+    color: black;
+    white-space: normal;
+    margin-left: 24px;
+}

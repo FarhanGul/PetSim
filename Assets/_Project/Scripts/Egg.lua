@@ -12,11 +12,17 @@ function self:Awake()
     self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
         Hatch()
     end)
+    HandleIfAlreadyHatched()
+end
+
+function HandleIfAlreadyHatched()
+    if(save.pets[petPrefab.name] ~= nil)then
+        Destroy()
+    end
 end
 
 function Hatch()
     save.NewPet(petPrefab.name,self.transform.position)
-    save.AddDiscoveredObject(self.gameObject.name)
     if(save.currentObjective == "firstEgg")then
         local dialogue = dialogueManager.Create()
         dialogue.PlayerSays("Oh aren't you adorable!")

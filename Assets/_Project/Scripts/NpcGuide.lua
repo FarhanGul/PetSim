@@ -12,7 +12,7 @@ function self:Awake()
             return
         end
         Scenerio("introDialogue",function(dialogue)
-            dialogue.NpcSays("Hey there I'm max, what brings you to the island?")
+            dialogue.NpcSays("Hey there I'm max the caretaker of this archipelago, what brings you here?")
             dialogue.PlayerSays("Hi Max, I have come to see the exotic creatures!")
             -- dialogue.PlayerSays("Do you know where I can find them?")
             -- dialogue.NpcSays("Oh yes this place was bustling with activity")

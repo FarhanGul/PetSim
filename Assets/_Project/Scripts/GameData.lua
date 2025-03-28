@@ -19,13 +19,13 @@ cost = {
     playSimonSays = 10
 }
 
-petXpProgression = { 99, 299, 799 }
+petXpProgression = { 5, 25, 75, 225, 625, 1625, 3625, 7625, 15625, 30625, 65625, 140625, 240625 }
+
+currencyRewardForLevelUp = { 4 , 5, 6, 10 , 25 , 50 , 100 , 200 , 400 , 600 , 800 , 1600 , 2000 }
 
 intervals = {
     timeUntilNextChat = 4
 }
-
-firstfeedObjectiveXpRequirement = 1
 
 speeds = {
     pet = 5

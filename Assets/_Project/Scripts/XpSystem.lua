@@ -7,13 +7,6 @@ function new(xpFill,xpRequiredUntilNextLevel,xpDescription,age)
     local totalXpInCurrentLevel
     local xpEarnedInCurrentLevel
 
-    function GetAgeText()
-        if(level == 1) then return "Baby"
-        elseif(level == 2) then return "Adolescent"
-        else return "Adult"
-        end
-    end
-
     function Calculate(xp)
         xp = Mathf.Min(xp,data.petXpProgression[#data.petXpProgression])
         local progression = data.petXpProgression
@@ -39,12 +32,12 @@ function new(xpFill,xpRequiredUntilNextLevel,xpDescription,age)
             xpFill.style.width = StyleLength.new(Length.Percent((100)))
             xpRequiredUntilNextLevel.text = "Max Level"
         else
-
-            xpRequiredUntilNextLevel.text = (totalXpInCurrentLevel - xpEarnedInCurrentLevel)
+            xpRequiredUntilNextLevel.text = (xpEarnedInCurrentLevel).. " / "..totalXpInCurrentLevel
+            xpDescription.text = "Reward "..data.currencyRewardForLevelUp[level].." Shells"
             xpFill.style.width = StyleLength.new(Length.Percent((xpEarnedInCurrentLevel/totalXpInCurrentLevel)*100))
             xpDescription.style.display = DisplayStyle.Flex
         end
-        age.text = GetAgeText()
+        age.text = "Level "..level
     end
 
     return this

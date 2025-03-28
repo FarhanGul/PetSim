@@ -1,7 +1,7 @@
 #_root {
     position: absolute;
     left: 24px;
-    top:-28px;
+    top:-16px;
 }
 
 #_panel{

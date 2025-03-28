@@ -4,6 +4,7 @@ local data = require("GameData")
 local helper = require("Helper")
 
 -- NOTE : Make sure to update GameLauncher when updating save data
+coins = 0
 currentObjective = "introDialogue"
 pets = {}
 equippedPet = nil
@@ -31,13 +32,26 @@ end
 
 function AddPetXp(delta)
     local pet = pets[equippedPet]
+    local oldXp = pet.xp
     pet.xp += delta
-    events.InvokeEvent(events.petXpUpdated)
-    if(pet.xp >= data.firstfeedObjectiveXpRequirement)then
-        CompleteObjective("firstFeed")
-    else
-        events.InvokeEvent(events.saveGame)
+    
+    local oldLevel = 1
+    local newLevel = 1
+    for i, threshold in ipairs(data.petXpProgression) do
+        if oldXp >= threshold then
+            oldLevel = i + 1
+        end
+        if pet.xp >= threshold then
+            newLevel = i + 1
+        end
     end
+    
+    if newLevel > oldLevel then
+        ChangeCoins(data.currencyRewardForLevelUp[newLevel])
+    end
+    
+    events.InvokeEvent(events.petXpUpdated)
+    events.InvokeEvent(events.saveGame)
 end
 
 function ChangePet(petName)
@@ -57,16 +71,18 @@ function CompleteObjective(objective)
     if(currentObjective == objective)then
         if(currentObjective == "introDialogue") then canPoke = true
         elseif(currentObjective == "firstEgg") then canEat = true
-        elseif(currentObjective == "firstFeed") then 
-            canPlay = true
-            canEat = false
-        elseif(currentObjective == "firstPlay") then 
-            canEat = true
+        elseif(currentObjective == "firstFeed") then canPlay = true
         end
         currentObjective = helper.GetNextKey(data.objectives,objective)
         events.InvokeEvent(events.objectiveCompleted)
         events.InvokeEvent(events.saveGame)
     end
+end
+
+function ChangeCoins(delta)
+    coins += delta
+    events.InvokeEvent(events.coinsUpdated)
+    events.InvokeEvent(events.saveGame)
 end
 
 function PetData()

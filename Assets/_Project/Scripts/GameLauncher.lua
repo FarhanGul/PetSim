@@ -49,6 +49,7 @@ function ClientLoadGame(saveData)
     save.canPoke = saveData.canPlay
     save.canEat = saveData.canEat
     save.canPlay = saveData.canPlay
+    save.coins = saveData.coins
     sceneLoader.SendMovePlayerToSceneRequest(saveData.day-1)
 end
 
@@ -62,6 +63,7 @@ function GetSaveData()
         day = save.day,
         canPoke = save.canPlay,
         canEat = save.canEat,
-        canPlay = save.canPlay
+        canPlay = save.canPlay,
+        coins = save.coins
     }
 end

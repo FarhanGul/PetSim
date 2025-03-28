@@ -2,6 +2,7 @@
 local save = require("SaveManager")
 local events = require("EventManager")
 local data = require("GameData")
+local dialogueManager = require("DialogueManager")
 
 --!SerializeField
 local foodId : string = ""
@@ -44,7 +45,16 @@ function Eat()
         events.InvokeEvent(events.petTargetUpdated,true)
         StopEating()
         events.InvokeEvent(events.newDiscovery)
-        GameObject.Destroy(self.gameObject)
+        Destroy()
+        if(save.currentObjective == "firstFeed")then
+            local dialogue = dialogueManager.Create()
+            dialogue.PlayerSays("Look at you grow!")
+            dialogue.PlayerSays("Max rewarded me with sea shells for helping out with the pets")
+            dialogue.PlayerSays("Something tells me they might be more than just souvenirs")
+            dialogue.Start(function()
+                save.CompleteObjective("firstFeed")
+            end)
+        end
     end
 end
 
@@ -68,4 +78,9 @@ end
 
 function GetId()
     return foodId
+end
+
+function Destroy()
+    self:GetComponent(TapHandler).enabled = false
+    self:GetComponent(MeshRenderer).enabled = false
 end
