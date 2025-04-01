@@ -21,7 +21,7 @@ end
 
 function Update()
     _day.text = save.day
-    local isDayFinished = #save.discoveredObjectIds == data.discoveries.starter
+    local isDayFinished = #save.discoveredObjectIds == data.totalDiscoveries
     _panel:SetDisplay(not isDayFinished)
     _sleepButton:SetDisplay(isDayFinished)
 end

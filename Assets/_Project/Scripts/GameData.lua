@@ -1,5 +1,6 @@
 --!Type(Module)
 
+-- Static
 objectives = {
     { key = "introDialogue", text = "I should go talk to the island resident, he would know where all the exotic creatures are" },
     { key = "firstEgg", text = "Max said the egg is hidden behind one of these rocks" },
@@ -33,10 +34,6 @@ speeds = {
 
 totalPets = 3
 
-discoveries = {
-    starter = 6,
-}
-
 foods = {
     turnip = {
         name = "Turnip",
@@ -55,3 +52,6 @@ foods = {
 debug = {
     skipDialogue = false
 }
+
+-- Varaibles
+totalDiscoveries = 0

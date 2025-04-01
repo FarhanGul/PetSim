@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimonSaysPlant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a56780be13df88642b0d44f9c602d6b6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Discovery
+      objectReference: {fileID: 0}
     - target: {fileID: 2295915314461050542, guid: a56780be13df88642b0d44f9c602d6b6,
         type: 3}
       propertyPath: m_IsActive
