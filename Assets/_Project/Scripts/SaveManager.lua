@@ -11,11 +11,17 @@ equippedPet = nil
 canPoke = false
 canEat = false
 canPlay = false
+simonSaysHighscore = 0
 
 function AddDiscoveredObject(objectId)
 end
 
 function AddDiscoveredAnimation(animationId)
+end
+
+function SetSimonSaysNewHighscore(newScore)
+    simonSaysHighscore = newScore
+    events.InvokeEvent(events.saveGame)
 end
 
 function AddPetXp(delta)

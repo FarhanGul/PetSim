@@ -6,18 +6,12 @@ local events = require("EventManager")
 local audio = require("AudioManager")
 
 --!SerializeField
-local rarity : string = "Common"
---!SerializeField
-local stepsRequired : number = 6
---!SerializeField
 local pulseObjects : { GameObject } = {}
 
 local stoppingDistance = 2
 local waitBeforeSequencePlays = 1
 local pulseDuration = 0.2
 local waitBetweenPulses = 0.75
-local gameTitle = "Petal Pulse"
-local gameDescription = "Watch carefully as the plant's bioluminescent petals light up in a sequence. Your task is to repeat the pattern exactly as shown"
 local pet = nil
 local readyToPlayView = nil
 local activityView = nil
@@ -25,10 +19,10 @@ local sequence = nil
 local acceptingInputForStep = nil
 local animator : Animator
 local tapHandler : TapHandler
-local xpGained 
+local gameData
 
 function self:Awake()
-    xpGained = stepsRequired * 10
+    gameData = data.simonSays
     animator = self.gameObject:GetComponent(Animator)
     tapHandler = self.gameObject:GetComponent(TapHandler)
     events.SubscribeEvent(events.simonSayTrigger,function(args)
@@ -72,9 +66,27 @@ end
 function Show()
     sequence = {}
     SetCollider(false)
-    activityView.Show(gameTitle,rarity,xpGained,"Patterns left")
+    activityView.Show(gameData.title,"Toy",GetXpAtScore(0),"Highscore : "..tostring(save.simonSaysHighscore))
     readyToPlayView.Show(OnPlay,OnHelp)
     SetProgress()
+end
+
+function GetXpAtScore(score)
+    if(score == 0) then return 0 end
+    -- Base XP for completing any round
+    local baseXp = 25  -- Increased from 10 for better early rewards
+
+    -- Use exponential growth but with diminishing returns
+    local multiplier = math.pow(1.15, score)  -- Reduced from 1.2 for smoother progression
+    local xp = math.floor(baseXp * multiplier)
+
+    return math.min(xp, 25000)
+end
+
+function TestGrowthFunction()
+    for i = 0 , 100 do
+        print(tostring(i).." - "..tostring(GetXpAtScore((i))))
+    end
 end
 
 function OnPlay()
@@ -83,14 +95,20 @@ function OnPlay()
 end
 
 function OnHelp()
-    Chat:DisplayChatBubble(self.transform,gameDescription,"Rules")
+    Chat:DisplayChatBubble(self.transform,gameData.description,"Rules")
 end
 
 function SetProgress()
-    local stepsLeft = stepsRequired - #sequence
-    local label = stepsLeft
-    local pc = ((stepsRequired - stepsLeft)/stepsRequired)
-    activityView.SetProgress(label,pc)
+    local score = #sequence
+    if(score > save.simonSaysHighscore)then
+        activityView.SetProgress(tostring(score),1)
+        activityView.SetProgressDescription("New Highscore!")
+    else
+        local label = tostring(score).." / "..tostring(save.simonSaysHighscore)
+        local pc = score/save.simonSaysHighscore
+        activityView.SetProgress(label,pc)
+    end
+    activityView.SetXpGained(GetXpAtScore(score))
 end
 
 function PlaySequence()
@@ -128,11 +146,7 @@ function SimonSaysTriggerInvoked(id)
             local isCorrect = sequence[acceptingInputForStep] == id
             if(isCorrect)then
                 if(acceptingInputForStep == #sequence)then
-                    if(#sequence == stepsRequired)then
-                        LevelComplete()
-                    else
-                        PlaySequence()
-                    end
+                    PlaySequence()
                 else
                     acceptingInputForStep += 1
                 end
@@ -145,23 +159,18 @@ end
 
 function GameOver()
     audio.Play("GameOver")
+    local score = #sequence
+    if(score > save.simonSaysHighscore)then
+        save.SetSimonSaysNewHighscore(score)
+    end
+    save.AddPetXp(GetXpAtScore(#sequence))
     UnitializeGame()
     Show()
-end
-
-function LevelComplete()
-    save.AddDiscoveredAnimation(self.name)
-    tapHandler.enabled = false
-    animator:SetBool("Discovered",true)
-    save.AddPetXp(xpGained)
-    save.AddDiscoveredObject(self.gameObject.name)
-    events.InvokeEvent(events.petTargetUpdated,true)
-    events.InvokeEvent(events.newDiscovery)
     save.CompleteObjective("firstPlay")
-    FinishGame()
 end
 
 function PlayNote(id)
+    if(id == nil) then return end
     audio.Play("Note"..id)
 end
 

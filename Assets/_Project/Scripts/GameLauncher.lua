@@ -47,6 +47,7 @@ function ClientLoadGame(saveData)
     save.canEat = saveData.canEat
     save.canPlay = saveData.canPlay
     save.coins = saveData.coins
+    save.simonSaysHighscore = saveData.simonSaysHighscore
     sceneLoader.SendMovePlayerToSceneRequest("Day1")
 end
 
@@ -58,6 +59,7 @@ function GetSaveData()
         canPoke = save.canPlay,
         canEat = save.canEat,
         canPlay = save.canPlay,
-        coins = save.coins
+        coins = save.coins,
+        simonSaysHighscore = save.simonSaysHighscore
     }
 end

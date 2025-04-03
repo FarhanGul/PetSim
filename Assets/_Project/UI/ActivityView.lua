@@ -26,7 +26,7 @@ end
 
 function SetProgress(label,pc)
     _xpLabel.text = label
-    _xpFill.style.width = StyleLength.new(Length.Percent(pc*100))
+    _xpFill.style.width = StyleLength.new(Length.new(pc * 384))
 end
 
 function Show(name,subtitle,xpGained,xpDescription)
@@ -35,6 +35,14 @@ function Show(name,subtitle,xpGained,xpDescription)
     _xpReward.text = xpGained
     _xpDescriptionLabel.text = xpDescription
     _root:SetDisplay(true)
+end
+
+function SetProgressDescription(description)
+    _xpDescriptionLabel.text = description
+end
+
+function SetXpGained(xpGained)
+    _xpReward.text = xpGained
 end
 
 function Hide()

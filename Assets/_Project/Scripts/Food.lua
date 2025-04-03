@@ -117,7 +117,7 @@ end
 
 function StartEating()
     amount = foodData.timeRequiredToConsume
-    activityView.Show(foodData.name,foodData.rarity,foodData.xpGained,"Time Remaining")
+    activityView.Show(foodData.name,"Food",foodData.xpGained,"Time Remaining")
     SetProgress()
     eat:Start()
 end

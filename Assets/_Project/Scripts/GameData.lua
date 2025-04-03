@@ -67,6 +67,11 @@ rarityWeights = {
     Rare = 10
 }
 
+simonSays = {
+    title = "Petal Pulse",
+    description = "Watch carefully as the plant's bioluminescent petals light up in a sequence. Your task is to repeat the pattern exactly as shown"
+}
+
 debug = {
     skipDialogue = true
 }
