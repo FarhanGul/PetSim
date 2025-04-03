@@ -157,6 +157,7 @@ function LevelComplete()
     save.AddDiscoveredObject(self.gameObject.name)
     events.InvokeEvent(events.petTargetUpdated,true)
     events.InvokeEvent(events.newDiscovery)
+    save.CompleteObjective("firstPlay")
     FinishGame()
 end
 

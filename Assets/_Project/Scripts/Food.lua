@@ -5,21 +5,20 @@ local data = require("GameData")
 local dialogueManager = require("DialogueManager")
 
 --!SerializeField
+local foodVariety : {GameObject} = {}
+
 local foodId : string = ""
-
---!SerializeField
 local stoppingDistance : number = 1
-
 local pet = nil
 local eat = nil
 local amount = nil
 local activityView : ActivityView = nil
 local foodData
+local tapHandler : TapHandler = nil
 
 function self:Awake()
-    foodData =  data.foods[foodId]
-    eat = Timer.new(1, Eat,true)
-    eat:Stop()
+    tapHandler = self:GetComponent(TapHandler)
+    Initialize()
     events.SubscribeEvent(events.petSpawned,function(args)
         pet = args[1]
     end)
@@ -29,11 +28,69 @@ function self:Awake()
     events.SubscribeEvent(events.registerActivityView,function(args)
         activityView = args[1]
     end)
-    self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
+    tapHandler.Tapped:Connect(function() 
         if(pet ~= nil and save.canEat) then
             pet.MoveTo(self.transform,stoppingDistance,StartEating)
         end
     end)
+end
+
+function Initialize()
+    eat = Timer.new(1, Eat,true)
+    eat:Stop()
+    SetupRandomFood()
+end
+
+function SetupRandomFood()
+    foodId = GetRandomFood()
+    foodData =  data.foods[foodId]
+    ShowModel()
+end
+
+function ShowModel()
+    tapHandler.enabled = true
+    for i = 1, #foodVariety do
+        foodVariety[i]:SetActive(foodVariety[i].name == foodId)
+    end
+end
+
+function HideModel()
+    tapHandler.enabled = false
+    for i = 1, #foodVariety do
+        foodVariety[i]:SetActive(false)
+    end
+end
+
+function GetRandomFood()
+    -- Find food in foodVariety that matches the randomly selected rarity
+    local roll = math.random(1, 100)
+    local selectedRarity
+    local weights = data.rarityWeights
+    if roll <= weights.Rare then
+        selectedRarity = "Rare"
+    elseif roll <= weights.Rare + weights.Uncommon then
+        selectedRarity = "Uncommon"
+    else
+        selectedRarity = "Common"
+    end
+
+    -- Create a list of foods matching the selected rarity
+    local possibleFoods = {}
+    for i, food in ipairs(foodVariety) do
+        local foodName = food.name
+        if data.foods[foodName] and data.foods[foodName].rarity == selectedRarity then
+            table.insert(possibleFoods, foodName)
+        end
+    end
+
+    -- Select a random food from the possible foods
+    if #possibleFoods > 0 then
+        foodId = possibleFoods[math.random(1, #possibleFoods)]
+    else
+        -- Fallback to first food if no matching rarity found
+        foodId = foodVariety[1].name
+    end
+    return foodId
 end
 
 function Eat()
@@ -81,6 +138,8 @@ function GetId()
 end
 
 function Destroy()
-    self:GetComponent(TapHandler).enabled = false
-    self:GetComponent(MeshRenderer).enabled = false
+    HideModel()
+    -- Setup a timer to regenerate food 
+    local wait = math.random(data.foodRegnerationWait.min, data.foodRegnerationWait.max)
+    Timer.After(wait, SetupRandomFood)
 end

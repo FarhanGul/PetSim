@@ -25,8 +25,6 @@ namespace Highrise.Lua.Generated
         private const string s_scriptGUID = "53d2eb28475036448a7b01a64892cdca";
         public override string ScriptGUID => s_scriptGUID;
 
-        [SerializeField] public UnityEngine.GameObject m_cameraRoot = default;
-        [SerializeField] public System.Collections.Generic.List<UnityEngine.GameObject> m_dayGameObjects = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -35,8 +33,6 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
-                CreateSerializedProperty(_script.GetPropertyAt(0), m_cameraRoot),
-                CreateSerializedProperty(_script.GetPropertyAt(1), m_dayGameObjects),
             };
         }
     }

@@ -43,14 +43,11 @@ function ClientLoadGame(saveData)
     save.currentObjective = saveData.currentObjective
     save.pets = saveData.pets
     save.equippedPet = saveData.equippedPet
-    save.discoveredObjectIds = saveData.discoveredObjectIds
-    save.discoveredAnimationIds = saveData.discoveredAnimationIds
-    save.day = saveData.day
     save.canPoke = saveData.canPlay
     save.canEat = saveData.canEat
     save.canPlay = saveData.canPlay
     save.coins = saveData.coins
-    sceneLoader.SendMovePlayerToSceneRequest(saveData.day-1)
+    sceneLoader.SendMovePlayerToSceneRequest("Day1")
 end
 
 function GetSaveData()
@@ -58,9 +55,6 @@ function GetSaveData()
         currentObjective = save.currentObjective,
         pets = save.pets,
         equippedPet = save.equippedPet,
-        discoveredObjectIds = save.discoveredObjectIds,
-        discoveredAnimationIds = save.discoveredAnimationIds,
-        day = save.day,
         canPoke = save.canPlay,
         canEat = save.canEat,
         canPlay = save.canPlay,

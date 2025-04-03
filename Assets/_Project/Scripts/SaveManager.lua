@@ -8,26 +8,14 @@ coins = 0
 currentObjective = "introDialogue"
 pets = {}
 equippedPet = nil
-discoveredObjectIds = {}
-discoveredAnimationIds = {}
-day = 1
 canPoke = false
 canEat = false
 canPlay = false
 
-function NextDay()
-    day += 1
-    events.InvokeEvent(events.saveGame)
-end
-
 function AddDiscoveredObject(objectId)
-    table.insert(discoveredObjectIds,objectId)
-    events.InvokeEvent(events.saveGame)
 end
 
 function AddDiscoveredAnimation(animationId)
-    table.insert(discoveredAnimationIds,animationId)
-    events.InvokeEvent(events.saveGame)
 end
 
 function AddPetXp(delta)
