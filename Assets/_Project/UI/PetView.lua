@@ -58,6 +58,7 @@ function self:Update()
     if(petSelectionView.IsDisplayed() and client.localPlayer.character.isMoving)then
         petSelectionView.Hide()
         SetDynamicButtonState()
+        events.InvokeEvent(events.saveGame)
     end
 end
 

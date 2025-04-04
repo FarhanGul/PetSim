@@ -4,9 +4,11 @@ local data = require("GameData")
 local save = require("SaveManager")
 local launcher = require("GameLauncher")
 
+local savePending = false
+
 function self:ClientAwake()
     events.SubscribeEvent(events.saveGame,function(args)
-        launcher.SaveGame()
+        savePending = true
     end)
 end
 
@@ -19,3 +21,9 @@ function self:Start()
     events.InvokeEvent(events.lateGameStart)
 end
 
+function self:Update()
+    if(savePending) then
+        launcher.SaveGame()
+        savePending = false;
+    end
+end

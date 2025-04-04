@@ -63,7 +63,6 @@ end
 function ChangePet(petName)
     equippedPet = petName
     events.InvokeEvent(events.spawnPet,nil)
-    events.InvokeEvent(events.saveGame)
 end
 
 function NewPet(petName,spawnPosition)
