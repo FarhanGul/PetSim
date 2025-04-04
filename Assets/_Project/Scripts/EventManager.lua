@@ -22,6 +22,10 @@ function UnsubscribeEvent(eventName,callback)
     if(index ~= nil) then table.remove(events[eventName],index) end
 end
 
+function Clear()
+    events = {}
+end
+
 -- Events
 boughtEgg = "boughtEgg"
 boughtPetFood = "boughtPetFood"

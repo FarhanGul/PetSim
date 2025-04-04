@@ -52,10 +52,10 @@ function Scenerio(objective,setupDialogue)
 end
 
 function ShowBuyUI()
-    local item = data.buyableItems.day2Map
+    local item = data.buyableItems.Island2Map
     buyItemView.Show(item,save.coins >= item.cost,function()
         save.ChangeCoins(-item.cost)
-        save.AddMap("Day2")
+        save.AddMap("Island2")
         save.CompleteObjective("buyFirstMap")
         buyItemView.Hide()
     end)

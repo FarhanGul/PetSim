@@ -14,22 +14,20 @@ objectives = {
 }
 
 locations = {
-    Day1 = {
-        title = "Jungle",
+    Island1 = {
+        title = "Bumblegrove",
         iconClass = "island-01"
     },
-    Day2 = {
-        title = "Crystal",
+    Island2 = {
+        title = "Glitterpop",
         iconClass = "island-02"
     }
 }
 
-totalDays = 2
-
 buyableItems = {
-    day2Map = {
+    Island2Map = {
         cost = 300,
-        title = "Crystal Reef"
+        title = "Glitterpop "
     }
 }
 
@@ -49,22 +47,40 @@ totalPets = 1
 
 foods = {
     turnip = {
-        name = "Turnip",
+        name = "Wobblenut",
         timeRequiredToConsume = 8,
         xpGained = 8,
         rarity = "Common"
     },
     carrot = {
-        name = "Carrot",
+        name = "Spicehorn",
         timeRequiredToConsume = 6,
         xpGained = 32,
         rarity = "Uncommon"
     },
     mushroom = {
-        name = "Red Mushroom",
+        name = "Redsprout",
         timeRequiredToConsume = 4,
         xpGained = 128,
         rarity = "Rare"
+    },
+    peanut = {
+        name = "Bugleflower",
+        timeRequiredToConsume = 8,
+        xpGained = 80,
+        rarity = "Uncommon"
+    },
+    icicle = {
+        name = "Frostling",
+        timeRequiredToConsume = 12,
+        xpGained = 160,
+        rarity = "Rare"
+    },
+    blueberry = {
+        name = "Moonberry",
+        timeRequiredToConsume = 2,
+        xpGained = 12,
+        rarity = "Common"
     },
 }
 

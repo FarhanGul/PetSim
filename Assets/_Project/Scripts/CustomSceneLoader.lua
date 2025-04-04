@@ -26,10 +26,6 @@ function self:ServerStart()
 end
 
 function self:ClientAwake()
-	events.SubscribeEvent(events.nextDay,function(args)
-        save.NextDay()
-        SendMovePlayerToSceneRequest(save.day-1)
-    end)
 end
 
 function SendMovePlayerToSceneRequest(sceneId)

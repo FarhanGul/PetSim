@@ -46,6 +46,8 @@ function self:Awake()
                 UpdateLocationDisplay()
             end,
             function() -- On Go
+                locationView.Hide()
+                save.UpdateLocation(locationKeys[currentLocationIndex])
                 sceneLoader.SendMovePlayerToSceneRequest(save.currentLocation)
             end
         )

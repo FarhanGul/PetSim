@@ -18,7 +18,9 @@ local _xpReward : Label = nil
 local _xpFill : VisualElement = nil
 
 function self:Awake()
+    print("<color=red>activity view registers game start</color>")
     events.SubscribeEvent(events.gameStart,function(args)
+        print("<color=blue>activity view recieves game start</color>")
         events.InvokeEvent(events.registerActivityView,self)
         Hide()
     end)

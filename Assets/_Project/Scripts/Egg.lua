@@ -31,6 +31,12 @@ function Hatch()
         dialogue.Start(function()
             save.CompleteObjective("firstEgg")
         end)
+    elseif(save.currentObjective == "secondEgg")then
+        local dialogue = dialogueManager.Create()
+        dialogue.PlayerSays("Hey little fellow!")
+        dialogue.Start(function()
+            save.CompleteObjective("secondEgg")
+        end)
     end
     events.InvokeEvent(events.newDiscovery)
     Destroy()

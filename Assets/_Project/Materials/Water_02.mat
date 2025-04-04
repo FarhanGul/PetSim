@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
+  m_Name: Water_02
   m_Shader: {fileID: -6465566751694194690, guid: 356df8cd9c5b31c42b9305aa7b7fb86f,
     type: 3}
   m_Parent: {fileID: 0}
@@ -143,10 +143,10 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.43529412, g: 0.76862746, b: 0.8901961, a: 1}
-    - _Deep: {r: 0.4509804, g: 0.827451, b: 0.9137255, a: 0.58431375}
+    - _Deep: {r: 0.07450981, g: 0.8980392, b: 0.8745098, a: 0.58431375}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 0.9098039, g: 0.99607843, b: 0.9843137, a: 0.7607843}
-    - _Shallow: {r: 0.56078434, g: 0.9372549, b: 0.9607843, a: 0.3764706}
+    - _Shallow: {r: 0.5273122, g: 0.79622644, b: 0.78854316, a: 0.3764706}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

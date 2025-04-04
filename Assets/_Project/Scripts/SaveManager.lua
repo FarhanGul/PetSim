@@ -12,13 +12,18 @@ canPoke = false
 canEat = false
 canPlay = false
 simonSaysHighscore = 0
-currentLocation = "Day1"
-maps = {"Day1"}
+currentLocation = "Island1"
+maps = {"Island1"}
 
 function AddDiscoveredObject(objectId)
 end
 
 function AddDiscoveredAnimation(animationId)
+end
+
+function UpdateLocation(newLocation)
+    currentLocation = newLocation
+    events.InvokeEvent(events.saveGame)
 end
 
 function AddMap(mapId)
