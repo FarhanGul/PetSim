@@ -8,7 +8,7 @@ local audio = require("AudioManager")
 --!SerializeField
 local pulseObjects : { GameObject } = {}
 
-local stoppingDistance = 2
+local stoppingDistance = 4
 local waitBeforeSequencePlays = 1
 local pulseDuration = 0.2
 local waitBetweenPulses = 0.75
