@@ -11,7 +11,7 @@ local pulseObjects : { GameObject } = {}
 local stoppingDistance = 6
 local waitBeforeSequencePlays = 1
 local pulseDuration = 0.2
-local waitBetweenPulses = 0.75
+local waitBetweenPulses = 0.25
 local pet = nil
 local readyToPlayView = nil
 local activityView = nil
@@ -119,6 +119,7 @@ function SetProgress()
 end
 
 function PlaySequence()
+    acceptingInputForStep = nil
     SetProgress()
     Timer.After(waitBeforeSequencePlays, function()
         table.insert(sequence,math.random(1 , 4))

@@ -47,8 +47,6 @@ function Hide()
 end
 
 function SetLocation(locationData,isCurrent)
-    print("icon Class : "..locationData.iconClass)
-    print("is Current : "..tostring(isCurrent))
     _locationTitle.text = locationData.title
     _locationIcon:EnableInClassList("island-01", locationData.iconClass=="island-01")
     _locationIcon:EnableInClassList("island-02", locationData.iconClass=="island-02")
