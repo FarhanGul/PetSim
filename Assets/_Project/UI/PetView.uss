@@ -43,7 +43,7 @@ Label{
 }
 
 #_ageLabel{
-    color : #A9C6DB;
+    color : black;
     font-size: var(--font-size-s);
 }
 

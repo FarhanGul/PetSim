@@ -427,8 +427,6 @@ MonoBehaviour:
   _uiOutput: 0
   _uiOutputSettings:
     rid: -2
-  m_rarity: Common
-  m_stepsRequired: 6
   m_pulseObjects:
   - {fileID: 5337125151457336543}
   - {fileID: 7543242695124094441}
@@ -451,7 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 881728705, guid: 5e99434f214126023bd8db55a8296c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkDistance: 0
+  _checkDistance: 1
   _distance: 1
   _moveTo: 1
   _moveTarget: {fileID: 0}

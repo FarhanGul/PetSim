@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="UnityEngine.UIElements"
+    xmlns:hr="Highrise.UI"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+>
+
+  <hr:UILuaView name="_root" picking-mode="Ignore">
+    <Style src="Variables.uss" />
+    <VisualElement name="_panel"> 
+      <VisualElement name="_icon"> </VisualElement>
+      <Label name="_title" text="Title"/>
+      <Label name="_description" text="Unlocks a new location"/>
+      <hr:UIButton name="_buyButton">
+        <VisualElement name="_currencyIcon"> </VisualElement>
+        <Label name="_cost" text="9999"/>
+      </hr:UIButton>
+    </VisualElement>
+  </hr:UILuaView>
+
+</UXML>

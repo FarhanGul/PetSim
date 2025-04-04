@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="UnityEngine.UIElements"
+    xmlns:hr="Highrise.UI"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+>
+
+  <hr:UILuaView name="_root" picking-mode="Ignore">
+    <Style src="Variables.uss" />
+    <VisualElement name="_verticalLayout"> 
+      <VisualElement name="_locationPanel">
+        <VisualElement name="_locationIcon" class="island-01"></VisualElement>
+        <Label name="_locationTitle" text="Location"/>
+      </VisualElement>
+      <VisualElement class="container">
+        <hr:UIButton name="_leftButton"></hr:UIButton>
+        <VisualElement class="pet-switcher-panel">
+          <Label name="_titleText" text="Choose Location"/>
+          <Label name="_scollProgress" text="Current"/>
+        </VisualElement>
+        <hr:UIButton name="_rightButton"></hr:UIButton>
+        <hr:UIButton name="_goButton">
+          <Label name="_goButtonText" text="Go"/>
+        </hr:UIButton>
+      </VisualElement>
+    </VisualElement>
+  </hr:UILuaView>
+
+</UXML>

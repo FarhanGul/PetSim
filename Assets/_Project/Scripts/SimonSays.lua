@@ -52,6 +52,13 @@ function self:Awake()
     end)
 end
 
+function self:Update()
+    if(activityView.IsDisplayed() and client.localPlayer.character.isMoving)then
+        activityView.Hide()
+        events.InvokeEvent(events.petTargetUpdated,true)
+    end
+end
+
 function FinishGame()
     activityView.Hide()
     readyToPlayView.Hide()
@@ -74,10 +81,10 @@ end
 function GetXpAtScore(score)
     if(score == 0) then return 0 end
     -- Base XP for completing any round
-    local baseXp = 25  -- Increased from 10 for better early rewards
+    local baseXp = 25
 
-    -- Use exponential growth but with diminishing returns
-    local multiplier = math.pow(1.15, score)  -- Reduced from 1.2 for smoother progression
+    -- Use exponential growth
+    local multiplier = math.pow(1.25, score)
     local xp = math.floor(baseXp * multiplier)
 
     return math.min(xp, 25000)

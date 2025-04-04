@@ -1,0 +1,82 @@
+Label{
+    font-size: var(--font-size-normal);
+}
+
+#_root {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: row;
+    padding-bottom: 160px;
+}
+
+#_verticalLayout{
+    align-items: center;
+    justify-content: center;
+}
+
+#_locationPanel{
+    align-items: center;
+    justify-content: center;
+    width: 188px;
+    height: 171px;
+    background-image: url("project://database/Assets/_Project/Sprites/LocationPanel.png");
+    padding-top: 32px;
+}
+
+#_locationIcon{
+    width: 69px;
+    height: 79px;
+}
+
+.island-01{
+    background-image: url("project://database/Assets/_Project/Sprites/IslandIcon_01.png");
+}
+
+.island-02{
+    background-image: url("project://database/Assets/_Project/Sprites/IslandIcon_02.png");
+}
+
+.container{
+    flex-direction: row;
+}
+
+#_leftButton{
+    background-color: rgba(0, 0, 0, 0);
+    width: 107px;
+    height: 107px;
+    background-image: url("project://database/Assets/_Project/Sprites/NavigationButton.png");
+}
+
+#_rightButton{
+    background-color: rgba(0, 0, 0, 0);
+    width: 107px;
+    height: 107px;
+    background-image: url("project://database/Assets/_Project/Sprites/NavigationButton.png");
+    rotate: 180deg;
+}
+
+.pet-switcher-panel{
+    margin-top: 16px;
+    width: 509px;
+    height: 94px;
+    background-image: url("project://database/Assets/_Project/Sprites/PetSwitcherPanel.png");
+    align-items: center;
+    justify-content: center;
+}
+
+#_goButton{
+    position: absolute;
+    bottom: -16px;
+    left: 252px;
+    background-color: rgba(0, 0, 0, 0);
+    width: 220px;
+    height: 60px;
+    background-image: url("project://database/Assets/_Project/Sprites/GreenButton.png");
+}
+
+#_goButton Label{
+    color: white;
+}

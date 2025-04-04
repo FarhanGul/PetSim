@@ -3,22 +3,35 @@
 -- Static
 objectives = {
     { key = "introDialogue", text = "I should go talk to the island resident, he would know where all the exotic creatures are" },
-    { key = "firstEgg", text = "Max said the egg is hidden behind one of these rocks" },
+    { key = "firstEgg", text = "The caretaker said the egg is hidden behind one of these rocks" },
     { key = "firstFeed", text = "Axolotl is hungry, I should get it something to eat" },
     { key = "firstPlay", text = "Axolotl looks bored, I better find something it can play with" },
-    { key = "getToSecondIsland", text = "Maybe if I can get to one of the other islands, I can save more pets" },
-    { key = "findAboutPresence", text = "I should find out what this mysterious presence is that everyone keeps talking about" },
+    { key = "talkToCartographer", text = "I need some way to get to the other islands so I can save more pets" },
+    { key = "buyFirstMap", text = "I need that map so I can head over to the other island" },
+    { key = "getBackToTheBoat", text = "Now that I have the map, I should head to the boat" },
+    { key = "secondEgg", text = "I wonder if there are more hidden eggs" },
+    { key = "findAboutPresence", text = "I should find out what this mysterious presence is, that everyone keeps talking about" },
+}
+
+locations = {
+    Day1 = {
+        title = "Jungle",
+        iconClass = "island-01"
+    },
+    Day2 = {
+        title = "Crystal",
+        iconClass = "island-02"
+    }
 }
 
 totalDays = 2
 
-cost = {
-    egg = 2000,
-    petFood = 50,
-    playSimonSays = 10
+buyableItems = {
+    day2Map = {
+        cost = 300,
+        title = "Crystal Reef"
+    }
 }
-
-sceneNames = {"Jungle_01","Jungle_02","Jungle_03"}
 
 petXpProgression = { 5, 25, 75, 225, 625, 1625, 3625, 7625, 15625, 30625, 65625, 140625, 240625 }
 
@@ -73,7 +86,7 @@ simonSays = {
 }
 
 debug = {
-    skipDialogue = true
+    skipDialogue = false
 }
 
 -- Varaibles

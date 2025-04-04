@@ -67,6 +67,6 @@ function SetXp(xp)
 end
 
 function SetDynamicButtonState()
-    _followPlayerButton:SetDisplay(not isPetFollowingPlayer)
+    _followPlayerButton:SetDisplay(false)
     _petSwitchButton.style.display = (isPetFollowingPlayer and helper.GetTableLength(save.pets) >= 2 ) and DisplayStyle.Flex or DisplayStyle.None
 end

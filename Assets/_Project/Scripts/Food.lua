@@ -35,6 +35,13 @@ function self:Awake()
     end)
 end
 
+function self:Update()
+    if(activityView.IsDisplayed() and client.localPlayer.character.isMoving)then
+        activityView.Hide()
+        events.InvokeEvent(events.petTargetUpdated,true)
+    end
+end
+
 function Initialize()
     eat = Timer.new(1, Eat,true)
     eat:Stop()
@@ -106,7 +113,7 @@ function Eat()
         if(save.currentObjective == "firstFeed")then
             local dialogue = dialogueManager.Create()
             dialogue.PlayerSays("Look at you grow!")
-            dialogue.PlayerSays("Max rewarded me with sea shells for helping out with the pets")
+            dialogue.PlayerSays("The caretaker rewarded me with sea shells for helping out with the pets")
             dialogue.PlayerSays("Something tells me they might be more than just souvenirs")
             dialogue.Start(function()
                 save.CompleteObjective("firstFeed")

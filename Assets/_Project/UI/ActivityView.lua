@@ -48,3 +48,7 @@ end
 function Hide()
     _root:SetDisplay(false)
 end
+
+function IsDisplayed()
+    return _root:IsDisplayed()
+end

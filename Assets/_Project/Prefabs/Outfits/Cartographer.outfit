@@ -1,0 +1,42 @@
+{
+  "IncludeFallbacks": true,
+  "Skeleton": "",
+  "Clothing": [
+    {
+      "Id": "body-flesh",
+      "Color": -1
+    },
+    {
+      "Id": "hair_front-n_basic2018straightpulledback",
+      "Color": -1
+    },
+    {
+      "Id": "hair_back-n_basic2018longwavytopknot",
+      "Color": -1
+    },
+    {
+      "Id": "eye-m_09b",
+      "Color": -1
+    },
+    {
+      "Id": "eyebrow-n_02",
+      "Color": -1
+    },
+    {
+      "Id": "nose-n_25",
+      "Color": -1
+    },
+    {
+      "Id": "mouth-basic2018openfullupperpeaked",
+      "Color": -1
+    },
+    {
+      "Id": "pants-n_skunkdailyrewards2018_onesiesbottoms",
+      "Color": -1
+    },
+    {
+      "Id": "shirt-n_2016fallgreenplaidtiedtshirt",
+      "Color": -1
+    }
+  ]
+}

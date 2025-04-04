@@ -12,11 +12,11 @@ function self:Awake()
             return
         end
         Scenerio("introDialogue",function(dialogue)
-            dialogue.NpcSays("Hey there I'm max the caretaker of this archipelago, what brings you here?")
-            dialogue.PlayerSays("Hi Max, I have come to see the exotic creatures!")
+            dialogue.NpcSays("Hey there I'm the caretaker of this archipelago, what brings you here?")
+            dialogue.PlayerSays("Hi, I have come to see the exotic creatures!")
             dialogue.PlayerSays("Do you know where I can find them?")
             dialogue.NpcSays("Oh yes this place was bustling with activity")
-            dialogue.NpcSays("But that was before the mysterious presence took over our island!")
+            dialogue.NpcSays("But that was before the mysterious presence took over our Archipelago!")
             dialogue.NpcSays("All the creatures have migrated ever since")
             dialogue.NpcSays("Come to think of it, we could use your help")
             dialogue.NpcSays("Some eggs were left behind during the migration and they are ready to hatch")
@@ -28,7 +28,7 @@ end
 
 function Scenerio(objective,setupDialogue)
     if(save.currentObjective == objective) then
-        local dialogue = dialogueManager.Create("Max",character.chatBubbleTransform)
+        local dialogue = dialogueManager.Create("Caretaker",character.chatBubbleTransform)
         setupDialogue(dialogue)
         dialogueInProgress = true
         dialogue.Start(function()

@@ -1,0 +1,56 @@
+#_root{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: row;
+    padding-bottom: 170px;
+}
+
+#_icon{
+    position: absolute;
+    left: 50px;
+    width: 89px;
+    height: 78px;
+    background-image: url("project://database/Assets/_Project/Sprites/MapIcon.png");
+}
+
+#_currencyIcon{
+    width: 47px;
+    height: 40px;
+    background-image: url("project://database/Assets/_Project/Sprites/CoinIcon.png");
+}
+
+#_panel{
+    width: 621px;
+    height: 183px;
+    background-image: url("project://database/Assets/_Project/Sprites/BuyItemPanel.png");
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px;
+}
+
+#_buyButton{
+    background-color: rgba(0, 0, 0, 0);
+    width: 220px;
+    height: 60px;
+    background-image: url("project://database/Assets/_Project/Sprites/GreenButton.png");
+}
+
+#_title{
+    padding: 0;
+    margin: 0;
+    color: #0083C4;
+    font-size: var(--font-size-normal);
+}
+
+#_description{
+    color: black;
+    font-size: var(--font-size-s);
+}
+
+#_cost{
+    color: white;
+    font-size: var(--font-size-normal);
+}
