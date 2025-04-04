@@ -102,7 +102,7 @@ function OnPlay()
 end
 
 function OnHelp()
-    Chat:DisplayChatBubble(self.transform,gameData.description,"Rules")
+    Chat:DisplayChatBubble(client.localPlayer.character.chatBubbleTransform,gameData.description,"You")
 end
 
 function SetProgress()
