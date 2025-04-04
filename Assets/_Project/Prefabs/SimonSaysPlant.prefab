@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkDistance: 1
-  _distance: 2
+  _distance: 6
   _moveTo: 1
   _moveTarget: {fileID: 0}
 --- !u!135 &6986582475786869404
