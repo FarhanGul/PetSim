@@ -43,7 +43,7 @@ speeds = {
     pet = 5
 }
 
-totalPets = 1
+totalPets = 2
 
 foods = {
     turnip = {

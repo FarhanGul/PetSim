@@ -14,7 +14,11 @@ function self:Awake()
         DisplayHint()
     end)
     events.SubscribeEvent(events.objectiveCompleted,DisplayHint)
-    events.SubscribeEvent(events.gameStart,DisplayHint)
+    events.SubscribeEvent(events.gameStart,function()
+        if(save.currentObjective == "introDialogue")then
+            DisplayHint()
+        end
+    end)
 end
 
 function Hide()

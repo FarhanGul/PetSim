@@ -1,5 +1,4 @@
---!Type(ClientAndServer)
-local events = require("EventManager")
+--!Type(Module)
 local save = require("SaveManager")
 local data = require("GameData")
 local sceneLoader = require("CustomSceneLoader")
@@ -10,9 +9,6 @@ local saveRequest = Event.new("saveRequest")
 local getSaveRequest = Event.new("getSaveRequest")
 
 function self:ClientAwake()
-    events.SubscribeEvent(events.saveGame,function(args)
-        saveRequest:FireServer(GetSaveData())
-    end)
     gameStartResponse:Connect(function(saveData)
         ClientLoadGame(saveData)
     end)
@@ -37,6 +33,10 @@ function self:ServerAwake()
             gameStartResponse:FireClient(player, saveData)
         end)
     end)
+end
+
+function SaveGame()
+    saveRequest:FireServer(GetSaveData())
 end
 
 function ClientLoadGame(saveData)
