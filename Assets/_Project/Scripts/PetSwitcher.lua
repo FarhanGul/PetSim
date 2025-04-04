@@ -22,8 +22,8 @@ end
 
 function Show()
     if(not petSelectionView.IsDisplayed()) then
-        events.InvokeEvent(events.petTargetUpdated,true)
         petSelectionView.Show(PreviousPet,NextPet)
+        events.InvokeEvent(events.petTargetUpdated,true)
         petNames = {}
         table.insert(petNames,save.equippedPet)
         for key in pairs(save.pets) do

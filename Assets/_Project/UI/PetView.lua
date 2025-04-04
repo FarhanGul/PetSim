@@ -28,11 +28,7 @@ local petSelectionView
 function self:Awake()
     xpView = xpSystem.new(_xpFill,_xpRequiredLabel,_xpDescriptionLabel,_ageLabel)
     _petSwitchButton:RegisterPressCallback(function()
-        if(petSelectionView.IsDisplayed()) then
-            petSelectionView.Hide()
-        else
-            events.InvokeEvent(events.petSwitcherOpened)
-        end
+        events.InvokeEvent(events.petSwitcherOpened)
     end)
     _followPlayerButton:RegisterPressCallback(function()
         events.InvokeEvent(events.petTargetUpdated,true)
@@ -58,6 +54,13 @@ function self:Awake()
     end)
 end
 
+function self:Update()
+    if(petSelectionView.IsDisplayed() and client.localPlayer.character.isMoving)then
+        petSelectionView.Hide()
+        SetDynamicButtonState()
+    end
+end
+
 function SetName(name)
     _nameLabel.text = name
 end
@@ -67,6 +70,5 @@ function SetXp(xp)
 end
 
 function SetDynamicButtonState()
-    _followPlayerButton:SetDisplay(false)
-    _petSwitchButton.style.display = (isPetFollowingPlayer and helper.GetTableLength(save.pets) >= 2 ) and DisplayStyle.Flex or DisplayStyle.None
+    _petSwitchButton.style.display = ((not petSelectionView.IsDisplayed()) and isPetFollowingPlayer and helper.GetTableLength(save.pets) >= 2 ) and DisplayStyle.Flex or DisplayStyle.None
 end

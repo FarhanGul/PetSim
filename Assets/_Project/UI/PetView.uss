@@ -13,6 +13,7 @@ Label{
 }
 
 #_followPlayerButton{
+    display: none;
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
     right: 32px;
