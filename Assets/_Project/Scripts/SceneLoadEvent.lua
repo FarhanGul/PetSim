@@ -21,7 +21,7 @@ function self:Start()
     events.InvokeEvent(events.lateGameStart)
 end
 
-function self:Update()
+function self:LateUpdate()
     if(savePending) then
         launcher.SaveGame()
         savePending = false;

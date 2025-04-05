@@ -26,6 +26,8 @@ function self:Awake()
 end
 
 function SetModel()
+    if(self.gameObject.name ~= save.equippedPet) then return end
+    
     local currentPet = save.pets[save.equippedPet]
     
     -- Determine evolution stage
