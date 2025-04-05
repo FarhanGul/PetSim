@@ -27,7 +27,7 @@ locations = {
 buyableItems = {
     Island2Map = {
         cost = 300,
-        title = "Glitterpop "
+        title = "Glitterpop"
     }
 }
 
@@ -48,7 +48,7 @@ totalPets = 2
 foods = {
     turnip = {
         name = "Wobblenut",
-        timeRequiredToConsume = 8,
+        timeRequiredToConsume = 4,
         xpGained = 8,
         rarity = "Common"
     },
@@ -60,27 +60,27 @@ foods = {
     },
     mushroom = {
         name = "Redsprout",
-        timeRequiredToConsume = 4,
-        xpGained = 128,
-        rarity = "Rare"
-    },
-    peanut = {
-        name = "Bugleflower",
         timeRequiredToConsume = 8,
-        xpGained = 80,
-        rarity = "Uncommon"
-    },
-    icicle = {
-        name = "Frostling",
-        timeRequiredToConsume = 12,
-        xpGained = 160,
+        xpGained = 128,
         rarity = "Rare"
     },
     blueberry = {
         name = "Moonberry",
-        timeRequiredToConsume = 2,
-        xpGained = 12,
+        timeRequiredToConsume = 4,
+        xpGained = 20,
         rarity = "Common"
+    },
+    peanut = {
+        name = "Bugleflower",
+        timeRequiredToConsume = 6,
+        xpGained = 30,
+        rarity = "Uncommon"
+    },
+    icicle = {
+        name = "Frostling",
+        timeRequiredToConsume = 8,
+        xpGained = 60,
+        rarity = "Rare"
     },
 }
 
