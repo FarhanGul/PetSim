@@ -8,8 +8,8 @@ local dialogueManager = require("DialogueManager")
 local foodVariety : {GameObject} = {}
 
 local foodId : string = ""
-local stoppingDistance : number = 1
-local pet = nil
+local stoppingDistance : number = 1.3
+local pet : Pet = nil
 local eat = nil
 local amount = nil
 local activityView : ActivityView = nil
@@ -127,6 +127,7 @@ function StartEating()
     activityView.Show(foodData.name,"Food",foodData.xpGained,"Time Remaining")
     SetProgress()
     eat:Start()
+    pet.GetAnimator():SetBool("Eat",true)
 end
 
 function SetProgress()
@@ -138,6 +139,7 @@ end
 function StopEating()
     activityView.Hide()
     eat:Stop()
+    pet.GetAnimator():SetBool("Eat",false)
 end
 
 function GetId()

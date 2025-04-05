@@ -748,7 +748,7 @@ MonoBehaviour:
   _uiOutput: 0
   _uiOutputSettings:
     rid: -2
-  m_petPrefab: {fileID: 2343538012683209044, guid: ef497b6babbeb5643bb0737556afa315,
+  m_petPrefab: {fileID: 9008941349084498993, guid: 7f193ee1178eb4f42ad1a51a2ff72962,
     type: 3}
   references:
     version: 2
