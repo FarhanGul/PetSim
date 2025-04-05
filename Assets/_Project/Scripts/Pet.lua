@@ -3,20 +3,51 @@ local events = require("EventManager")
 local save = require("SaveManager")
 local data = require("GameData")
 
+--!SerializeField
+local models : {GameObject} = {}
+
 local followDistance = 3; 
 local followPlayer
 local stoppingDistance = nil
 local moveToTarget = nil
 local onReachedTarget = nil
 local animator : Animator = nil
+local previousEvolutionStage = nil
 
 function self:Awake()
     animator = self:GetComponent(Animator)
+    events.SubscribeEvent(events.petXpUpdated,SetModel)
     events.SubscribeEvent(events.petTargetUpdated,function(args)
         if(args[1] ~= nil)then
             followPlayer = args[1];
         end
     end)
+    SetModel()
+end
+
+function SetModel()
+    local currentPet = save.pets[save.equippedPet]
+    
+    -- Determine evolution stage
+    local evolutionStage = 1
+    for i = 1, #data.evolutionXp do
+        if currentPet.xp >= data.evolutionXp[i] then
+            evolutionStage = i
+        end
+    end
+    
+    -- Check for evolution
+    if previousEvolutionStage ~= nil and evolutionStage > previousEvolutionStage then
+        -- Pet evolved! Add effects here
+        print("<color=green> Evolution! </color>")
+    end
+    
+    -- Update model
+    for i = 1, #models do
+        models[i]:SetActive(i == evolutionStage)
+    end
+    
+    previousEvolutionStage = evolutionStage
 end
 
 function self:Start()

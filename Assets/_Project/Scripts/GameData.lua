@@ -26,10 +26,12 @@ locations = {
 
 buyableItems = {
     Island2Map = {
-        cost = 300,
+        cost = 200,
         title = "Glitterpop"
     }
 }
+
+evolutionXp = {0, 3625}
 
 petXpProgression = { 5, 25, 75, 225, 625, 1625, 3625, 7625, 15625, 30625, 65625, 140625, 240625 }
 

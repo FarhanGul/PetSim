@@ -86,6 +86,9 @@ MonoBehaviour:
   _uiOutput: 0
   _uiOutputSettings:
     rid: -2
+  m_models:
+  - {fileID: 4311689684950924838}
+  - {fileID: 8726028495926932859}
   references:
     version: 2
     RefIds:
@@ -295,6 +298,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3969741916001141623}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4311689684950924838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b83cc1afad1f67a44b2baf4871885fd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3969741916001141623}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8491675081211381802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -392,6 +401,12 @@ PrefabInstance:
 --- !u!4 &8237862188347912129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b83cc1afad1f67a44b2baf4871885fd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8491675081211381802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8726028495926932859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b83cc1afad1f67a44b2baf4871885fd2,
     type: 3}
   m_PrefabInstance: {fileID: 8491675081211381802}
   m_PrefabAsset: {fileID: 0}
