@@ -3,3 +3,8 @@
     --font-size-normal: 32px;
     --font-size-s: 26px;
 }
+
+/* Custom Font */
+/* *{
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Cute Dino.asset");
+} */
