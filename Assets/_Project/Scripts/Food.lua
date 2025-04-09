@@ -3,6 +3,7 @@ local save = require("SaveManager")
 local events = require("EventManager")
 local data = require("GameData")
 local dialogueManager = require("DialogueManager")
+local audio = require("AudioManager")
 
 --!SerializeField
 local foodVariety : {GameObject} = {}
@@ -123,6 +124,7 @@ function Eat()
 end
 
 function StartEating()
+    audio.Play("Eating")
     amount = foodData.timeRequiredToConsume
     activityView.Show(foodData.name,"Food",foodData.xpGained,"Time Remaining")
     SetProgress()
@@ -137,6 +139,7 @@ function SetProgress()
 end
 
 function StopEating()
+    audio.Stop("Eating")
     activityView.Hide()
     eat:Stop()
     pet.GetAnimator():SetBool("Eat",false)

@@ -1,6 +1,7 @@
 --!Type(UI)
 local events = require("EventManager")
 local data = require("GameData")
+local audio = require("AudioManager")
 
 --!Bind
 local _root : VisualElement = nil
@@ -18,9 +19,11 @@ local onRight
 
 function self:Awake()
     _leftButton:RegisterPressCallback(function() 
+        audio.Play("Tap")
         onLeft() 
     end)
     _rightButton:RegisterPressCallback(function() 
+        audio.Play("Tap")
         onRight() 
     end)
     events.SubscribeEvent(events.gameStart,function(args)

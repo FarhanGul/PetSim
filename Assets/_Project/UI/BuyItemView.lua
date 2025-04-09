@@ -1,6 +1,7 @@
 --!Type(UI)
 local events = require("EventManager")
 local data = require("GameData")
+local audio = require("AudioManager")
 
 --!Bind
 local _root : VisualElement = nil
@@ -20,7 +21,10 @@ local canBuy = false
 
 function self:Awake()
     _buyButton:RegisterPressCallback(function() 
-        if (canBuy) then onBuy() end 
+        if (canBuy) then 
+            audio.Play("Tap")
+            onBuy() 
+        end 
     end)
     events.SubscribeEvent(events.gameStart,function(args)
         events.InvokeEvent(events.registerBuyItemView,self)

@@ -4,12 +4,14 @@ local events = require("EventManager")
 local data = require("GameData")
 local dialogueManager = require("DialogueManager")
 local helper = require("Helper")
+local audio = require("AudioManager")
 
 --!SerializeField
 local petPrefab : GameObject = nil
 
 function self:Awake()
     self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
+        audio.Play("Tap")
         Hatch()
     end)
     HandleIfAlreadyHatched()

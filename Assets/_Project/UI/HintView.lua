@@ -3,6 +3,7 @@ local events = require("EventManager")
 local data = require("GameData")
 local save = require("SaveManager")
 local helper = require("Helper")
+local audio = require("AudioManager")
 
 --!Bind
 local _root : VisualElement = nil

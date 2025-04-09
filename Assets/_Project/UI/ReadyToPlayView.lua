@@ -1,6 +1,7 @@
 --!Type(UI)
 local events = require("EventManager")
 local data = require("GameData")
+local audio = require("AudioManager")
 
 --!Bind
 local _root : VisualElement = nil
@@ -13,8 +14,13 @@ local onPlay
 local onHelp
 
 function self:Awake()
-    _playButton:RegisterPressCallback(function() onPlay() end)
-    _helpButton:RegisterPressCallback(function() onHelp() end)
+    _playButton:RegisterPressCallback(function() 
+        audio.Play("Tap")
+        onPlay() 
+    end)
+    _helpButton:RegisterPressCallback(function()
+         onHelp() 
+    end)
     events.SubscribeEvent(events.gameStart,function(args)
         events.InvokeEvent(events.registerReadyToPlayView,self)
         Hide()

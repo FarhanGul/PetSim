@@ -25,6 +25,7 @@ namespace Highrise.Lua.Generated
         private const string s_scriptGUID = "a99089f9e1eb68b4db7b9bd2ba38d3bf";
         public override string ScriptGUID => s_scriptGUID;
 
+        [SerializeField] public System.String m_soundName = "";
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -33,6 +34,7 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
+                CreateSerializedProperty(_script.GetPropertyAt(0), m_soundName),
             };
         }
     }

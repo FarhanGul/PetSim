@@ -1,6 +1,10 @@
 --!Type(Client)
 local events = require("EventManager")
 local save = require("SaveManager")
+local audio = require("AudioManager")
+
+--!SerializeField
+local soundName : string = ""
 
 local animator : Animator
 local tapHandler : TapHandler
@@ -12,6 +16,9 @@ function self:Awake()
     collider = self.gameObject:GetComponent(Collider)
     tapHandler.Tapped:Connect(function() 
         if(save.canPoke) then
+            if(soundName ~= "")then
+                audio.Play(soundName)
+            end
             animator:SetBool("Discovered",true)
             save.AddDiscoveredAnimation(self.name)
             Destroy()

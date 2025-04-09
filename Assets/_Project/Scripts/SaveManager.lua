@@ -2,6 +2,7 @@
 local events = require("EventManager")
 local data = require("GameData")
 local helper = require("Helper")
+local audio = require("AudioManager")
 
 -- NOTE : Make sure to update GameLauncher when updating save data
 coins = 0
@@ -37,6 +38,7 @@ function SetSimonSaysNewHighscore(newScore)
 end
 
 function AddPetXp(delta)
+    audio.Play("Grow")
     local pet = pets[equippedPet]
     local oldXp = pet.xp
     pet.xp += delta

@@ -25,6 +25,8 @@ namespace Highrise.Lua.Generated
         private const string s_scriptGUID = "d76b99db0385e4e4aa0d034e8e6cef97";
         public override string ScriptGUID => s_scriptGUID;
 
+        [SerializeField] public UnityEngine.Transform m_audioRoot = default;
+        [SerializeField] public Highrise.AudioShader m_ambience = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -33,6 +35,8 @@ namespace Highrise.Lua.Generated
 
             return new SerializedPropertyValue[]
             {
+                CreateSerializedProperty(_script.GetPropertyAt(0), m_audioRoot),
+                CreateSerializedProperty(_script.GetPropertyAt(1), m_ambience),
             };
         }
     }

@@ -3,6 +3,7 @@ local xpSystem = require("XpSystem")
 local events = require("EventManager")
 local save = require("SaveManager")
 local helper = require("Helper")
+local audio = require("AudioManager")
 
 --!Bind
 local _root : VisualElement = nil
@@ -29,6 +30,7 @@ function self:Awake()
     xpView = xpSystem.new(_xpFill,_xpRequiredLabel,_xpDescriptionLabel,_ageLabel)
     _petSwitchButton:RegisterPressCallback(function()
         events.InvokeEvent(events.petSwitcherOpened)
+        audio.Play("Tap")
     end)
     _followPlayerButton:RegisterPressCallback(function()
         events.InvokeEvent(events.petTargetUpdated,true)
