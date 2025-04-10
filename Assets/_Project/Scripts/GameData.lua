@@ -75,13 +75,13 @@ foods = {
     peanut = {
         name = "Bugleflower",
         timeRequiredToConsume = 6,
-        xpGained = 30,
+        xpGained = 40,
         rarity = "Uncommon"
     },
     icicle = {
         name = "Frostling",
         timeRequiredToConsume = 8,
-        xpGained = 60,
+        xpGained = 90,
         rarity = "Rare"
     },
 }
