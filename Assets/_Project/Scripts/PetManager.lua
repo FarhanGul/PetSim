@@ -7,7 +7,7 @@ local save = require("SaveManager")
 --!SerializeField
 local petPrefabs : { GameObject } = {}
 
-local activePet : Pet = nil
+local activePet : IslandPet = nil
 
 function self:Awake()
     events.SubscribeEvent(events.gameStart,function(args)

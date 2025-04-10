@@ -10,7 +10,7 @@ local foodVariety : {GameObject} = {}
 
 local foodId : string = ""
 local stoppingDistance : number = 1.3
-local pet : Pet = nil
+local pet : IslandPet = nil
 local eat = nil
 local amount = nil
 local activityView : ActivityView = nil

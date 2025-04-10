@@ -10,8 +10,6 @@ local _leftButton : UIButton = nil
 --!Bind
 local _rightButton : UIButton = nil
 --!Bind
-local _equipButton : UIButton = nil
---!Bind
 local _scollProgress : Label = nil
 
 local onLeft

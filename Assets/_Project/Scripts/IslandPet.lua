@@ -81,7 +81,6 @@ function SetModel()
     -- Check for evolution
     if previousEvolutionStage ~= nil and evolutionStage > previousEvolutionStage then
         -- Pet evolved! Add effects here
-        print("<color=green> Evolution! </color>")
     end
     
     -- Update model
