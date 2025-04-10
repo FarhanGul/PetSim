@@ -87,6 +87,10 @@ function CompleteObjective(objective)
 end
 
 function ChangeCoins(delta)
+    if(delta > 0) then
+        audio.Play("Shells")
+        audio.Play("LevelUp")
+    end
     coins += delta
     events.InvokeEvent(events.coinsUpdated)
     events.InvokeEvent(events.saveGame)

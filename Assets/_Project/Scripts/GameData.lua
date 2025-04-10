@@ -2,15 +2,15 @@
 
 -- Static
 objectives = {
-    { key = "introDialogue", text = "I should go talk to the island resident, he would know where all the exotic creatures are" },
+    { key = "introDialogue", text = "I should talk to the island resident, he probably knows where the exotic creatures are." },
     { key = "firstEgg", text = "The caretaker said the egg is hidden behind one of these rocks" },
-    { key = "firstFeed", text = "Axolotl is hungry, I should get it something to eat" },
-    { key = "firstPlay", text = "Axolotl looks bored, I better find something it can play with" },
+    { key = "firstFeed", text = "Bulb is hungry, I should get it something to eat" },
+    { key = "firstPlay", text = "Bulb looks bored, I better find something it can play with" },
     { key = "talkToCartographer", text = "I need some way to get to the other islands so I can save more pets" },
     { key = "buyFirstMap", text = "I need that map so I can head over to the other island" },
     { key = "getBackToTheBoat", text = "Now that I have the map, I should head to the boat" },
     { key = "secondEgg", text = "I wonder if there are more hidden eggs" },
-    { key = "findAboutPresence", text = "I should find out what this mysterious presence is, that everyone keeps talking about" },
+    { key = "findAboutPresence", text = "I need to find out more about this mysterious presence everyone keeps talking about" },
 }
 
 locations = {

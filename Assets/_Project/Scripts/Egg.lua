@@ -11,7 +11,6 @@ local petPrefab : GameObject = nil
 
 function self:Awake()
     self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
-        audio.Play("Tap")
         Hatch()
     end)
     HandleIfAlreadyHatched()
@@ -24,12 +23,13 @@ function HandleIfAlreadyHatched()
 end
 
 function Hatch()
+    audio.Play("Tap")
     save.NewPet(petPrefab.name,self.transform.position)
     save.AddDiscoveredObject(self.gameObject.name)
     if(save.currentObjective == "firstEgg")then
         local dialogue = dialogueManager.Create()
         dialogue.PlayerSays("Oh aren't you adorable!")
-        dialogue.PlayerSays("I'll call you axolotl")
+        dialogue.PlayerSays("I'll call you bulb")
         dialogue.Start(function()
             save.CompleteObjective("firstEgg")
         end)

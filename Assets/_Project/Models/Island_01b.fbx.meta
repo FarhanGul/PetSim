@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7b4b564bcfa087b46aa43cb481b57e7e
+guid: e493a82752868e34d8cfbf1baa76acb2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,38 +7,9 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Color_1
-    second: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Color_2
-    second: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Green
-    second: {fileID: 2100000, guid: 8cde3f3d4eb606549bde4445483f9cb2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Red
-    second: {fileID: 2100000, guid: 8cde3f3d4eb606549bde4445483f9cb2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: White
-    second: {fileID: 2100000, guid: 8cde3f3d4eb606549bde4445483f9cb2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood
-    second: {fileID: 2100000, guid: 8cde3f3d4eb606549bde4445483f9cb2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood_1
-    second: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+      name: TextureAtlas_01
+    second: {fileID: 7639481793782183949, guid: fee42c1a0114cec4493fdb29dd8302d2,
+      type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -72,7 +43,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
@@ -80,7 +51,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 0
+    nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 1
@@ -136,8 +107,8 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  importBlendShapeDeformPercent: 0
-  remapMaterialsIfMaterialImportModeIsNone: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
