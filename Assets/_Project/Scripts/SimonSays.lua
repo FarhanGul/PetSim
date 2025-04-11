@@ -20,9 +20,12 @@ local acceptingInputForStep = nil
 local animator : Animator
 local tapHandler : TapHandler
 local gameData
+local madeAtleastOneCorrectGuess = false
+local collider : SphereCollider
 
 function self:Awake()
     gameData = data.simonSays
+    collider = self.gameObject:GetComponent(SphereCollider)
     animator = self.gameObject:GetComponent(Animator)
     tapHandler = self.gameObject:GetComponent(TapHandler)
     events.SubscribeEvent(events.simonSayTrigger,function(args)
@@ -37,40 +40,23 @@ function self:Awake()
     events.SubscribeEvent(events.petSpawned,function(args)
         pet = args[1]
     end)
-    events.SubscribeEvent(events.petTargetUpdated,function(args)
-        FinishGame()
-    end)
     tapHandler.Tapped:Connect(function() 
         if(pet ~= nil and save.canPlay) then
             pet.MoveTo(self.transform,stoppingDistance,Show)
-        end
-    end)
-    events.SubscribeEvent(events.lateGameStart,function(args)
-        if(animator:GetBool("Discovered")) then
-            tapHandler.enabled = false
         end
     end)
 end
 
 function self:Update()
     if(activityView.IsDisplayed() and client.localPlayer.character.isMoving)then
-        activityView.Hide()
         events.InvokeEvent(events.petTargetUpdated,true)
+        GameOver()
     end
 end
 
-function FinishGame()
-    activityView.Hide()
-    readyToPlayView.Hide()
-    UnitializeGame()
-end
-
-function UnitializeGame()
-    acceptingInputForStep = nil
-    SetCollider(true)
-end
-
 function Show()
+    print("<color=blue>Show</color>")
+    madeAtleastOneCorrectGuess = false;
     sequence = {}
     SetCollider(false)
     activityView.Show(gameData.title,"Toy",GetXpAtScore(0),"Highscore : "..tostring(save.simonSaysHighscore))
@@ -153,6 +139,7 @@ function SimonSaysTriggerInvoked(id)
             obj:SetActive(false)
             local isCorrect = sequence[acceptingInputForStep] == id
             if(isCorrect)then
+                madeAtleastOneCorrectGuess = true
                 if(acceptingInputForStep == #sequence)then
                     PlaySequence()
                 else
@@ -160,28 +147,35 @@ function SimonSaysTriggerInvoked(id)
                 end
             else
                 GameOver()
+                Show()
             end
         end)
     end
 end
 
 function GameOver()
+    print("<color=red>Game Over</color>")
     audio.Play("GameOver")
-    local score = #sequence
-    if(score > save.simonSaysHighscore)then
-        save.SetSimonSaysNewHighscore(score)
+    if(madeAtleastOneCorrectGuess)then
+        local score = #sequence
+        if(score > save.simonSaysHighscore)then
+            save.SetSimonSaysNewHighscore(score)
+        end
+        save.AddPetXp(GetXpAtScore(#sequence))
+        save.CompleteObjective("firstPlay")
     end
-    save.AddPetXp(GetXpAtScore(#sequence))
-    UnitializeGame()
-    Show()
-    save.CompleteObjective("firstPlay")
+    activityView.Hide()
+    readyToPlayView.Hide()
+    acceptingInputForStep = nil
+    SetCollider(true)
 end
 
 function PlayNote(id)
     if(id == nil) then return end
-    audio.Play("Note"..id)
+    audio.PlayOneShot("Note"..id)
 end
 
 function SetCollider(isActive)
-    self.gameObject:GetComponent(SphereCollider).enabled = isActive
+    print("<color=yellow>Set Collider"..tostring(isActive).."</color>")
+    collider.enabled = isActive
 end

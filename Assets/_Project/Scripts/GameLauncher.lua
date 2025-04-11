@@ -20,14 +20,12 @@ end
 
 function self:ServerAwake()
     saveRequest:Connect(function(player, saveData)
-        print("<color=red>Data Saved</color>")
         Storage.SetPlayerValue(player,saveFileName,saveData)
     end)
     getSaveRequest:Connect(function(player)
         Storage.GetPlayerValue(player, saveFileName, function(saveData)
             if(saveData == nil) then
                 saveData = GetSaveData()
-                print("<color=red>Data Saved</color>")
                 Storage.SetPlayerValue(player,saveFileName,saveData)
             end
             gameStartResponse:FireClient(player, saveData)
