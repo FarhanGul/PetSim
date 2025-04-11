@@ -5,36 +5,38 @@
     align-items: flex-end;
     justify-content: center;
     flex-direction: row;
-    padding-bottom: 85px; /* 170px * 0.5 */
+    padding-bottom: 10%;
 }
 
 #_icon{
     position: absolute;
-    left: 25px; /* 50px * 0.5 */
-    width: 45px; /* 89px * 0.5 (rounded) */
-    height: 39px; /* 78px * 0.5 */
+    left: var(--spacing-l);
+    width: 45px;
+    height: 39px;
     background-image: url("project://database/Assets/_Project/Sprites/MapIcon.png");
 }
 
 #_currencyIcon{
-    width: 24px; /* 47px * 0.5 (rounded) */
-    height: 20px; /* 40px * 0.5 */
+    width: var(--icon-size-s);
+    height: var(--icon-size-s);
     background-image: url("project://database/Assets/_Project/Sprites/CoinIcon.png");
 }
 
 #_panel{
-    width: 311px; /* 621px * 0.5 (rounded) */
-    height: 92px; /* 183px * 0.5 (rounded) */
+    width: 50%;
+    min-width: 250px;
+    max-width: 311px;
+    height: 92px;
     background-image: url("project://database/Assets/_Project/Sprites/BuyItemPanel.png");
     justify-content: center;
     align-items: center;
-    padding-left: 25px; /* 50px * 0.5 */
+    padding-left: var(--spacing-l);
 }
 
 #_buyButton{
     background-color: rgba(0, 0, 0, 0);
-    width: 110px; /* 220px * 0.5 */
-    height: 30px; /* 60px * 0.5 */
+    width: 110px;
+    height: 30px;
     background-image: url("project://database/Assets/_Project/Sprites/GreenButton.png");
 }
 

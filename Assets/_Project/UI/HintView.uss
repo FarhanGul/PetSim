@@ -5,15 +5,15 @@
     align-items: flex-end;
     justify-content: center;
     flex-direction: row;
-    padding-bottom: 70px; /* 140px * 0.5 */
+    padding-bottom: 15%;
 }
 
 #_hintButton{
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
-    left: 16px; /* 32px * 0.5 */
-    bottom: 12px; /* 24px * 0.5 */
-    width: 54px; /* 107px * 0.5 (rounded) */
-    height: 54px; /* 107px * 0.5 (rounded) */
+    left: var(--spacing-m);
+    bottom: var(--spacing-m);
+    width: var(--icon-size-l);
+    height: var(--icon-size-l);
     background-image: url("project://database/Assets/_Project/Sprites/HintButton.png");
 }

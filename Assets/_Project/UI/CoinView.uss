@@ -1,22 +1,22 @@
 #_root {
     position: absolute;
-    left: -60px; /* -120px * 0.5 */
-    top: 4px; /* 8px * 0.5 */
+    left: -60px;
+    top: var(--spacing-xs);
 }
 
 #_panel{
-    width: 154px; /* 308px * 0.5 */
-    height: 39px; /* 77px * 0.5 (rounded) */
+    width: 154px;
+    height: 39px;
     background-image: url("project://database/Assets/_Project/Sprites/CoinPanel.png");
     flex-direction: row;
     justify-content: flex-start;
-    padding-left: 65px; /* 130px * 0.5 */
+    padding-left: 42%;
     align-items: center;
 }
 
 #_icon{
-    width: 29px; /* 57px * 0.5 (rounded) */
-    height: 25px; /* 50px * 0.5 */
+    width: 29px;
+    height: 25px;
     background-image: url("project://database/Assets/_Project/Sprites/CoinIcon.png");
 }
 
@@ -24,5 +24,5 @@ Label{
     font-size: var(--font-size-normal);
     color: black;
     white-space: normal;
-    margin-left: 12px; /* 24px * 0.5 */
+    margin-left: var(--spacing-m);
 }

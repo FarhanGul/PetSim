@@ -9,42 +9,42 @@ Label{
     width: 100%;
     align-items: center;
     justify-content: flex-end;
-    padding-bottom: 8px; /* 16px * 0.5 */
+    padding-bottom: var(--spacing-s);
 }
 
 #_followPlayerButton{
     display: none;
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
-    right: 16px; /* 32px * 0.5 */
-    bottom: 12px; /* 24px * 0.5 */
-    width: 54px; /* 108px * 0.5 */
-    height: 54px; /* 108px * 0.5 */
+    right: var(--spacing-m);
+    bottom: var(--spacing-m);
+    width: var(--icon-size-l);
+    height: var(--icon-size-l);
     background-image: url("project://database/Assets/_Project/Sprites/FollowPlayerButton.png");
 }
 
 #_petSwitchButton{
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
-    right: 16px; /* 32px * 0.5 */
-    bottom: 12px; /* 24px * 0.5 */
-    width: 54px; /* 107px * 0.5 (rounded) */
-    height: 54px; /* 107px * 0.5 (rounded) */
+    right: var(--spacing-m);
+    bottom: var(--spacing-m);
+    width: var(--icon-size-l);
+    height: var(--icon-size-l);
     background-image: url("project://database/Assets/_Project/Sprites/PetSwitchButton.png");
 }
 
 #_followPlayerButton.in-active
 {
-    --unity-background-image-tint-color : rgba(255, 255, 255, 0.5);
+    --unity-background-image-tint-color: rgba(255, 255, 255, 0.5);
 }
 
 #_nameLabel{
-    color : #0083C4;
+    color: #0083C4;
     font-size: var(--font-size-normal);
 }
 
 #_ageLabel{
-    color : black;
+    color: black;
     font-size: var(--font-size-s);
 }
 
@@ -53,23 +53,22 @@ Label{
 }
 
 #_xpDescriptionLabel{
-    font-size: 11px; /* 22px * 0.5 */
+    font-size: 11px;
     color: white;
 }
 
 .attributes-panel{
-    position: absolute;
-    bottom: 10px; /* 20px * 0.5 */
-    left: 14px; /* 28px * 0.5 */
+    position: relative;
+    padding-left: var(--spacing-m);
     flex-direction: column;
+    width: 40%;
 }
 
 .xp-panel{
-    position: absolute;
-    width: 183px; /* 366px * 0.5 */
-    height: 36px; /* 72px * 0.5 */
-    right: 13px; /* 26px * 0.5 */
-    bottom: 14px; /* 28px * 0.5 */
+    position: relative;
+    width: 50%;
+    height: 36px;
+    margin-right: var(--spacing-m);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -77,22 +76,26 @@ Label{
 
 #_xpFill{
     height: 100%;
-    left: 2px; /* 4px * 0.5 */
+    left: 2px;
+    width: 100%;
     position: absolute;
     background-image: url("project://database/Assets/_Project/Sprites/XpFill.png");
 }
 
 .pet-panel{
-    flex-shrink: 1;
-    width: 179px; /* 358px */
-    height: 30px; /* 60px */
+    width: 60%;
+    max-width: 358px;
+    height: 60px;
     background-image: url("project://database/Assets/_Project/Sprites/PetPanel.png");
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .xp-icon{
-    position : absolute;
-    left: -35px; /* -70px * 0.5 */
-    width: 51px; /* 102px * 0.5 */
-    height: 51px; /* 102px * 0.5 */
+    position: absolute;
+    left: -35px;
+    width: var(--icon-size-l);
+    height: var(--icon-size-l);
     background-image: url("project://database/Assets/_Project/Sprites/XpIcon.png");
 }

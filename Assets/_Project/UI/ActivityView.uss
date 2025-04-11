@@ -2,43 +2,46 @@ Label{
     font-size: var(--font-size-normal);
     margin: 0px;
     padding: 0px;
-    -unity-text-align : middle-center;
+    -unity-text-align: middle-center;
 }
 
 .activity-view {
     align-items: center;
-    padding-top: 18px; /* 36px * 0.5 */
+    padding-top: var(--spacing-m);
 }
 
 .activity-panel{
     align-items: center;
-    width: 256px; /* 511px * 0.5 (rounded) */
-    height: 102px; /* 204px * 0.5 */
+    width: 45%;
+    /* min-width: 200px; */
+    max-width: 256px;
+    height: auto;
+    min-height: 102px;
     background-image: url("project://database/Assets/_Project/Sprites/ActivityPanel.png");
-    padding-top: 2px; /* 4px * 0.5 */
-    padding-left: 50px; /* 100px * 0.5 */
+    padding-top: var(--spacing-xs);
+    padding-left: 20%;
 }
 
 #_activityName{
-    position: absolute;
-    bottom: 30px; /* 60px * 0.5 */
+    position: relative;
+    bottom: var(--spacing-l);
 }
 
 #_activitySubtitle{
-    position: absolute;
-    bottom: 4px; /* 8px * 0.5 */
-    padding-left: 4px; /* 8px * 0.5 */
+    position: relative;
+    bottom: var(--spacing-xs);
+    padding-left: var(--spacing-xs);
 }
 
 .xp-icon-panel{
     position: absolute;
-    left: 28px; /* 55px * 0.5 (rounded) */
-    top: 10px; /* 20px * 0.5 */
+    left: 10%;
+    top: 10%;
     align-items: center;
 }
 
 #_xpLabel{
-    margin-top: 5px; /* 10px * 0.5 */
+    margin-top: var(--spacing-xs);
 }
 
 #_xpDescriptionLabel, #_xpRewardDescriptionLabel{
@@ -51,18 +54,19 @@ Label{
 
 #_xpFill{
     position: absolute;
-    top: 4px; /* 8px * 0.5 */
-    left: 60px; /* 120px * 0.5 */
-    height: 38px; /* 76px * 0.5 */
-    max-width: 192px; /* 384px * 0.5 */
+    top: var(--spacing-xs);
+    left: 25%;
+    height: 70%;
+    width: 75%;
+    max-width: 192px;
     background-image: url("project://database/Assets/_Project/Sprites/ActivityFill.png");
 }
 
 #_xpFillIcon{
     position: absolute;
-    width: 80px; /* 160px * 0.5 */
-    height: 80px; /* 159px * 0.5 (rounded) */
-    left: -4px; /* -8px * 0.5 */
-    top: -11px; /* -22px * 0.5 */
+    width: 80px;
+    height: 80px;
+    left: -4px;
+    top: -11px;
     background-image: url("project://database/Assets/_Project/Sprites/ActivityFillIcon.png");
 }

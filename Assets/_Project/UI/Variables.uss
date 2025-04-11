@@ -1,11 +1,24 @@
 :root {
     --color-green: #2ecc71;
-    --font-size-normal: 16px; /* Reduced from 32px */
-    --font-size-s: 13px; /* Reduced from 26px */
+    --font-size-normal: 16px;
+    --font-size-s: 13px;
     
-    /* Scaling variables */
-    --scale-factor: 0.5;
-    --spacing-unit: 8px;
+    /* Responsive design variables */
+    --spacing-xs: 4px;
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    
+    /* Icon sizes */
+    --icon-size-s: 24px;
+    --icon-size-m: 40px;
+    --icon-size-l: 54px;
+    
+    /* Panel widths */
+    --panel-width-s: 30%;
+    --panel-width-m: 50%;
+    --panel-width-l: 70%;
 }
 
 /* Custom Font */
