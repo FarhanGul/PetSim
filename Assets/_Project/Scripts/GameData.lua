@@ -51,7 +51,7 @@ foods = {
     turnip = {
         name = "Wobblenut",
         timeRequiredToConsume = 4,
-        xpGained = 8,
+        xpGained = 16,
         rarity = "Common"
     },
     carrot = {
@@ -69,13 +69,13 @@ foods = {
     blueberry = {
         name = "Moonberry",
         timeRequiredToConsume = 4,
-        xpGained = 20,
+        xpGained = 30,
         rarity = "Common"
     },
     peanut = {
         name = "Bugleflower",
         timeRequiredToConsume = 6,
-        xpGained = 40,
+        xpGained = 60,
         rarity = "Uncommon"
     },
     icicle = {
@@ -87,15 +87,15 @@ foods = {
 }
 
 foodRegnerationWait = {
-    min = 60,
-    max = 120
+    min = 30,
+    max = 60
 }
 
 rarityWeights = {
     -- Must add up to 100
-    Common = 60,    
+    Common = 55,    
     Uncommon = 30,  
-    Rare = 10
+    Rare = 15
 }
 
 simonSays = {

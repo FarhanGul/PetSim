@@ -59,10 +59,12 @@ function AddPetXp(delta)
         -- Loop through each level gained and give appropriate reward
         local totalReward = 0
         for level = oldLevel + 1, newLevel do
-            totalReward += data.currencyRewardForLevelUp[level]
+            totalReward += data.currencyRewardForLevelUp[level-1]
         end
         ChangeCoins(totalReward)
     end
+
+
     
     events.InvokeEvent(events.petXpUpdated)
     events.InvokeEvent(events.saveGame)

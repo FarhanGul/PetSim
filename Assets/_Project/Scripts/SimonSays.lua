@@ -10,7 +10,7 @@ local pulseObjects : { GameObject } = {}
 
 local stoppingDistance = 6
 local waitBeforeSequencePlays = 1
-local pulseDuration = 0.2
+local pulseDuration = 0.25
 local waitBetweenPulses = 0.25
 local pet = nil
 local readyToPlayView = nil
@@ -55,7 +55,6 @@ function self:Update()
 end
 
 function Show()
-    print("<color=blue>Show</color>")
     madeAtleastOneCorrectGuess = false;
     sequence = {}
     SetCollider(false)
@@ -67,10 +66,10 @@ end
 function GetXpAtScore(score)
     if(score == 0) then return 0 end
     -- Base XP for completing any round
-    local baseXp = 25
+    local baseXp = 4
 
     -- Use exponential growth
-    local multiplier = math.pow(1.25, score)
+    local multiplier = math.pow(1.5, score)
     local xp = math.floor(baseXp * multiplier)
 
     return math.min(xp, 25000)
@@ -146,6 +145,7 @@ function SimonSaysTriggerInvoked(id)
                     acceptingInputForStep += 1
                 end
             else
+                audio.Play("GameOver")
                 GameOver()
                 Show()
             end
@@ -154,8 +154,6 @@ function SimonSaysTriggerInvoked(id)
 end
 
 function GameOver()
-    print("<color=red>Game Over</color>")
-    audio.Play("GameOver")
     if(madeAtleastOneCorrectGuess)then
         local score = #sequence
         if(score > save.simonSaysHighscore)then
@@ -172,10 +170,9 @@ end
 
 function PlayNote(id)
     if(id == nil) then return end
-    audio.PlayOneShot("Note"..id)
+    audio.Play("Note"..id)
 end
 
 function SetCollider(isActive)
-    print("<color=yellow>Set Collider"..tostring(isActive).."</color>")
     collider.enabled = isActive
 end
