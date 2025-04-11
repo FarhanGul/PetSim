@@ -26,7 +26,8 @@ end
 
 function SetProgress(label,pc)
     _xpLabel.text = label
-    _xpFill.style.width = StyleLength.new(Length.new(pc * 384))
+    Length.Percent(76*pc)
+    _xpFill.style.width = StyleLength.new(Length.Percent(76*pc))
 end
 
 function Show(name,subtitle,xpGained,xpDescription)

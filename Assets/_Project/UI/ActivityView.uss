@@ -13,52 +13,56 @@ Label{
 .activity-panel{
     align-items: center;
     width: 45%;
-    /* min-width: 200px; */
     max-width: 256px;
     height: auto;
     min-height: 102px;
     background-image: url("project://database/Assets/_Project/Sprites/ActivityPanel.png");
-    padding-top: var(--spacing-xs);
-    padding-left: 20%;
 }
 
 #_activityName{
     position: relative;
-    bottom: var(--spacing-l);
+    margin-top: 14px;
 }
 
 #_activitySubtitle{
+    color: #3B7097;
     position: relative;
-    bottom: var(--spacing-xs);
+    margin-top: 6px;
     padding-left: var(--spacing-xs);
 }
 
 .xp-icon-panel{
     position: absolute;
-    left: 10%;
-    top: 10%;
+    left: 28px;
+    top: 12px;
     align-items: center;
 }
 
 #_xpLabel{
-    margin-top: var(--spacing-xs);
+    margin-top: 6px;
+    margin-left: 70px;
 }
 
-#_xpDescriptionLabel, #_xpRewardDescriptionLabel{
+#_xpDescriptionLabel{
+    margin-left: 70px;
+}
+
+#_xpRewardDescriptionLabel{
+    color: #236229;
     font-size: var(--font-size-s);
 }
 
 #_xpDescriptionLabel{
     color: white;
+    font-size: var(--font-size-s);
 }
 
 #_xpFill{
     position: absolute;
-    top: var(--spacing-xs);
-    left: 25%;
-    height: 70%;
-    width: 75%;
-    max-width: 192px;
+    top: 4px; 
+    height: 38px; 
+    left: 23%;
+    width: 76%;
     background-image: url("project://database/Assets/_Project/Sprites/ActivityFill.png");
 }
 

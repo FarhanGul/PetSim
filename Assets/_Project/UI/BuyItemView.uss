@@ -5,7 +5,7 @@
     align-items: flex-end;
     justify-content: center;
     flex-direction: row;
-    padding-bottom: 10%;
+    padding-bottom: 80px;
 }
 
 #_icon{
@@ -17,15 +17,14 @@
 }
 
 #_currencyIcon{
+    bottom: 6px;
     width: var(--icon-size-s);
     height: var(--icon-size-s);
     background-image: url("project://database/Assets/_Project/Sprites/CoinIcon.png");
 }
 
 #_panel{
-    width: 50%;
-    min-width: 250px;
-    max-width: 311px;
+    width: 300px;
     height: 92px;
     background-image: url("project://database/Assets/_Project/Sprites/BuyItemPanel.png");
     justify-content: center;

@@ -1,5 +1,7 @@
 Label{
     font-size: var(--font-size-normal);
+    margin: 0px;
+    padding: 1px;
 }
 
 #_root {
@@ -9,7 +11,7 @@ Label{
     align-items: flex-end;
     justify-content: center;
     flex-direction: row;
-    padding-bottom: 15%;
+    padding-bottom: 90px;
 }
 
 #_verticalLayout{
@@ -29,6 +31,7 @@ Label{
 #_locationIcon{
     width: 35px;
     height: 40px;
+    margin-bottom: 6px;
 }
 
 .island-01{
@@ -72,8 +75,7 @@ Label{
 #_goButton{
     position: absolute;
     bottom: -8px;
-    left: 50%;
-    transform: -50% 0;
+    left: 32%;
     background-color: rgba(0, 0, 0, 0);
     width: 110px;
     height: 30px;
@@ -82,4 +84,8 @@ Label{
 
 #_goButton Label{
     color: white;
+}
+
+#_locationTitle{
+    font-size: 14px;
 }

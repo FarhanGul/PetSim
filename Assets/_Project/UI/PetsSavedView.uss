@@ -1,7 +1,7 @@
 #_root {
     position: absolute;
-    right: var(--spacing-m);
-    top: -14px;
+    right: -8px;
+    top: 0px;
     align-items: center;
     justify-content: center;
 }
@@ -16,6 +16,8 @@
 }
 
 Label{
+    margin: 0px;
+    padding: 1px;
     font-size: var(--font-size-normal);
     color: white;
     white-space: normal;
@@ -23,5 +25,6 @@ Label{
 }
 
 #_progress{
-    color: #3B7097;
+    color: black;
+    font-size: 14px;
 }

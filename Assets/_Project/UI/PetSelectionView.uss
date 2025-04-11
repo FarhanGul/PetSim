@@ -1,5 +1,7 @@
 Label{
     font-size: var(--font-size-normal);
+    margin: 0px;
+    padding: 1px;
 }
 
 .pet-selection {
@@ -9,7 +11,7 @@ Label{
     align-items: flex-end;
     justify-content: center;
     flex-direction: row;
-    padding-bottom: 15%;
+    padding-bottom: 80px;
 }
 
 .container{

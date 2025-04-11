@@ -39,20 +39,24 @@ Label{
 }
 
 #_nameLabel{
+    left:-8px;
     color: #0083C4;
     font-size: var(--font-size-normal);
 }
 
 #_ageLabel{
+    left:-8px;
     color: black;
     font-size: var(--font-size-s);
 }
 
 #_xpRequiredLabel{
+    left: 8px;
     font-size: var(--font-size-normal);
 }
 
 #_xpDescriptionLabel{
+    left: 8px;
     font-size: 11px;
     color: white;
 }
@@ -76,8 +80,10 @@ Label{
 
 #_xpFill{
     height: 100%;
-    left: 2px;
+    bottom: 3px;
+    left: 8px;
     width: 100%;
+
     position: absolute;
     background-image: url("project://database/Assets/_Project/Sprites/XpFill.png");
 }
