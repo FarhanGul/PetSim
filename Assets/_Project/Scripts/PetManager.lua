@@ -32,7 +32,7 @@ function Spawn(position)
         GameObject.Destroy(activePet.gameObject)
     end
     local perfab = GetPrefabFromName(save.equippedPet)
-    activePet = Object.Instantiate(perfab):GetComponent(Pet)
+    activePet = Object.Instantiate(perfab):GetComponent(IslandPet)
     activePet.transform.position = position
     activePet.name = perfab.name
     events.InvokeEvent(events.petSpawned,activePet)
