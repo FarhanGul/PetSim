@@ -9,27 +9,27 @@ Label{
     width: 100%;
     align-items: center;
     justify-content: flex-end;
-    padding-bottom: 16px;
+    padding-bottom: 8px; /* 16px * 0.5 */
 }
 
 #_followPlayerButton{
     display: none;
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
-    right: 32px;
-    bottom: 24px;
-    width: 108px;
-    height: 108px;
+    right: 16px; /* 32px * 0.5 */
+    bottom: 12px; /* 24px * 0.5 */
+    width: 54px; /* 108px * 0.5 */
+    height: 54px; /* 108px * 0.5 */
     background-image: url("project://database/Assets/_Project/Sprites/FollowPlayerButton.png");
 }
 
 #_petSwitchButton{
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
-    right: 32px;
-    bottom: 24px;
-    width: 107px;
-    height: 107px;
+    right: 16px; /* 32px * 0.5 */
+    bottom: 12px; /* 24px * 0.5 */
+    width: 54px; /* 107px * 0.5 (rounded) */
+    height: 54px; /* 107px * 0.5 (rounded) */
     background-image: url("project://database/Assets/_Project/Sprites/PetSwitchButton.png");
 }
 
@@ -53,23 +53,23 @@ Label{
 }
 
 #_xpDescriptionLabel{
-    font-size: 22px;
+    font-size: 11px; /* 22px * 0.5 */
     color: white;
 }
 
 .attributes-panel{
     position: absolute;
-    bottom: 20px;
-    left:28px ;
+    bottom: 10px; /* 20px * 0.5 */
+    left: 14px; /* 28px * 0.5 */
     flex-direction: column;
 }
 
 .xp-panel{
     position: absolute;
-    width: 366px;
-    height:  72px;
-    right:26px;
-    bottom: 28px;
+    width: 183px; /* 366px * 0.5 */
+    height: 36px; /* 72px * 0.5 */
+    right: 13px; /* 26px * 0.5 */
+    bottom: 14px; /* 28px * 0.5 */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -77,21 +77,22 @@ Label{
 
 #_xpFill{
     height: 100%;
-    left: 4px;
+    left: 2px; /* 4px * 0.5 */
     position: absolute;
     background-image: url("project://database/Assets/_Project/Sprites/XpFill.png");
 }
 
 .pet-panel{
-    width: 715px;
-    height: 119px;
+    flex-shrink: 1;
+    width: 179px; /* 358px */
+    height: 30px; /* 60px */
     background-image: url("project://database/Assets/_Project/Sprites/PetPanel.png");
 }
 
 .xp-icon{
     position : absolute;
-    left: -70px;
-    width: 102px;
-    height: 102px;
+    left: -35px; /* -70px * 0.5 */
+    width: 51px; /* 102px * 0.5 */
+    height: 51px; /* 102px * 0.5 */
     background-image: url("project://database/Assets/_Project/Sprites/XpIcon.png");
 }

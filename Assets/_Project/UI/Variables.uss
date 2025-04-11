@@ -1,7 +1,11 @@
 :root {
     --color-green: #2ecc71;
-    --font-size-normal: 32px;
-    --font-size-s: 26px;
+    --font-size-normal: 16px; /* Reduced from 32px */
+    --font-size-s: 13px; /* Reduced from 26px */
+    
+    /* Scaling variables */
+    --scale-factor: 0.5;
+    --spacing-unit: 8px;
 }
 
 /* Custom Font */

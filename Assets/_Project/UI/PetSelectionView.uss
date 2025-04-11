@@ -9,7 +9,7 @@ Label{
     align-items: flex-end;
     justify-content: center;
     flex-direction: row;
-    padding-bottom: 160px;
+    padding-bottom: 80px; /* 160px * 0.5 */
 }
 
 .container{
@@ -18,23 +18,23 @@ Label{
 
 #_leftButton{
     background-color: rgba(0, 0, 0, 0);
-    width: 107px;
-    height: 107px;
+    width: 54px; /* 107px * 0.5 (rounded) */
+    height: 54px; /* 107px * 0.5 (rounded) */
     background-image: url("project://database/Assets/_Project/Sprites/NavigationButton.png");
 }
 
 #_rightButton{
     background-color: rgba(0, 0, 0, 0);
-    width: 107px;
-    height: 107px;
+    width: 54px; /* 107px * 0.5 (rounded) */
+    height: 54px; /* 107px * 0.5 (rounded) */
     background-image: url("project://database/Assets/_Project/Sprites/NavigationButton.png");
     rotate: 180deg;
 }
 
 .pet-switcher-panel{
-    margin-top: 16px;
-    width: 509px;
-    height: 94px;
+    margin-top: 8px; /* 16px * 0.5 */
+    width: 255px; /* 509px * 0.5 (rounded) */
+    height: 47px; /* 94px * 0.5 */
     background-image: url("project://database/Assets/_Project/Sprites/PetSwitcherPanel.png");
     align-items: center;
     justify-content: center;

@@ -5,36 +5,36 @@
     align-items: flex-end;
     justify-content: center;
     flex-direction: row;
-    padding-bottom: 170px;
+    padding-bottom: 85px; /* 170px * 0.5 */
 }
 
 #_icon{
     position: absolute;
-    left: 50px;
-    width: 89px;
-    height: 78px;
+    left: 25px; /* 50px * 0.5 */
+    width: 45px; /* 89px * 0.5 (rounded) */
+    height: 39px; /* 78px * 0.5 */
     background-image: url("project://database/Assets/_Project/Sprites/MapIcon.png");
 }
 
 #_currencyIcon{
-    width: 47px;
-    height: 40px;
+    width: 24px; /* 47px * 0.5 (rounded) */
+    height: 20px; /* 40px * 0.5 */
     background-image: url("project://database/Assets/_Project/Sprites/CoinIcon.png");
 }
 
 #_panel{
-    width: 621px;
-    height: 183px;
+    width: 311px; /* 621px * 0.5 (rounded) */
+    height: 92px; /* 183px * 0.5 (rounded) */
     background-image: url("project://database/Assets/_Project/Sprites/BuyItemPanel.png");
     justify-content: center;
     align-items: center;
-    padding-left: 50px;
+    padding-left: 25px; /* 50px * 0.5 */
 }
 
 #_buyButton{
     background-color: rgba(0, 0, 0, 0);
-    width: 220px;
-    height: 60px;
+    width: 110px; /* 220px * 0.5 */
+    height: 30px; /* 60px * 0.5 */
     background-image: url("project://database/Assets/_Project/Sprites/GreenButton.png");
 }
 

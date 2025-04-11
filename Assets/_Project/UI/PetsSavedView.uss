@@ -1,15 +1,15 @@
 #_root {
     position: absolute;
-    right: 24px;
-    top:-28px;
+    right: 12px; /* 24px * 0.5 */
+    top: -14px; /* -28px * 0.5 */
     align-items: center;
     justify-content: center;
 }
 
 .panel{
-    padding-top: 60px;
-    width: 200px;
-    height: 145px;
+    padding-top: 30px; /* 60px * 0.5 */
+    width: 100px; /* 200px * 0.5 */
+    height: 73px; /* 145px * 0.5 (rounded) */
     background-image: url("project://database/Assets/_Project/Sprites/PetsSavedPanel.png");
     align-items: center;
     justify-content: center;
