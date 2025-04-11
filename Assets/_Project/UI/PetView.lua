@@ -25,6 +25,7 @@ local _ageLabel : Label = nil
 local xpView
 local isPetFollowingPlayer
 local petSelectionView
+local isBottomUIOccupied
 
 function self:Awake()
     xpView = xpSystem.new(_xpFill,_xpRequiredLabel,_xpDescriptionLabel,_ageLabel)
@@ -54,6 +55,10 @@ function self:Awake()
     events.SubscribeEvent(events.gameStart,function(args)
         _root.style.display = (save.equippedPet == nil) and DisplayStyle.None or DisplayStyle.Flex
     end)
+    events.SubscribeEvent(events.bottomUISpaceUpdated,function(args)
+        isBottomUIOccupied = args[1]
+        SetDynamicButtonState()
+    end)
 end
 
 function self:Update()
@@ -73,5 +78,5 @@ function SetXp(xp)
 end
 
 function SetDynamicButtonState()
-    _petSwitchButton.style.display = ((not petSelectionView.IsDisplayed()) and isPetFollowingPlayer and helper.GetTableLength(save.pets) >= 2 ) and DisplayStyle.Flex or DisplayStyle.None
+    _petSwitchButton.style.display = ((not petSelectionView.IsDisplayed()) and (not isBottomUIOccupied) and isPetFollowingPlayer and helper.GetTableLength(save.pets) >= 2 ) and DisplayStyle.Flex or DisplayStyle.None
 end

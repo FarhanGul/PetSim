@@ -39,10 +39,12 @@ function Show(data,isBuyable,onBuyCallback)
     _buyButton.style.opacity = StyleFloat.new(isBuyable and 1 or 0.5)
     onBuy = onBuyCallback
     _root:SetDisplay(true)
+    events.InvokeEvent(events.bottomUISpaceUpdated,true)
 end
 
 function Hide()
     _root:SetDisplay(false)
+    events.InvokeEvent(events.bottomUISpaceUpdated,false)
 end
 
 function IsDisplayed()

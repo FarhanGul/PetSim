@@ -44,10 +44,13 @@ function Show(onLeftCallback,onRightCallback,onGoCallback)
     onRight = onRightCallback
     onGo = onGoCallback
     _root:SetDisplay(true)
+    events.InvokeEvent(events.bottomUISpaceUpdated,true)
 end
 
 function Hide()
     _root:SetDisplay(false)
+    events.InvokeEvent(events.bottomUISpaceUpdated)
+    events.InvokeEvent(events.bottomUISpaceUpdated,false)
 end
 
 function SetLocation(locationData,isCurrent)

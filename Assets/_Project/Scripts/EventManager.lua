@@ -49,3 +49,4 @@ newDiscovery = "newDiscovery"
 saveGame = "saveGame"
 nextDay = "nextDay"
 coinsUpdated = "coinsUpdated"
+bottomUISpaceUpdated = "bottomUISpaceUpdated" --IsOccuped ( bool )
