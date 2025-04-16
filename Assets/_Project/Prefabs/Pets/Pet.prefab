@@ -86,6 +86,7 @@ MonoBehaviour:
   _uiOutput: 0
   _uiOutputSettings:
     rid: -2
+  m_animator: {fileID: 7765854820065363058}
   m_models:
   - {fileID: 4311689684950924838}
   - {fileID: 8726028495926932859}

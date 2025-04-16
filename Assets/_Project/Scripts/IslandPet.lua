@@ -4,37 +4,31 @@ local save = require("SaveManager")
 local data = require("GameData")
 
 --!SerializeField
+local animator : Animator = nil
+--!SerializeField
 local models : {GameObject} = {}
 
 local followDistance = 3; 
-local followPlayer
+local followPlayer = true
 local stoppingDistance = nil
 local moveToTarget = nil
 local onReachedTarget = nil
-local animator : Animator = nil
 local previousEvolutionStage = nil
 local target : Transform = nil
-
-function self:Awake()
-    animator = self:GetComponent(Animator)
-    events.SubscribeEvent(events.petXpUpdated,SetModel)
-    events.SubscribeEvent(events.petTargetUpdated,HandlePetTargetUpdated)
-    SetModel()
-end
+local isRemotePet = false
+local staticRemoteXp
 
 function self:OnDestroy()
-    events.UnsubscribeEvent(events.petXpUpdated,SetModel)
-    events.UnsubscribeEvent(events.petTargetUpdated,HandlePetTargetUpdated)
+    if(not isRemotePet) then
+        events.UnsubscribeEvent(events.petXpUpdated,SetModel)
+        events.UnsubscribeEvent(events.petTargetUpdated,HandlePetTargetUpdated)
+    end
 end
 
 function HandlePetTargetUpdated(args)
     if(args[1] ~= nil)then
         followPlayer = args[1];
     end
-end
-
-function self:Start()
-    events.InvokeEvent(events.petTargetUpdated,true)
 end
 
 function self:Update()
@@ -68,12 +62,17 @@ function self:Update()
 end
 
 function SetModel()    
-    local currentPet = save.pets[save.equippedPet]
+    local xp
+    if(isRemotePet) then
+        xp = staticRemoteXp
+    else
+        xp = save.pets[save.equippedPet].xp
+    end
     
     -- Determine evolution stage
     local evolutionStage = 1
     for i = 1, #data.evolutionXp do
-        if currentPet.xp >= data.evolutionXp[i] then
+        if xp >= data.evolutionXp[i] then
             evolutionStage = i
         end
     end
@@ -103,6 +102,15 @@ function GetAnimator()
     return animator
 end
 
-function SetTarget(_target)
+function Initialize(_target,_staticXp)
     target = _target
+    if(_staticXp ~= nil) then
+        isRemotePet = true
+        staticRemoteXp = _staticXp
+    end
+    if(not isRemotePet) then
+        events.SubscribeEvent(events.petXpUpdated,SetModel)
+        events.SubscribeEvent(events.petTargetUpdated,HandlePetTargetUpdated)
+    end
+    SetModel()
 end
