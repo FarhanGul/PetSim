@@ -1,6 +1,5 @@
---!Type(ClientAndServer)
+--!Type(Module)
 local events = require("EventManager")
-local save = require("SaveManager")
 
 local spawnResponse = Event.new("spawnResponse")
 local spawnRequest = Event.new("spawnRequest")
@@ -11,42 +10,34 @@ local petPrefabs : { GameObject } = {}
 local activePet : IslandPet = nil
 
 function self:ServerAwake()
-    spawnRequest:Connect(function(player,position)
-        print("Server sending response")
-        spawnResponse:FireAllClients(player,position)
+    spawnRequest:Connect(function(player,position,petName)
+        spawnResponse:FireAllClients(player,position,petName)
     end)
 end
 
 function self:ClientAwake()
-    events.SubscribeEvent(events.gameStart,function(args)
-        if(save.equippedPet ~= nil) then
-            print("GameStart : Client sent spawn request")
-            spawnRequest:FireServer(client.localPlayer.character.transform.position + Vector3.forward * 2)
-        end
+    spawnResponse:Connect(function(player,position,petName)
+        Spawn(player,position,petName)
     end)
-    events.SubscribeEvent(events.spawnPet,function(args)
-        local position = args[1]
-        if(position == nil) then
-            position = activePet.transform.position
-        end
-        print("SpawnPet : Client sent spawn request")
-        spawnRequest:FireServer(position)
-    end)
-    spawnResponse:Connect(function(player,position)
-        Spawn(player, position)
-    end)
-    print("Client ready for server response")
 end
 
+function HandleSpawnPet(spawnPos,petName)
+    if(spawnPos == nil) then
+        spawnPos = activePet.transform.position
+    end
+    spawnRequest:FireServer(spawnPos,petName)
+end
 
-function self:ClientOnDestroy()
+function HandleGameStart(petName)
     activePet = nil
+    if(petName ~= nil) then
+        local spawnPos = client.localPlayer.character.transform.position + Vector3.forward * 2
+        spawnRequest:FireServer(spawnPos,petName)
+    end
 end
 
-function Spawn(targetPlayer : Player, spawnPosition)
-    print(targetPlayer.name)
-    print(tostring(spawnPosition))
-    local perfab = GetPrefabFromName(save.equippedPet)
+function Spawn(targetPlayer : Player, spawnPosition,petName : string)
+    local perfab = GetPrefabFromName(petName)
     if(targetPlayer == client.localPlayer and activePet ~= nil) then
         GameObject.Destroy(activePet.gameObject)
     end

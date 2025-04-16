@@ -3,6 +3,7 @@ local events = require("EventManager")
 local data = require("GameData")
 local helper = require("Helper")
 local audio = require("AudioManager")
+local petManager = require("PetManager")
 
 -- NOTE : Make sure to update GameLauncher when updating save data
 coins = 0
@@ -65,21 +66,19 @@ function AddPetXp(delta)
         ChangeCoins(totalReward)
     end
 
-
-    
     events.InvokeEvent(events.petXpUpdated)
     events.InvokeEvent(events.saveGame)
 end
 
 function ChangePet(petName)
     equippedPet = petName
-    events.InvokeEvent(events.spawnPet,nil)
+    petManager.HandleSpawnPet(nil,petName)
 end
 
 function NewPet(petName,spawnPosition)
     pets[petName] = PetData()
     equippedPet = petName
-    events.InvokeEvent(events.spawnPet,spawnPosition)
+    petManager.HandleSpawnPet(spawnPosition,petName)
     events.InvokeEvent(events.saveGame)
 end
 

@@ -1093,6 +1093,7 @@ GameObject:
   - component: {fileID: 6639068191162630102}
   - component: {fileID: 6265851456737992237}
   - component: {fileID: 3779199884296383062}
+  - component: {fileID: 958835717072308284}
   m_Layer: 0
   m_Name: Modules
   m_TagString: Untagged
@@ -1295,6 +1296,32 @@ MonoBehaviour:
   _uiOutput: 0
   _uiOutputSettings:
     rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &958835717072308284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5224418142868780191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80aa1644d1675a41c18da22b82451701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: 3a7516916bb85a947b52a2fe389a17d4, type: 3}
+  _properties: []
+  _uiOutput: 0
+  _uiOutputSettings:
+    rid: -2
+  m_petPrefabs:
+  - {fileID: 9008941349084498993, guid: 7f193ee1178eb4f42ad1a51a2ff72962, type: 3}
+  - {fileID: 348106634757192157, guid: c2d7e65612db19a4b803a7a464dcca9e, type: 3}
   references:
     version: 2
     RefIds:

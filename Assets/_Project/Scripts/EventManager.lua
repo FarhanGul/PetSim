@@ -36,7 +36,6 @@ petXpUpdated = "petXpUpdated"
 changeScene = "changeScene" -- sceneName
 objectiveCompleted = "objectiveCompleted"
 localPetSpawned = "localPetSpawned" -- pet
-spawnPet = "spawnPet" -- spawnPosition
 registerActivityView = "registerActivityView" -- activityView
 registerReadyToPlayView = "registerReadyToPlayView" -- readyToPlayView
 registerPetSelectionView = "registerPetSelectionView" -- petSelectionView

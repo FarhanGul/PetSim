@@ -3,6 +3,7 @@ local events = require("EventManager")
 local data = require("GameData")
 local save = require("SaveManager")
 local launcher = require("GameLauncher")
+local petManager = require("PetManager")
 
 local savePending = false
 
@@ -18,6 +19,7 @@ function self:Start()
     end
     data.totalDiscoveries = #GameObject.FindGameObjectsWithTag("Discovery")
     events.InvokeEvent(events.gameStart)
+    petManager.HandleGameStart(save.equippedPet)
     events.InvokeEvent(events.lateGameStart)
 end
 
