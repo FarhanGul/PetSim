@@ -20,7 +20,7 @@ local tapHandler : TapHandler = nil
 function self:Awake()
     tapHandler = self:GetComponent(TapHandler)
     Initialize()
-    events.SubscribeEvent(events.petSpawned,function(args)
+    events.SubscribeEvent(events.localPetSpawned,function(args)
         pet = args[1]
     end)
     events.SubscribeEvent(events.petTargetUpdated,function(args)

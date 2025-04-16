@@ -40,7 +40,7 @@ function self:Awake()
     events.SubscribeEvent(events.registerActivityView,function(args)
         activityView = args[1]
     end)
-    events.SubscribeEvent(events.petSpawned,function(args)
+    events.SubscribeEvent(events.localPetSpawned,function(args)
         pet = args[1]
     end)
     tapHandler.Tapped:Connect(function() 

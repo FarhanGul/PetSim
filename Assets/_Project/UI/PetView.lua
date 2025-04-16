@@ -39,7 +39,7 @@ function self:Awake()
     events.SubscribeEvent(events.petXpUpdated,function(args)
         SetXp(save.pets[save.equippedPet].xp)
     end)
-    events.SubscribeEvent(events.petSpawned,function(args)
+    events.SubscribeEvent(events.localPetSpawned,function(args)
         _root.style.display = DisplayStyle.Flex
         SetName(save.equippedPet)
         local petData = save.pets[save.equippedPet]

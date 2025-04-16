@@ -19,7 +19,7 @@ using Highrise.Lua;
 namespace Highrise.Lua.Generated
 {
     [AddComponentMenu("Lua/IslandPet")]
-    [LuaRegisterType(0x8dc59019f42397de, typeof(LuaBehaviour))]
+    [LuaRegisterType(0x92a6e2db7f593595, typeof(LuaBehaviour))]
     public class IslandPet : LuaBehaviourThunk
     {
         private const string s_scriptGUID = "66d171035e1f6f0449b4c51737f020db";

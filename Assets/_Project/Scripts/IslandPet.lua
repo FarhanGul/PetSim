@@ -13,6 +13,7 @@ local moveToTarget = nil
 local onReachedTarget = nil
 local animator : Animator = nil
 local previousEvolutionStage = nil
+local target : Transform = nil
 
 function self:Awake()
     animator = self:GetComponent(Animator)
@@ -37,19 +38,18 @@ function self:Start()
 end
 
 function self:Update()
-    local player = client.localPlayer.character
-    if ( player == nil ) then return end
+    if ( target == nil ) then return end
 
     if(followPlayer)then
         moveToTarget = nil
-        local distance = Vector3.Distance(self.transform.position, player.transform.position);
+        local distance = Vector3.Distance(self.transform.position, target.position);
         if (distance > followDistance) then
             animator:SetBool("Run",true)
-            self.transform.position = Vector3.Lerp(self.transform.position, player.transform.position, data.speeds.pet * Time.deltaTime / distance);
+            self.transform.position = Vector3.Lerp(self.transform.position, target.position, data.speeds.pet * Time.deltaTime / distance);
         else
             animator:SetBool("Run",false)
         end
-        self.transform:LookAt(player.transform.position)
+        self.transform:LookAt(target.position)
     elseif(moveToTarget ~= nil) then
         local targetPos : Vector3 = moveToTarget.position
         targetPos.y = self.transform.position.y
@@ -91,14 +91,18 @@ function SetModel()
     previousEvolutionStage = evolutionStage
 end
 
-function MoveTo(target,_stoppingDistance,onReachedTargetCallback)
+function MoveTo(_target,_stoppingDistance,onReachedTargetCallback)
     stoppingDistance = _stoppingDistance
     events.InvokeEvent(events.petTargetUpdated)
     followPlayer = false
-    moveToTarget = target
+    moveToTarget = _target
     onReachedTarget = onReachedTargetCallback
 end
 
 function GetAnimator()
     return animator
+end
+
+function SetTarget(_target)
+    target = _target
 end

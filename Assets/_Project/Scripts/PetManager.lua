@@ -1,41 +1,63 @@
---!Type(Client)
-local uiController = require("UIController")
-local uiComponents = require("UIComponents")
+--!Type(ClientAndServer)
 local events = require("EventManager")
 local save = require("SaveManager")
+
+local spawnResponse = Event.new("spawnResponse")
+local spawnRequest = Event.new("spawnRequest")
 
 --!SerializeField
 local petPrefabs : { GameObject } = {}
 
 local activePet : IslandPet = nil
 
-function self:Awake()
+function self:ServerAwake()
+    spawnRequest:Connect(function(player,position)
+        print("Server sending response")
+        spawnResponse:FireAllClients(player,position)
+    end)
+end
+
+function self:ClientAwake()
     events.SubscribeEvent(events.gameStart,function(args)
         if(save.equippedPet ~= nil) then
-            Spawn(client.localPlayer.character.transform.position + Vector3.forward * 2)
+            print("GameStart : Client sent spawn request")
+            spawnRequest:FireServer(client.localPlayer.character.transform.position + Vector3.forward * 2)
         end
     end)
     events.SubscribeEvent(events.spawnPet,function(args)
-        Spawn(args[1])
+        local position = args[1]
+        if(position == nil) then
+            position = activePet.transform.position
+        end
+        print("SpawnPet : Client sent spawn request")
+        spawnRequest:FireServer(position)
     end)
+    spawnResponse:Connect(function(player,position)
+        Spawn(player, position)
+    end)
+    print("Client ready for server response")
 end
 
-function self:OnDestroy()
+
+function self:ClientOnDestroy()
     activePet = nil
 end
 
-function Spawn(position)
-    if(position == nil) then
-        position = activePet.transform.position
-    end
-    if(activePet ~= nil) then
+function Spawn(targetPlayer : Player, spawnPosition)
+    print(targetPlayer.name)
+    print(tostring(spawnPosition))
+    local perfab = GetPrefabFromName(save.equippedPet)
+    if(targetPlayer == client.localPlayer and activePet ~= nil) then
         GameObject.Destroy(activePet.gameObject)
     end
-    local perfab = GetPrefabFromName(save.equippedPet)
-    activePet = Object.Instantiate(perfab):GetComponent(IslandPet)
-    activePet.transform.position = position
-    activePet.name = perfab.name
-    events.InvokeEvent(events.petSpawned,activePet)
+    local pet = Object.Instantiate(perfab):GetComponent(IslandPet)
+    pet.transform.position = spawnPosition
+    pet.name = perfab.name
+    pet.SetTarget(targetPlayer.character.transform)
+    if(targetPlayer == client.localPlayer) then
+        activePet = pet
+        events.InvokeEvent(events.localPetSpawned,pet)
+    end
 end
 
 function GetPrefabFromName(name)
