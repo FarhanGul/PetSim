@@ -34,7 +34,11 @@ function self:ServerAwake()
 end
 
 function SaveGame()
-    saveRequest:FireServer(GetSaveData())
+    local saveData = GetSaveData()
+    if(saveData.username == nil or saveData.username == "")then
+        saveData.username = client.localPlayer.user.name
+    end
+    saveRequest:FireServer(saveData)
 end
 
 function ClientLoadGame(saveData)
@@ -48,6 +52,7 @@ function ClientLoadGame(saveData)
     save.simonSaysHighscore = saveData.simonSaysHighscore
     save.currentLocation = saveData.currentLocation
     save.maps = saveData.maps
+    save.username = saveData.username
     sceneLoader.SendMovePlayerToSceneRequest(saveData.currentLocation)
 end
 
@@ -62,6 +67,7 @@ function GetSaveData()
         coins = save.coins,
         simonSaysHighscore = save.simonSaysHighscore,
         currentLocation = save.currentLocation,
-        maps = save.maps
+        maps = save.maps,
+        username = save.username,
     }
 end

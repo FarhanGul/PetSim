@@ -15,6 +15,7 @@ canPlay = false
 simonSaysHighscore = 0
 currentLocation = "Island1"
 maps = {"Island1"}
+username = ""
 
 function AddDiscoveredObject(objectId)
 end
