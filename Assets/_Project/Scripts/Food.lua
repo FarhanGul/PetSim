@@ -113,7 +113,7 @@ function Eat()
         Destroy()
         if(save.currentObjective == "firstFeed")then
             local dialogue = dialogueManager.Create()
-            dialogue.PlayerSays("Look at you grow!")
+            dialogue.PlayerSays("Bulb's growing so fast. I have a feeling you've got a surprise waiting for me.")
             dialogue.PlayerSays("The caretaker rewarded me with sea shells for helping out with the pets")
             dialogue.PlayerSays("Something tells me they might be more than just souvenirs")
             dialogue.Start(function()
