@@ -26,6 +26,8 @@ namespace Highrise.Lua.Generated
         public override string ScriptGUID => s_scriptGUID;
 
         [SerializeField] public System.Collections.Generic.List<UnityEngine.GameObject> m_pulseObjects = default;
+        [LuaScriptPropertyAttribute("caf24927d3771c744be4275b7e7bff2f")]
+        [SerializeField] public UnityEngine.Object m_rtsCam = default;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -35,6 +37,7 @@ namespace Highrise.Lua.Generated
             return new SerializedPropertyValue[]
             {
                 CreateSerializedProperty(_script.GetPropertyAt(0), m_pulseObjects),
+                CreateSerializedProperty(_script.GetPropertyAt(1), m_rtsCam),
             };
         }
     }

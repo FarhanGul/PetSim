@@ -8,6 +8,9 @@ local audio = require("AudioManager")
 --!SerializeField
 local pulseObjects : { GameObject } = {}
 
+--!SerializeField
+local rtsCam : CustomRTSCamera = nil
+
 local stoppingDistance = 6
 local waitBeforeSequencePlays = 1
 local pulseDuration = 0.25
@@ -61,6 +64,7 @@ function Show()
     activityView.Show(gameData.title,"Toy",GetXpAtScore(0),"Highscore : "..tostring(save.simonSaysHighscore))
     readyToPlayView.Show(OnPlay,OnHelp)
     SetProgress()
+    rtsCam:SmoothCenterOnTarget(self.transform:Find("CenterOn"), 12, 15)
 end
 
 function GetXpAtScore(score)

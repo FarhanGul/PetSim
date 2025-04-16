@@ -3426,10 +3426,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: RtsCamera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3551931345751937580, guid: 4db44322431f6d6439fa69e352e81b67, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7494135311037265500, guid: 4db44322431f6d6439fa69e352e81b67,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2006581455}
   m_SourcePrefab: {fileID: 100100000, guid: 4db44322431f6d6439fa69e352e81b67, type: 3}
 --- !u!4 &892499484 stripped
 Transform:
@@ -3437,6 +3442,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8428137283249999354}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &918567025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 918567026}
+  m_Layer: 0
+  m_Name: CenterOn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &918567026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918567025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.108, y: 0.0098, z: 0.0344}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1244987380}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &921628561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5903,12 +5939,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8898572441193173317, guid: 7c9c6598d3d560d4ea22f92f896a223d,
         type: 3}
+      propertyPath: m_rtsCam
+      value: 
+      objectReference: {fileID: 2006581455}
+    - target: {fileID: 8898572441193173317, guid: 7c9c6598d3d560d4ea22f92f896a223d,
+        type: 3}
       propertyPath: m_stepsRequired
       value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5928782893945142682, guid: 7c9c6598d3d560d4ea22f92f896a223d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 918567026}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9c6598d3d560d4ea22f92f896a223d, type: 3}
 --- !u!4 &1244987380 stripped
@@ -10416,7 +10461,7 @@ PrefabInstance:
     - target: {fileID: 2655789517267430023, guid: 58c657077dc71824ab0e6435a72e4c79,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.85
+      value: -49.7
       objectReference: {fileID: 0}
     - target: {fileID: 2655789517267430023, guid: 58c657077dc71824ab0e6435a72e4c79,
         type: 3}
@@ -10463,6 +10508,47 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58c657077dc71824ab0e6435a72e4c79, type: 3}
+--- !u!1 &2006581451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7494135311037265500, guid: 4db44322431f6d6439fa69e352e81b67,
+    type: 3}
+  m_PrefabInstance: {fileID: 868943168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2006581455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006581451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702d49f269a81ca1f13b278ec4a4fffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkId: 0
+  _script: {fileID: -974389366465450183, guid: caf24927d3771c744be4275b7e7bff2f, type: 3}
+  _properties: []
+  _uiOutput: 0
+  _uiOutputSettings:
+    rid: -2
+  m_zoom: 15
+  m_zoomMin: 10
+  m_zoomMax: 50
+  m_fov: 30
+  m_allowRotation: 1
+  m_pitch: 30
+  m_yaw: 45
+  m_centerOnCharacterWhenSpawned: 1
+  m_centerOnCharacterWhenMovingSpeed: 0
+  m_orthographic: 0
+  m_keepPlayerInView: 0
+  m_keepPlayerInViewPanDuration: 0.5
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &2039438138
 GameObject:
   m_ObjectHideFlags: 0
