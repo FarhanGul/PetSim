@@ -19,7 +19,7 @@ function self:Start()
     end
     data.totalDiscoveries = #GameObject.FindGameObjectsWithTag("Discovery")
     events.InvokeEvent(events.gameStart)
-    petManager.HandleGameStart(save.equippedPet)
+    petManager.HandleGameStart()
     events.InvokeEvent(events.lateGameStart)
 end
 

@@ -5,6 +5,7 @@ local data = require("GameData")
 local dialogueManager = require("DialogueManager")
 local helper = require("Helper")
 local audio = require("AudioManager")
+local petManager = require("PetManager")
 
 --!SerializeField
 local petPrefab : GameObject = nil
@@ -24,7 +25,7 @@ end
 
 function Hatch()
     audio.Play("Tap")
-    save.NewPet(petPrefab.name,self.transform.position)
+    petManager.NewPet(petPrefab.name,self.transform.position)
     save.AddDiscoveredObject(self.gameObject.name)
     if(save.currentObjective == "firstEgg")then
         local dialogue = dialogueManager.Create()

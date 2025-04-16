@@ -3,6 +3,7 @@ local save = require("SaveManager")
 local events = require("EventManager")
 local data = require("GameData")
 local sceneLoader = require("CustomSceneLoader")
+local petManager = require("PetManager")
 
 local locationView = nil
 local currentLocationIndex = 1
@@ -49,6 +50,7 @@ function self:Awake()
                 events.Clear()
                 locationView.Hide()
                 save.UpdateLocation(locationKeys[currentLocationIndex])
+                petManager.HandleLeavingIsland()
                 sceneLoader.SendMovePlayerToSceneRequest(save.currentLocation)
             end
         )

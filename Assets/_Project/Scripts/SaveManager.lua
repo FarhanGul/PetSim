@@ -3,7 +3,6 @@ local events = require("EventManager")
 local data = require("GameData")
 local helper = require("Helper")
 local audio = require("AudioManager")
-local petManager = require("PetManager")
 
 -- NOTE : Make sure to update GameLauncher when updating save data
 coins = 0
@@ -70,18 +69,6 @@ function AddPetXp(delta)
     events.InvokeEvent(events.saveGame)
 end
 
-function ChangePet(petName)
-    equippedPet = petName
-    petManager.HandleSpawnPet(nil,petName)
-end
-
-function NewPet(petName,spawnPosition)
-    pets[petName] = PetData()
-    equippedPet = petName
-    petManager.HandleSpawnPet(spawnPosition,petName)
-    events.InvokeEvent(events.saveGame)
-end
-
 function CompleteObjective(objective)
     if(currentObjective == objective)then
         if(currentObjective == "introDialogue") then canPoke = true
@@ -103,10 +90,3 @@ function ChangeCoins(delta)
     events.InvokeEvent(events.coinsUpdated)
     events.InvokeEvent(events.saveGame)
 end
-
-function PetData()
-    local this = {}
-    this.xp = 0
-    return this
-end
-

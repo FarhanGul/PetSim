@@ -1,6 +1,7 @@
 --!Type(Client)
 local events = require("EventManager")
 local save = require("SaveManager")
+local petManager = require("PetManager")
 
 local petSelectionView
 local currentIndex
@@ -60,5 +61,5 @@ end
 
 function EquipPet()
     petSelectionView.UpdateScrollProgressText(currentIndex,#petNames)
-    save.ChangePet(petNames[currentIndex])
+    petManager.ChangePet(petNames[currentIndex])
 end
