@@ -57,6 +57,15 @@ function self:ClientAwake()
                 Spawn(player, value)
             end
         end
+        if(save.equippedPet ~= nil) then
+            local spawnPos = GetSpawnPositionNearToPlayer(client.localPlayer)
+            spawnRequest:FireServer({
+                spawnPosition = spawnPos,
+                petName = save.equippedPet,
+                location = save.currentLocation,
+                xp = save.pets[save.equippedPet].xp
+            })
+        end
     end)
 end
 
@@ -87,15 +96,6 @@ function HandleLeavingIsland()
 end
 
 function HandleGameStart()
-    if(save.equippedPet ~= nil) then
-        local spawnPos = GetSpawnPositionNearToPlayer(client.localPlayer)
-        spawnRequest:FireServer({
-            spawnPosition = spawnPos,
-            petName = save.equippedPet,
-            location = save.currentLocation,
-            xp = save.pets[save.equippedPet].xp
-        })
-    end
     getActivePetsRequest:FireServer()
 end
 

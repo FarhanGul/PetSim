@@ -13,7 +13,7 @@ function self:ClientAwake()
     end)
 end
 
-function self:Start()
+function self:ClientStart()
     if(save.currentLocation == "Island2") then
         save.CompleteObjective("getBackToTheBoat")
     end
