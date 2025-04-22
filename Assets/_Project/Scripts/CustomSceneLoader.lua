@@ -1,6 +1,7 @@
 --!Type(Module)
 local events = require("EventManager")
 local save = require("SaveManager")
+local petManager = require("PetManager")
 
 local movePlayerToSceneRequest = Event.new("movePlayerToSceneRequest")
 
@@ -20,6 +21,7 @@ function self:ServerStart()
 	end
 
     movePlayerToSceneRequest:Connect(function(player,sceneId)
+        petManager.ServerPlayerLeftIsland(player)
         MovePlayerToScene(player, sceneId)	
     end)
 

@@ -19,7 +19,7 @@ function self:ClientStart()
     end
     data.totalDiscoveries = #GameObject.FindGameObjectsWithTag("Discovery")
     events.InvokeEvent(events.gameStart)
-    petManager.HandleGameStart()
+    petManager.HandleGameStart() -- A direct call is neccessary because of broken event subscriptions for persistent gameobjects
     events.InvokeEvent(events.lateGameStart)
 end
 

@@ -4,10 +4,9 @@ local save = require("SaveManager")
 
 local spawnResponse = Event.new("spawnResponse")
 local spawnRequest = Event.new("spawnRequest")
-local leaveIslandResponse = Event.new("leaveIslandResponse")
-local leaveIslandRequest = Event.new("leaveIslandRequest")
 local getActivePetsRequest = Event.new("getActivePetsRequest")
 local getActivePetsResponse = Event.new("getActivePetsResponse")
+local destroyOrphanPetResponse = Event.new("destroyOrphanPetResponse")
 
 --!SerializeField
 local petPrefabs : { GameObject } = {}
@@ -20,12 +19,8 @@ function self:ServerAwake()
         serverActivePets[player] = data
         spawnResponse:FireAllClients(player,data)
     end)
-    leaveIslandRequest:Connect(function(player)
-        serverActivePets[player] = nil
-        leaveIslandResponse:FireAllClients(player)
-    end)
     server.PlayerDisconnected:Connect(function(player)
-        serverActivePets[player] = nil
+        ServerPlayerLeftIsland(player)
     end)
     getActivePetsRequest:Connect(function(player)
         getActivePetsResponse:FireClient(player,serverActivePets)
@@ -38,21 +33,10 @@ function self:ClientAwake()
             Spawn(player,data)
         end
     end)
-    client.PlayerDisconnected:Connect(function(player)
-        if(activePets[player]~=nil)then
-            GameObject.Destroy(activePets[player].gameObject)
-            activePets[player] = nil
-        end
-    end)
-    leaveIslandResponse:Connect(function(playerWhoLeft)
-        if(activePets[playerWhoLeft] ~= nil) then
-            GameObject.Destroy(activePets[playerWhoLeft].gameObject)
-            activePets[playerWhoLeft] = nil
-        end
-    end)
-    getActivePetsResponse:Connect(function(_serverActivePets)
-        for player, value in pairs(_serverActivePets) do
-            if(value.location == save.currentLocation and player ~= client.localPlayer) then
+    getActivePetsResponse:Connect(function(serverActivePetsCopy)
+        activePets = {}
+        for player, value in pairs(serverActivePetsCopy) do
+            if(value.location == save.currentLocation) then
                 value.spawnPosition = GetSpawnPositionNearToPlayer(player)
                 Spawn(player, value)
             end
@@ -67,6 +51,26 @@ function self:ClientAwake()
             })
         end
     end)
+
+    destroyOrphanPetResponse:Connect(function(player)
+        if(activePets[player] ~= nil) then
+            GameObject.Destroy(activePets[player].gameObject)
+            activePets[player] = nil
+        end
+    end)
+end
+
+function ServerPlayerLeftIsland(player)
+    if(serverActivePets[player] ~= nil) then
+        local leavingPlayerLocation = serverActivePets[player].location
+        serverActivePets[player] = nil
+        -- Notify other players on this location to clean up pet
+        for key, value in pairs(serverActivePets) do
+            if(value.location == leavingPlayerLocation) then
+                destroyOrphanPetResponse:FireClient(key,player)
+            end
+        end
+    end
 end
 
 function ChangePet(_petName)
@@ -89,10 +93,6 @@ function NewPet(_petName,_spawnPosition)
         xp = save.pets[_petName].xp
     })
     events.InvokeEvent(events.saveGame)
-end
-
-function HandleLeavingIsland()
-    leaveIslandRequest:FireServer()
 end
 
 function HandleGameStart()

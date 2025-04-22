@@ -50,7 +50,6 @@ function self:Awake()
                 events.Clear()
                 locationView.Hide()
                 save.UpdateLocation(locationKeys[currentLocationIndex])
-                petManager.HandleLeavingIsland()
                 sceneLoader.SendMovePlayerToSceneRequest(save.currentLocation)
             end
         )
