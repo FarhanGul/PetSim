@@ -12,7 +12,9 @@ local petPrefab : GameObject = nil
 
 function self:Awake()
     self.gameObject:GetComponent(TapHandler).Tapped:Connect(function() 
-        Hatch()
+        if(save.currentObjective ~= "introDialogue") then
+            Hatch()
+        end
     end)
     HandleIfAlreadyHatched()
 end

@@ -15,14 +15,12 @@ function self:Awake()
     tapHandler = self.gameObject:GetComponent(TapHandler)
     collider = self.gameObject:GetComponent(Collider)
     tapHandler.Tapped:Connect(function() 
-        if(save.canPoke) then
-            if(soundName ~= "")then
-                audio.Play(soundName)
-            end
-            animator:SetBool("Discovered",true)
-            save.AddDiscoveredAnimation(self.name)
-            Destroy()
+        if(soundName ~= "")then
+            audio.Play(soundName)
         end
+        animator:SetBool("Discovered",true)
+        save.AddDiscoveredAnimation(self.name)
+        Destroy()
     end)
     events.SubscribeEvent(events.lateGameStart,function(args)
         if(animator:GetBool("Discovered")) then

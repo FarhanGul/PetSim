@@ -45,9 +45,6 @@ function ClientLoadGame(saveData)
     save.currentObjective = saveData.currentObjective
     save.pets = saveData.pets
     save.equippedPet = saveData.equippedPet
-    save.canPoke = saveData.canPlay
-    save.canEat = saveData.canEat
-    save.canPlay = saveData.canPlay
     save.coins = saveData.coins
     save.simonSaysHighscore = saveData.simonSaysHighscore
     save.currentLocation = saveData.currentLocation
@@ -61,9 +58,6 @@ function GetSaveData()
         currentObjective = save.currentObjective,
         pets = save.pets,
         equippedPet = save.equippedPet,
-        canPoke = save.canPlay,
-        canEat = save.canEat,
-        canPlay = save.canPlay,
         coins = save.coins,
         simonSaysHighscore = save.simonSaysHighscore,
         currentLocation = save.currentLocation,

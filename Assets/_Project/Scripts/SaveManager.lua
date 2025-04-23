@@ -9,9 +9,6 @@ coins = 0
 currentObjective = "introDialogue"
 pets = {}
 equippedPet = nil
-canPoke = false
-canEat = false
-canPlay = false
 simonSaysHighscore = 0
 currentLocation = "Island1"
 maps = {"Island1"}
@@ -71,10 +68,6 @@ end
 
 function CompleteObjective(objective)
     if(currentObjective == objective)then
-        if(currentObjective == "introDialogue") then canPoke = true
-        elseif(currentObjective == "firstEgg") then canEat = true
-        elseif(currentObjective == "firstFeed") then canPlay = true
-        end
         currentObjective = helper.GetNextKey(data.objectives,objective)
         events.InvokeEvent(events.objectiveCompleted)
         events.InvokeEvent(events.saveGame)

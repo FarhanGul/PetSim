@@ -30,7 +30,7 @@ function self:Awake()
         activityView = args[1]
     end)
     tapHandler.Tapped:Connect(function() 
-        if(pet ~= nil and save.canEat) then
+        if(pet ~= nil) then
             pet.MoveTo(self.transform,stoppingDistance,StartEating)
         end
     end)
