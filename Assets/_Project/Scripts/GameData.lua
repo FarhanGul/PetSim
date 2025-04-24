@@ -2,8 +2,8 @@
 
 -- Static
 objectives = {
-    { key = "introDialogue", text = "I should talk to the island resident, he probably knows where the exotic creatures are." },
-    { key = "firstEgg", text = "The caretaker said the egg is hidden behind one of these rocks" },
+    { key = "introDialogue", text = "I should talk to the caretaker, he probably knows where the exotic creatures are." },
+    { key = "firstEgg", text = "The caretaker said the egg is hidden inside one of these rocks" },
     { key = "firstFeed", text = "Bulb's hungry. I wonder if there's anything edible on the island." },
     { key = "firstPlay", text = "Bulb looks bored, I better find something it can play with" },
     { key = "talkToCartographer", text = "I need some way to get to the other islands so I can save more pets" },

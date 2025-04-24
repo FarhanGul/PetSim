@@ -4,6 +4,7 @@ local events = require("EventManager")
 local data = require("GameData")
 local sceneLoader = require("CustomSceneLoader")
 local petManager = require("PetManager")
+local launcher = require("GameLauncher")
 
 local locationView = nil
 local currentLocationIndex = 1
@@ -49,7 +50,8 @@ function self:Awake()
             function() -- On Go
                 events.Clear()
                 locationView.Hide()
-                save.UpdateLocation(locationKeys[currentLocationIndex])
+                save.currentLocation = locationKeys[currentLocationIndex]
+                launcher.SaveGame()
                 sceneLoader.SendMovePlayerToSceneRequest(save.currentLocation)
             end
         )

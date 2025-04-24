@@ -20,11 +20,6 @@ end
 function AddDiscoveredAnimation(animationId)
 end
 
-function UpdateLocation(newLocation)
-    currentLocation = newLocation
-    events.InvokeEvent(events.saveGame)
-end
-
 function AddMap(mapId)
     table.insert(maps,mapId)
     events.InvokeEvent(events.saveGame)

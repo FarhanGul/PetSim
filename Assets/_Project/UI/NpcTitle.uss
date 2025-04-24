@@ -1,0 +1,13 @@
+#_root{
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    padding: 16px;
+    border-radius: 32px;
+}
+
+Label{
+    -unity-text-align: middle-center;
+    color: white;
+    font-size: 100px;
+}
